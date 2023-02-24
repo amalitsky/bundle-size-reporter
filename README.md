@@ -1,0 +1,2 @@
+# bsr
+Bundle Size Reporter
