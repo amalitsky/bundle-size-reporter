@@ -1,0 +1,7 @@
+node_modules/
+/.idea/
+
+dist/
+
+# npm run pack ran for testing
+/packages/*/*.tgz

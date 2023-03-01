@@ -1,0 +1,53 @@
+{
+  "name": "bundle-size-reporter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Toolkit for analyzing bundle size",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "npm run lint --ws --if-present",
+    "ts-compile-check": "npm run ts-compile-check --ws --if-present"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalitsky/bundle-size-reporter.git"
+  },
+  "keywords": [
+    "devtools",
+    "UI",
+    "SPA",
+    "web",
+    "bundle",
+    "reporter",
+    "size",
+    "automation",
+    "tools",
+    "tooling"
+  ],
+  "author": "Alex Malitsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amalitsky/bundle-size-reporter/issues"
+  },
+  "homepage": "https://github.com/amalitsky/bundle-size-reporter#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/config-lerna-scopes": "^17.4.2",
+    "@types/node": "^18.14.1",
+    "eslint": "^8.35.0",
+    "eslint-config-amalitsky": "^1.0.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "lerna": "^6.5.1",
+    "lint-staged": "^13.1.2",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
+  }
+}

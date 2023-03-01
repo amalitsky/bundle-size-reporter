@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useWorkspaces": true,
+  "version": "independent",
+  "changelogPreset": "conventionalcommits",
+  "ignoreChanges": [
+    ".*.*",
+    "*.md",
+    "packages/*/package-lock.json",
+    "packages/*/*.md",
+    "packages/*/dist"
+  ],
+  "command": {
+    "version": {
+      "allowBranch": "main"
+    }
+  }
+}
