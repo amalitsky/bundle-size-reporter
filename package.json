@@ -8,7 +8,8 @@
     "prepare": "husky install",
     "lint": "npm run lint --ws --if-present",
     "ts-compile-check": "npm run ts-compile-check --ws --if-present",
-    "lerna:publish": "lerna publish from-git --yes"
+    "lerna:publish": "lerna publish from-git --yes",
+    "lerna:version": "lerna version --conventional-commits --no-private --sign-git-commit --sign-git-tag"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,6 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
-    "@commitlint/config-lerna-scopes": "^17.4.2",
     "@types/node": "^18.14.1",
     "eslint": "^8.35.0",
     "eslint-config-amalitsky": "^1.0.2",

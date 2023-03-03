@@ -6,4 +6,4 @@ dist/
 # npm run pack ran for testing
 /packages/*/*.tgz
 
-lerna-debug.log
+/lerna-debug.log

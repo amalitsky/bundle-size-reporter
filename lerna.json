@@ -12,7 +12,12 @@
   ],
   "command": {
     "version": {
-      "allowBranch": "main"
+      "message": "chore(release): publish new version",
+      "allowBranch": [
+        "main",
+        "release",
+        "release-*"
+      ]
     }
   }
 }

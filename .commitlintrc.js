@@ -23,7 +23,7 @@ const config = {
       ERROR,
       ALWAYS,
       scopes,
-    ]
+    ],
   }
 };
 
