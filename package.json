@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "lint": "npm run lint --ws --if-present",
-    "ts-compile-check": "npm run ts-compile-check --ws --if-present"
+    "ts-compile-check": "npm run ts-compile-check --ws --if-present",
+    "lerna:publish": "lerna publish from-git --yes"
   },
   "repository": {
     "type": "git",
