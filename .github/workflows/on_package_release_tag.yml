@@ -3,7 +3,7 @@ name: On Package Release Tag
 on:
   push:
     tags:
-      - @bundle-size-reporter/*
+      - "@bundle-size-reporter/*"
   workflow_dispatch:
 
 concurrency:
