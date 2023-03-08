@@ -1,0 +1,70 @@
+name: On Package Release Tag
+
+on:
+  push:
+    tags:
+      - @bundle-size-reporter/*
+  workflow_dispatch:
+
+concurrency:
+  group: new-package-release-tag
+  cancel-in-progress: true
+  # last one wins since all packages will get published
+
+jobs:
+  setup:
+    name: NPM install & cache
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ vars.node_version }}
+
+      - name: node_modules cache
+        id: node-modules-cache
+        uses: actions/cache@v3
+        env:
+          cache_name: node-modules-npm
+          cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
+          restore-keys: ${{ runner.os }}-${{ env.cache_name }}-
+
+      - name: NPM install
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+  build:
+    name: Build packages
+
+    runs-on: ubuntu-latest
+
+    needs: setup
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ vars.node_version }}
+
+      - name: Restore node_modules from cache
+        uses: actions/cache@v3
+        env:
+          cache_name: node-modules-npm
+          cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
+
+      - name: Publish
+        run: npm run lerna:publish
