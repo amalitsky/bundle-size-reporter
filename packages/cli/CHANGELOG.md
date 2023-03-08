@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/amalitsky/bundle-size-reporter/compare/@bundle-size-reporter/cli@1.1.0...@bundle-size-reporter/cli@1.1.1) (2023-03-08)
+
+**Note:** Version bump only for package @bundle-size-reporter/cli
+
+
+
+
+
 ## 1.1.0 (2023-03-08)
 
 
