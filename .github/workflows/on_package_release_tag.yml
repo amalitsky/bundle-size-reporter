@@ -66,5 +66,8 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
 
+      - name: Check for updated packages
+        run: npx lerna changed
+
       - name: Publish
         run: npm run lerna:publish
