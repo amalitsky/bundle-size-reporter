@@ -33,7 +33,7 @@ jobs:
           cache_name: node-modules-npm
           cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
         with:
-          path: node_modules
+          path: "**/node_modules"
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
           restore-keys: ${{ runner.os }}-${{ env.cache_name }}-
 
@@ -63,7 +63,7 @@ jobs:
           cache_name: node-modules-npm
           cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
         with:
-          path: node_modules
+          path: "**/node_modules"
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
 
       - name: Check for updated packages
