@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: new-package-release-tag
+  group: new-release-tag-${{ github.sha }}
   cancel-in-progress: true
-  # last one wins since all packages will get published
+  # assuming that one commit can release multiple packages
 
 jobs:
   setup:
@@ -41,8 +41,8 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-  build:
-    name: Build packages
+  publish:
+    name: Publish updated package(s)
 
     runs-on: ubuntu-latest
 
