@@ -4,15 +4,10 @@ import {
   writeFile as fsWriteFile,
 } from 'fs';
 
-import glob from 'glob';
-import { IOptions } from 'glob';
-
-
-import { file as gzipSizeFromFile } from 'gzip-size';
+import { glob, GlobOptions } from 'glob';
+import { gzipSizeFromFile } from 'gzip-size';
 import { groupBy } from 'lodash';
 import { fileNameHashRegex } from './constants';
-
-const { Glob } = glob;
 
 import {
   IBSRReport,
@@ -132,26 +127,15 @@ export function resolveGlobs(
   globs: string[],
   ignoreGlobs: string[] = [],
 ): Promise<string[]> {
-  const globOptions: IOptions = {
+  const globOptions: GlobOptions = {
     cwd: buildPath,
     ignore: ignoreGlobs.map(glob => prefixTheGlob(glob, buildPath)),
   };
 
-  const searches = globs
-    .map(glob => prefixTheGlob(glob, buildPath))
-    .map(glob => new Glob(glob, globOptions))
-    .map((globSearch) => {
-      return new Promise<string[]>((resolve, reject) => {
-        globSearch.once('end', (files) => {
-          resolve(files);
-        });
+  const patterns = globs
+    .map(glob => prefixTheGlob(glob, buildPath));
 
-        globSearch.once('error', error => reject(error));
-      });
-    });
-
-  return Promise.all(searches)
-    .then(files => files.flat());
+  return glob(patterns, globOptions) as Promise<string[]>;
 }
 
 export function analyzeBuildFiles(
