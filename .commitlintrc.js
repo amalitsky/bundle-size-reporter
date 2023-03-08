@@ -24,6 +24,9 @@ const config = {
       ALWAYS,
       scopes,
     ],
+    'body-max-line-length': [ // dependabot PRs
+      OFF
+    ],
   }
 };
 
