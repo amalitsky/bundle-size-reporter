@@ -9,7 +9,10 @@ const commands: Array<(yargs: Argv) => Argv> = [
   analyze,
   print,
   autorun,
-  (yargs): Argv => yargs.strictCommands().demandCommand(1),
+  (yargs): Argv => yargs
+    .strict()
+    .showHelpOnFail(false)
+    .demandCommand(1),
 ];
 
 // eslint-disable-next-line no-unused-expressions

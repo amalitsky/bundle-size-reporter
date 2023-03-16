@@ -1,5 +1,4 @@
 import path from 'path';
-import process from 'process';
 
 import { Argv } from 'yargs';
 import { configFileName, defaultReportFileName } from '../constants';
@@ -48,8 +47,6 @@ export function analyze(yargs: Argv): Argv {
         });
     },
     async (argv) => {
-      const cwd = process.cwd();
-
       const { analyze: analyzeConfig } = await argv.config;
 
       const buildPath = argv.build || analyzeConfig.build?.location;
@@ -58,7 +55,8 @@ export function analyze(yargs: Argv): Argv {
         throw Error('Path to the build directory wasn\'t provided');
       }
 
-      const distFolder = path.join(cwd, buildPath);
+      const distFolder = path.isAbsolute(buildPath) ?
+        path.normalize(buildPath) : path.resolve(buildPath);
 
       const { groups } = analyzeConfig;
 
@@ -75,7 +73,7 @@ export function analyze(yargs: Argv): Argv {
 
       reportPath = reportPath || analyzeConfig.output || defaultReportFileName;
 
-      await saveReportToFile(files, reportPath);
+      await saveReportToFile(reportPath, files);
 
       console.log(`Bundle size report saved to ${ reportPath }`);
     },
