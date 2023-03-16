@@ -39,14 +39,14 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
-    "@types/node": "^18.14.1",
-    "eslint": "^8.35.0",
+    "@types/node": "^18.15.3",
+    "eslint": "^8.36.0",
     "eslint-config-amalitsky": "^1.0.2",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.27.5",
     "husky": "^8.0.3",
     "lerna": "^6.5.1",
-    "lint-staged": "^13.1.2",
+    "lint-staged": "^13.2.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5"
