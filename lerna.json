@@ -12,6 +12,7 @@
     "e2e-tests/",
     "e2e-tests-*/"
   ],
+  "registry": "https://registry.npmjs.org",
   "command": {
     "version": {
       "message": "chore(release): publish new version",
