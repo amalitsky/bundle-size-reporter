@@ -4,7 +4,7 @@
   "private": true,
   "description": "Toolkit for analyzing bundle size",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test --ws --if-present",
     "prepare": "husky install",
     "lint": "npm run lint --ws --if-present",
     "ts-compile-check": "npm run ts-compile-check --ws --if-present",

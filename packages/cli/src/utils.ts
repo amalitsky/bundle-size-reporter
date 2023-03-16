@@ -1,8 +1,11 @@
 import {
-  promises as fsPromises,
   readFile as fsReadFile,
+  stat as fsStat,
   writeFile as fsWriteFile,
-} from 'fs';
+} from 'node:fs/promises';
+
+import { EOL } from 'os';
+import * as path from 'path';
 
 import { glob, GlobOptions } from 'glob';
 import { gzipSizeFromFile } from 'gzip-size';
@@ -19,17 +22,7 @@ import {
  * Reads file from the given path and return its content as a string.
  */
 export function readFileAsString(filePath: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fsReadFile(filePath, (err, content) => {
-      if (err) {
-        reject(err);
-
-        return;
-      }
-
-      resolve(content.toString());
-    });
-  });
+  return fsReadFile(filePath, 'utf-8');
 }
 
 /**
@@ -60,33 +53,23 @@ function getReportAsString(files: IFile[]): string {
 }
 
 export function saveContentToFile(
-  content: string,
   path: string,
+  content: string,
 ): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    fsWriteFile(path, content, (err: Error | null) => {
-      if (err) {
-        reject(err);
-
-        return;
-      }
-
-      resolve();
-    });
-  });
+  return fsWriteFile(path, content, { encoding: 'utf-8' });
 }
 
 export function saveReportToFile(
-  files: IFile[],
   path: string,
+  files: IFile[],
 ): Promise<void> {
   const reportStr = getReportAsString(files);
 
-  return saveContentToFile(reportStr, path);
+  return saveContentToFile(path, reportStr);
 }
 
 async function getFileSizeInKb(filePath: string): Promise<number> {
-  const stats = await fsPromises.stat(filePath);
+  const stats = await fsStat(filePath);
 
   return Math.round(stats.size / 1024);
 }
@@ -97,7 +80,10 @@ async function getFileGzipSizeInKb(filePath: string): Promise<number> {
   return Math.round(size / 1024);
 }
 
-export async function getFilesMetadata(filePaths: string[]): Promise<Partial<IFile>[]> {
+export async function getFilesMetadata(
+  filePaths: string[],
+  pathPrefix: string,
+): Promise<Partial<IFile>[]> {
   const contentSizePromises = filePaths.map(getFileSizeInKb);
   const gzipSizePromises = filePaths.map(getFileGzipSizeInKb);
 
@@ -107,7 +93,7 @@ export async function getFilesMetadata(filePaths: string[]): Promise<Partial<IFi
   return filePaths.map((filePath, index) => {
     return {
       name: getFileNameWoRandomHash(getFileName(filePath)),
-      path: filePath,
+      path: path.relative(pathPrefix, filePath),
       size: contentSizes[index],
       gzipSize: gzipSizes[index],
     };
@@ -150,7 +136,7 @@ export function analyzeBuildFiles(
     } = fileGroup;
 
     const filePaths = await resolveGlobs(distPath, globs, excludeGlobs);
-    const files = await getFilesMetadata(filePaths);
+    const files = await getFilesMetadata(filePaths, distPath);
 
     files.forEach((file: Partial<IFile>) => {
       file.group = key;
@@ -263,7 +249,7 @@ export function printTextReport(
             groupSizeDiff += size;
             groupGzipSizeDiff += gzipSize;
 
-            reportLines.push(`- ${ getFileReportLine(file) } ${ withComparison ? '(added)' : '' }`);
+            reportLines.push(`- ${ getFileReportLine(file) }${ withComparison ? ' (added)' : '' }`);
           }
         });
 
@@ -292,7 +278,7 @@ export function printTextReport(
 
       if (filesByGroup[groupId].length > 1) {
         reportLines.push(
-          `\nGroup total: ${ groupSizeInfoMsg } / ${ groupGzipSizeInfoMsg }\n`,
+          `${ EOL }Group total: ${ groupSizeInfoMsg } / ${ groupGzipSizeInfoMsg }${ EOL }`,
         );
       }
     });
@@ -309,5 +295,5 @@ export function printTextReport(
 
   reportLines.push(`TOTAL: ${ totalSizeMsg } / ${ totalGzipSizeMsg }`);
 
-  return reportLines.join('\n');
+  return reportLines.join(EOL);
 }

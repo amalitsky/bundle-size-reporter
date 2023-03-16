@@ -14,6 +14,7 @@ interface IAnalyzeConfig {
 }
 
 interface IPrintConfig {
+  input?: string;
   output?: string;
 }
 

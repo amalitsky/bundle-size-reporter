@@ -1,0 +1,21 @@
+Bundle size text report saved to e2e-tests-artifacts/bundle-size-report.txt
+
+HTML files:
+- index.html: 107KB / 22KB
+JS files:
+- app-[hash].js: 235KB / 77KB
+- framework-[hash].js: 26KB / 9KB
+- commons-[hash].js: 17KB / 6KB
+- component---src-page-templates-post-list-post-list-tsx-[hash].js: 16KB / 5KB
+- webpack-runtime-[hash].js: 14KB / 4KB
+
+Group total: 308KB / 101KB
+
+JSON files:
+- page-data.json: 29KB / 13KB
+- 2737273111.json: 6KB / 2KB
+- 3481615850.json: 0KB / 0KB
+
+Group total: 35KB / 15KB
+
+TOTAL: 450KB / 138KB

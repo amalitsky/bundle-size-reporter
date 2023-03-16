@@ -8,7 +8,9 @@
     "*.md",
     "packages/*/package-lock.json",
     "packages/*/*.md",
-    "packages/*/dist"
+    "dist/",
+    "e2e-tests/",
+    "e2e-tests-*/"
   ],
   "command": {
     "version": {

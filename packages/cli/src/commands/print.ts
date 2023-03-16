@@ -1,6 +1,8 @@
+import { EOL } from 'os';
+
 import { Argv } from 'yargs';
 
-import { configFileName, defaultReportFileName } from '../constants';
+import { configFileName } from '../constants';
 
 import { IBSRConfig, IBSRReport } from '../types';
 import {
@@ -14,25 +16,13 @@ export function print(yargs: Argv): Argv {
     'print [input]',
     `Print bundle size report in text form:
   Example:
-  print path/to/report.json bundle-size-report.txt --compare-with bundle-size-report-prev.json`,
+  print path/to/report.json -o bundle-size-report.txt --compare-with bundle-size-report-prev.json`,
     (yargs) => {
       return yargs
         .positional('input', {
           describe: 'path to JSON report file',
           alias: 'i',
           type: 'string',
-          default: defaultReportFileName,
-          async coerce(path: string): Promise<IBSRReport> {
-            const reportJson = await readFileAsString(path);
-
-            const report = JSON.parse(reportJson) as IBSRReport;
-
-            if (!report.files?.length) {
-              throw Error('Report file doesn\'t have files in it');
-            }
-
-            return report;
-          },
         })
         .option('output', {
           describe: 'text report file path',
@@ -73,12 +63,28 @@ export function print(yargs: Argv): Argv {
         });
     },
     async (argv) => {
-      const { files } = await argv.input;
-      const reportToCompareWith = await argv['compare-with'] as unknown as IBSRReport;
       const {
         analyze: analyzeConfig,
         print: printConfig,
       } = await argv.config;
+
+      const inputPath = argv.input || printConfig?.input;
+
+      if (!inputPath) {
+        throw Error('Path to json report wasn\'t provided');
+      }
+
+      const inputFileContent = await readFileAsString(inputPath);
+
+      const reportJson = JSON.parse(inputFileContent) as IBSRReport;
+
+      const { files } = reportJson;
+
+      if (!files?.length) {
+        throw Error('Report file doesn\'t have files in it');
+      }
+
+      const reportToCompareWith = await argv['compare-with'] as unknown as IBSRReport;
 
       const report = printTextReport(
         analyzeConfig.groups,
@@ -91,12 +97,12 @@ export function print(yargs: Argv): Argv {
       readableReportPath = readableReportPath || printConfig?.output;
 
       if (readableReportPath) {
-        await saveContentToFile(report, readableReportPath);
+        await saveContentToFile(readableReportPath, report);
 
         console.log(`Bundle size text report saved to ${ readableReportPath }`);
       }
 
-      console.log(`\n${ report }`);
+      console.log(`${ EOL }${ report }`);
     },
   );
 }

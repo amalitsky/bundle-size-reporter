@@ -1,10 +1,13 @@
 import path from 'path';
-import process from 'process';
+import { EOL } from 'os';
+
 import { Argv } from 'yargs';
 import { configFileName, defaultReportFileName } from '../constants';
 import { IBSRConfig, IBSRReport } from '../types';
+
 import {
-  analyzeBuildFiles, printTextReport,
+  analyzeBuildFiles,
+  printTextReport,
   readFileAsString,
   saveContentToFile,
   saveReportToFile,
@@ -66,8 +69,6 @@ export function autorun(yargs: Argv): Argv {
         });
     },
     async (argv) => {
-      const cwd = process.cwd();
-
       const {
         analyze: analyzeConfig,
         print: printConfig,
@@ -79,7 +80,8 @@ export function autorun(yargs: Argv): Argv {
         throw Error('Path to the build directory wasn\'t provided');
       }
 
-      const distFolder = path.join(cwd, buildPath);
+      const distFolder = path.isAbsolute(buildPath) ?
+        path.normalize(buildPath) : path.resolve(buildPath);
 
       const { groups } = analyzeConfig;
 
@@ -93,7 +95,7 @@ export function autorun(yargs: Argv): Argv {
 
       reportPath = reportPath || analyzeConfig.output || defaultReportFileName;
 
-      await saveReportToFile(files, reportPath);
+      await saveReportToFile(reportPath, files);
 
       console.log(`Bundle size report saved to ${ reportPath }`);
 
@@ -104,12 +106,12 @@ export function autorun(yargs: Argv): Argv {
       const textReportPath = argv['text-output'] || printConfig?.output;
 
       if (textReportPath) {
-        await saveContentToFile(report, textReportPath);
+        await saveContentToFile(textReportPath, report);
 
         console.log(`Bundle size text report saved to ${ textReportPath }`);
       }
 
-      console.log(`\n${ report }`);
+      console.log(`${ EOL }${ report }`);
     },
   );
 }

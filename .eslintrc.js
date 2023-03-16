@@ -1,6 +1,12 @@
 const OFF = 0;
 
+const ignorePatterns = [
+  'dist/',
+  'e2e-tests-fixtures/',
+];
+
 const config = {
+  root: true,
   extends: [
     'eslint:recommended',
     'google',
@@ -12,6 +18,7 @@ const config = {
     'amalitsky/naming',
     'amalitsky/newlines',
   ],
+  ignorePatterns,
 };
 
 config.env = {

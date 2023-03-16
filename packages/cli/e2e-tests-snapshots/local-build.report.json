@@ -1,0 +1,67 @@
+{
+  "files": [
+    {
+      "name": "index.html",
+      "path": "index.html",
+      "size": 107,
+      "gzipSize": 22,
+      "group": "html"
+    },
+    {
+      "name": "webpack-runtime-[hash].js",
+      "path": "webpack-runtime-2e25c9e4bb07c8a0999f.js",
+      "size": 14,
+      "gzipSize": 4,
+      "group": "js"
+    },
+    {
+      "name": "framework-[hash].js",
+      "path": "framework-a2a488ac196ea18d4ec2.js",
+      "size": 26,
+      "gzipSize": 9,
+      "group": "js"
+    },
+    {
+      "name": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
+      "path": "component---src-page-templates-post-list-post-list-tsx-181e9b89bffb6c0c3f69.js",
+      "size": 16,
+      "gzipSize": 5,
+      "group": "js"
+    },
+    {
+      "name": "commons-[hash].js",
+      "path": "commons-504ab5bc201fbf35658e.js",
+      "size": 17,
+      "gzipSize": 6,
+      "group": "js"
+    },
+    {
+      "name": "app-[hash].js",
+      "path": "app-3dd798319b20e94b54dc.js",
+      "size": 235,
+      "gzipSize": 77,
+      "group": "js"
+    },
+    {
+      "name": "page-data.json",
+      "path": "page-data/page-data.json",
+      "size": 29,
+      "gzipSize": 13,
+      "group": "json"
+    },
+    {
+      "name": "3481615850.json",
+      "path": "page-data/3481615850.json",
+      "size": 0,
+      "gzipSize": 0,
+      "group": "json"
+    },
+    {
+      "name": "2737273111.json",
+      "path": "page-data/2737273111.json",
+      "size": 6,
+      "gzipSize": 2,
+      "group": "json"
+    }
+  ]
+}
