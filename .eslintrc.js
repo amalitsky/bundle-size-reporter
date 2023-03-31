@@ -1,4 +1,3 @@
-const OFF = 0;
 
 const ignorePatterns = [
   'dist/',
@@ -31,11 +30,6 @@ config.parserOptions = {
   ecmaFeatures: {
     ecmaVersion: 2019,
   },
-};
-
-config.rules = {
-  'no-unused-vars': OFF, // in favour of @typescript-eslint/no-unused-vars
-  'no-extra-parens': OFF,
 };
 
 module.exports = config;
