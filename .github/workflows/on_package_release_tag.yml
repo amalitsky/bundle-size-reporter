@@ -73,3 +73,10 @@ jobs:
         run: npm run lerna:publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Upload lerna log
+        uses: actions/upload-artifact@v3
+        with:
+          name: lerna-log
+          path: lerna-debug.log
+          retention-days: 7
