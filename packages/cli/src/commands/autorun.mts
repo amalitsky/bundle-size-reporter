@@ -1,17 +1,18 @@
-import path from 'path';
+import * as path from 'path';
 import { EOL } from 'os';
 
 import { Argv } from 'yargs';
-import { configFileName, defaultReportFileName } from '../constants';
-import { IBSRConfig, IBSRReport } from '../types';
+import { configFileName, defaultReportFileName } from '../constants.mjs';
+import { IBSRConfig, IBSRReport } from '../types.mjs';
+
+import { printTextReport } from '../utils/print.mjs';
 
 import {
   analyzeBuildFiles,
-  printTextReport,
   readFileAsString,
   saveContentToFile,
   saveReportToFile,
-} from '../utils';
+} from '../utils/file-system.mjs';
 
 export function autorun(yargs: Argv): Argv {
   return yargs.command(
@@ -83,9 +84,7 @@ export function autorun(yargs: Argv): Argv {
       const distFolder = path.isAbsolute(buildPath) ?
         path.normalize(buildPath) : path.resolve(buildPath);
 
-      const { groups } = analyzeConfig;
-
-      const { files } = await analyzeBuildFiles(groups, distFolder);
+      const { files } = await analyzeBuildFiles(distFolder, analyzeConfig);
 
       if (!files.length) {
         throw Error('No files found. Make sure the build command had run.');
@@ -101,7 +100,11 @@ export function autorun(yargs: Argv): Argv {
 
       const reportToCompareWith = await argv['compare-with'] as unknown as IBSRReport;
 
-      const report = printTextReport(groups, files, reportToCompareWith?.files);
+      const report = printTextReport(
+        analyzeConfig.groups,
+        files,
+        reportToCompareWith?.files,
+      );
 
       const textReportPath = argv['text-output'] || printConfig?.output;
 

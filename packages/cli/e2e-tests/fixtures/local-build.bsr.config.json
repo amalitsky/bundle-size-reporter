@@ -1,7 +1,7 @@
 {
   "analyze": {
     "build": {
-      "location": "e2e-tests-fixtures/local-build"
+      "location": "e2e-tests/fixtures/local-build"
     },
     "groups": [
       {
@@ -27,10 +27,12 @@
         "label": "JSON"
       }
     ],
-    "output": "e2e-tests-artifacts/bundle-size-report.json"
+    "output": "e2e-tests/artifacts/bundle-size-report.json",
+    "normalizeFileName": "^.+?\\W+([\\d\\w]{8,32})\\.[\\d\\w]{2,5}$",
+    "hashLabel": "[hash]"
   },
   "print": {
-    "input": "e2e-tests-artifacts/bundle-size-report.json",
-    "output": "e2e-tests-artifacts/bundle-size-report.txt"
+    "input": "e2e-tests/artifacts/bundle-size-report.json",
+    "output": "e2e-tests/artifacts/bundle-size-report.txt"
   }
 }

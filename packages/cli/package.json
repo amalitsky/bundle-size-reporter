@@ -9,15 +9,17 @@
     "dist/**"
   ],
   "scripts": {
-    "eslint": "eslint --quiet --ext .js,.ts",
+    "eslint": "eslint --quiet --ext .js,.ts,.mjs,.mts",
     "ts-compile-check": "tsc --noEmit",
     "lint": "npm run ts-compile-check && npm run eslint ./",
     "prepack": "npm run build",
     "prebuild": "rm -rf ./dist",
-    "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.ts --format esm",
+    "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm",
     "postbuild": "node ./add-shebang-to-cli-dist.mjs",
-    "pretest": "rm -rf e2e-tests-artifacts && mkdir e2e-tests-artifacts && npm run build",
-    "test": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--loader=ts-node/esm node --test e2e-tests/*.test.mts"
+    "pretest-e2e": "rm -rf e2e-tests/artifacts && mkdir e2e-tests/artifacts && npm run build",
+    "test": "npm run test-unit && npm run test-e2e",
+    "test-e2e": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--loader=ts-node/esm node --test e2e-tests/*.test.mts",
+    "test-unit": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--loader=ts-node/esm node --test unit-tests/*.test.mts"
   },
   "repository": {
     "type": "git",
@@ -57,7 +59,7 @@
   },
   "devDependencies": {
     "@types/concat-stream": "^2.0.0",
-    "@types/lodash": "^4.14.191",
+    "@types/lodash-es": "^4.17.7",
     "@types/yargs": "^17.0.22",
     "concat-stream": "^2.0.0"
   },

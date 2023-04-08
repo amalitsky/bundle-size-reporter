@@ -10,7 +10,7 @@
     "packages/*/*.md",
     "dist/",
     "e2e-tests/",
-    "e2e-tests-*/"
+    "unit-tests/"
   ],
   "registry": "https://registry.npmjs.org",
   "command": {

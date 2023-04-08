@@ -1,9 +1,9 @@
 import yargs, { Argv } from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { analyze } from './commands/analyze';
-import { print } from './commands/print';
-import { autorun } from './commands/autorun';
+import { analyze } from './commands/analyze.mjs';
+import { print } from './commands/print.mjs';
+import { autorun } from './commands/autorun.mjs';
 
 const commands: Array<(yargs: Argv) => Argv> = [
   analyze,

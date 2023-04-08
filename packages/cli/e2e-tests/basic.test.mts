@@ -23,13 +23,13 @@ import {
   fixturesPath,
   snapshotsPath,
   defaultFileReportPath,
-  defaultJsonFileReportPath
+  defaultJsonFileReportPath,
 } from './constants.mjs';
 
 const localBuildFolderPath = `${ fixturesPath }/local-build`;
 const localBuildConfigPath = `${ fixturesPath }/local-build.bsr.config.json`;
 
-describe('basic functionality', async () => {
+describe('basic functionality', () => {
   afterEach(async () => {
     await rm(artifactsPath, {
       force: true,
@@ -60,7 +60,7 @@ describe('basic functionality', async () => {
     assert.deepEqual(jsonReport, jsonReportExpectation);
 
     // doesn't create report file
-    await assert.rejects(async () => await stat(defaultFileReportPath));
+    await assert.rejects(() => stat(defaultFileReportPath));
   });
 
   it('print', async () => {
@@ -73,18 +73,21 @@ describe('basic functionality', async () => {
     const outputExpectation = await readFile(
       `${ snapshotsPath }/local-build.print.output.txt`,
       'utf-8',
-    )
+    );
 
     assert.equal(output, outputExpectation);
 
     const reportFile = await readFile(defaultFileReportPath, 'utf-8');
 
-    const reportFileExpectation = await readFile(`${ snapshotsPath }/local-build.report.txt`, 'utf-8');
+    const reportFileExpectation = await readFile(
+      `${ snapshotsPath }/local-build.report.txt`,
+      'utf-8',
+    );
 
     assert.equal(`${ reportFile }${ EOL }`, reportFileExpectation);
 
     // doesn't create (or copy) json file
-    await assert.rejects(async () => await stat(defaultJsonFileReportPath));
+    await assert.rejects(() => stat(defaultJsonFileReportPath));
   });
 
   it('autorun', async () => {
@@ -97,7 +100,7 @@ describe('basic functionality', async () => {
     const outputExpectation = await readFile(
       `${ snapshotsPath }/local-build.autorun.output.txt`,
       'utf-8',
-    )
+    );
 
     assert.equal(output, outputExpectation);
 
