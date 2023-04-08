@@ -1,15 +1,10 @@
 import { EOL } from 'os';
-
 import { Argv } from 'yargs';
 
-import { configFileName } from '../constants';
-
-import { IBSRConfig, IBSRReport } from '../types';
-import {
-  printTextReport,
-  readFileAsString,
-  saveContentToFile,
-} from '../utils';
+import { configFileName } from '../constants.mjs';
+import { IBSRConfig, IBSRReport } from '../types.mjs';
+import { printTextReport } from '../utils/print.mjs';
+import { readFileAsString, saveContentToFile } from '../utils/file-system.mjs';
 
 export function print(yargs: Argv): Argv {
   return yargs.command(

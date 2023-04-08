@@ -1,8 +1,8 @@
 import * as process from 'process';
 import { existsSync } from 'fs';
 import { fork, ChildProcess } from 'node:child_process';
-import concat from 'concat-stream';
 import { constants } from 'os';
+import concat from 'concat-stream';
 
 const { PATH } = process.env;
 
@@ -51,7 +51,7 @@ export function executeNodeScript(
         child.kill(constants.signals.SIGTERM);
         reject('child process response timeout');
       },
-          5000
+      5000,
     );
 
     child.once('error', (code: number, signal: string) => {
@@ -72,7 +72,7 @@ export function executeNodeScript(
       concat(
         { encoding: 'string' },
         resolve,
-      )
+      ),
     );
 
     child.once('close', () => clearTimeout(timeoutId));

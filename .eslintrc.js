@@ -1,10 +1,17 @@
-
 const ignorePatterns = [
   'dist/',
-  'e2e-tests-fixtures/',
+  'packages/*/e2e-tests/fixtures/',
 ];
 
 const config = {
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: 'packages/*/tsconfig.json',
+      },
+    },
+  },
   root: true,
   extends: [
     'eslint:recommended',
@@ -28,7 +35,7 @@ config.env = {
 config.parserOptions = {
   sourceType: 'module',
   ecmaFeatures: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2020,
   },
 };
 

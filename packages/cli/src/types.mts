@@ -5,8 +5,10 @@ export interface IFileGroup {
   excludeGlobs?: string[]; // List of patterns to ignore folder/files
 }
 
-interface IAnalyzeConfig {
+export interface IAnalyzeConfig {
   groups: IFileGroup[];
+  normalizeFileName?: string | RegExp | ((fileName: string) => string);
+  hashLabel?: string;
   build?: {
     location: string;
   };

@@ -1,15 +1,15 @@
-import path from 'path';
+import * as path from 'path';
 
 import { Argv } from 'yargs';
-import { configFileName, defaultReportFileName } from '../constants';
+import { configFileName, defaultReportFileName } from '../constants.mjs';
 
-import { IBSRConfig } from '../types';
+import { IBSRConfig } from '../types.mjs';
 
 import {
   analyzeBuildFiles,
   readFileAsString,
   saveReportToFile,
-} from '../utils';
+} from '../utils/file-system.mjs';
 
 export function analyze(yargs: Argv): Argv {
   return yargs.command(
@@ -58,9 +58,7 @@ export function analyze(yargs: Argv): Argv {
       const distFolder = path.isAbsolute(buildPath) ?
         path.normalize(buildPath) : path.resolve(buildPath);
 
-      const { groups } = analyzeConfig;
-
-      const { files } = await analyzeBuildFiles(groups, distFolder);
+      const { files } = await analyzeBuildFiles(distFolder, analyzeConfig);
 
       if (!files.length) {
         throw Error(

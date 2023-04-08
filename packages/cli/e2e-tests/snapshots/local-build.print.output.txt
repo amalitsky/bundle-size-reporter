@@ -1,4 +1,4 @@
-Bundle size text report saved to e2e-tests-artifacts/bundle-size-report.txt
+Bundle size text report saved to e2e-tests/artifacts/bundle-size-report.txt
 
 HTML files:
 - index.html: 107KB / 22KB
