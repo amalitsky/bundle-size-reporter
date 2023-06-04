@@ -12,4 +12,4 @@ updates:
     labels:
       - "dependency"
       - "dependabot"
-    open-pull-requests-limit: 7
+    open-pull-requests-limit: 3
