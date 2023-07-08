@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.4.1",
     "eslint": "^8.42.0",
     "eslint-config-amalitsky": "^1.0.6",
     "eslint-config-google": "^0.14.0",
