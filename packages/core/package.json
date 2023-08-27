@@ -1,0 +1,40 @@
+{
+  "name": "@bundle-size-reporter/core",
+  "version": "1.0.0",
+  "description": "Core package for bundle size reporter",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "ts-compile-check": "tsc --noEmit",
+    "prepack": "npm run build",
+    "prebuild": "rm -rf ./dist",
+    "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm --dts"
+  },
+  "module": true,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalitsky/bundle-size-reporter.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "keywords": [],
+  "author": "Alex Malitsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amalitsky/bundle-size-reporter/issues"
+  },
+  "homepage": "https://github.com/amalitsky/bundle-size-reporter#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

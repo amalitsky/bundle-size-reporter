@@ -1,10 +1,10 @@
 import * as path from 'path';
 import { EOL } from 'os';
 
-import { Argv } from 'yargs';
-import { configFileName, defaultReportFileName } from '../constants.mjs';
-import { IBSRConfig, IBSRReport } from '../types.mjs';
+import type { Argv } from 'yargs';
+import type { IBsrConfig, IBsrReport } from '@bundle-size-reporter/core';
 
+import { configFileName, defaultReportFileName } from '../constants.mjs';
 import { printTextReport } from '../utils/print.mjs';
 
 import {
@@ -36,13 +36,13 @@ export function autorun(yargs: Argv): Argv {
           default: configFileName,
           alias: 'c',
           type: 'string',
-          async coerce(path: string): Promise<IBSRConfig> {
+          async coerce(path: string): Promise<IBsrConfig> {
             const configJson = await readFileAsString(path);
 
-            const config = JSON.parse(configJson) as IBSRConfig;
+            const config = JSON.parse(configJson) as IBsrConfig;
 
             if (!config.analyze.groups?.length) {
-              throw Error('File groups aren\'t defined in config file');
+              throw Error("File groups aren't defined in config file");
             }
 
             return config;
@@ -56,10 +56,10 @@ export function autorun(yargs: Argv): Argv {
         .option('compare-with', {
           describe: 'path to JSON report file to compare current build with',
           type: 'string',
-          async coerce(path: string): Promise<IBSRReport> {
+          async coerce(path: string): Promise<IBsrReport> {
             const reportJson = await readFileAsString(path);
 
-            const report = JSON.parse(reportJson) as IBSRReport;
+            const report = JSON.parse(reportJson) as IBsrReport;
 
             if (!report.files?.length) {
               throw Error('List of files is not found in the report');
@@ -70,19 +70,17 @@ export function autorun(yargs: Argv): Argv {
         });
     },
     async (argv) => {
-      const {
-        analyze: analyzeConfig,
-        print: printConfig,
-      }= await argv.config;
+      const { analyze: analyzeConfig, print: printConfig } = await argv.config;
 
       const buildPath = argv.build || analyzeConfig.build?.location;
 
       if (!buildPath) {
-        throw Error('Path to the build directory wasn\'t provided');
+        throw Error("Path to the build directory wasn't provided");
       }
 
-      const distFolder = path.isAbsolute(buildPath) ?
-        path.normalize(buildPath) : path.resolve(buildPath);
+      const distFolder = path.isAbsolute(buildPath)
+        ? path.normalize(buildPath)
+        : path.resolve(buildPath);
 
       const { files } = await analyzeBuildFiles(distFolder, analyzeConfig);
 
@@ -96,25 +94,21 @@ export function autorun(yargs: Argv): Argv {
 
       await saveReportToFile(reportPath, files);
 
-      console.log(`Bundle size report saved to ${ reportPath }`);
+      console.log(`Bundle size report saved to ${reportPath}`);
 
-      const reportToCompareWith = await argv['compare-with'] as unknown as IBSRReport;
+      const reportToCompareWith = (await argv['compare-with']) as unknown as IBsrReport;
 
-      const report = printTextReport(
-        analyzeConfig.groups,
-        files,
-        reportToCompareWith?.files,
-      );
+      const report = printTextReport(analyzeConfig.groups, files, reportToCompareWith?.files);
 
       const textReportPath = argv['text-output'] || printConfig?.output;
 
       if (textReportPath) {
         await saveContentToFile(textReportPath, report);
 
-        console.log(`Bundle size text report saved to ${ textReportPath }`);
+        console.log(`Bundle size text report saved to ${textReportPath}`);
       }
 
-      console.log(`${ EOL }${ report }`);
+      console.log(`${EOL}${report}`);
     },
   );
 }

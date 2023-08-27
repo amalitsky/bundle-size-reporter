@@ -9,9 +9,7 @@
     "dist/**"
   ],
   "scripts": {
-    "eslint": "eslint --quiet --ext .js,.ts,.mjs,.mts",
     "ts-compile-check": "tsc --noEmit",
-    "lint": "npm run ts-compile-check && npm run eslint ./",
     "prepack": "npm run build",
     "prebuild": "rm -rf ./dist",
     "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm",
@@ -55,7 +53,8 @@
     "glob": "^9.3.4",
     "gzip-size": "^7.0.0",
     "lodash-es": "^4.17.21",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.1",
+    "@bundle-size-reporter/core": "^1.0.0"
   },
   "devDependencies": {
     "@types/concat-stream": "^2.0.0",

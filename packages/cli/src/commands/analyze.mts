@@ -1,15 +1,11 @@
 import * as path from 'path';
 
-import { Argv } from 'yargs';
+import type { IBsrConfig } from '@bundle-size-reporter/core';
+
+import type { Argv } from 'yargs';
 import { configFileName, defaultReportFileName } from '../constants.mjs';
 
-import { IBSRConfig } from '../types.mjs';
-
-import {
-  analyzeBuildFiles,
-  readFileAsString,
-  saveReportToFile,
-} from '../utils/file-system.mjs';
+import { analyzeBuildFiles, readFileAsString, saveReportToFile } from '../utils/file-system.mjs';
 
 export function analyze(yargs: Argv): Argv {
   return yargs.command(
@@ -28,13 +24,13 @@ export function analyze(yargs: Argv): Argv {
           default: configFileName,
           alias: 'c',
           type: 'string',
-          async coerce(path: string): Promise<IBSRConfig> {
+          async coerce(path: string): Promise<IBsrConfig> {
             const configJson = await readFileAsString(path);
 
-            const config = JSON.parse(configJson) as IBSRConfig;
+            const config = JSON.parse(configJson) as IBsrConfig;
 
             if (!config.analyze.groups?.length) {
-              throw Error('File groups aren\'t defined in config file');
+              throw Error("File groups aren't defined in config file");
             }
 
             return config;
@@ -52,18 +48,19 @@ export function analyze(yargs: Argv): Argv {
       const buildPath = argv.build || analyzeConfig.build?.location;
 
       if (!buildPath) {
-        throw Error('Path to the build directory wasn\'t provided');
+        throw Error("Path to the build directory wasn't provided");
       }
 
-      const distFolder = path.isAbsolute(buildPath) ?
-        path.normalize(buildPath) : path.resolve(buildPath);
+      const distFolder = path.isAbsolute(buildPath)
+        ? path.normalize(buildPath)
+        : path.resolve(buildPath);
 
       const { files } = await analyzeBuildFiles(distFolder, analyzeConfig);
 
       if (!files.length) {
         throw Error(
-          `No group files were found in "${ distFolder }"` +
-          'Make sure the your website build command had run and correct path is passed to bsr',
+          `No group files were found in "${distFolder}"` +
+            'Make sure the your website build command had run and correct path is passed to bsr',
         );
       }
 
@@ -73,7 +70,7 @@ export function analyze(yargs: Argv): Argv {
 
       await saveReportToFile(reportPath, files);
 
-      console.log(`Bundle size report saved to ${ reportPath }`);
+      console.log(`Bundle size report saved to ${reportPath}`);
     },
   );
 }

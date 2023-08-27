@@ -15,19 +15,14 @@ const scopes = [
 
 // https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
 const config = {
-  extends: [
-    '@commitlint/config-conventional',
-  ],
+  extends: ['@commitlint/config-conventional'],
   rules: {
-    'scope-enum': [
-      ERROR,
-      ALWAYS,
-      scopes,
+    'scope-enum': [ERROR, ALWAYS, scopes],
+    'body-max-line-length': [
+      // dependabot PRs
+      OFF,
     ],
-    'body-max-line-length': [ // dependabot PRs
-      OFF
-    ],
-  }
+  },
 };
 
 module.exports = config;

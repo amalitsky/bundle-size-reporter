@@ -2,18 +2,9 @@ import { EOL } from 'os';
 
 import { strict as assert } from 'node:assert';
 
-import {
-  it,
-  describe,
-  afterEach,
-} from 'node:test';
+import { it, describe, afterEach } from 'node:test';
 
-import {
-  readFile,
-  rm,
-  mkdir,
-  stat,
-} from 'node:fs/promises';
+import { readFile, rm, mkdir, stat } from 'node:fs/promises';
 
 import { executeNodeScript } from './utils/child-node-process.mjs';
 
@@ -26,8 +17,8 @@ import {
   defaultJsonFileReportPath,
 } from './constants.mjs';
 
-const localBuildFolderPath = `${ fixturesPath }/local-build`;
-const localBuildConfigPath = `${ fixturesPath }/local-build.bsr.config.json`;
+const localBuildFolderPath = `${fixturesPath}/local-build`;
+const localBuildConfigPath = `${fixturesPath}/local-build.bsr.config.json`;
 
 describe('basic functionality', () => {
   afterEach(async () => {
@@ -43,13 +34,15 @@ describe('basic functionality', () => {
     const output = await executeNodeScript(bsrBinPath, [
       'analyze',
       localBuildFolderPath,
-      `-c=${ localBuildConfigPath }`,
+      `-c=${localBuildConfigPath}`,
     ]);
 
-    assert.equal(output.trim(), `Bundle size report saved to ${ defaultJsonFileReportPath }`);
+    assert.equal(output.trim(), `Bundle size report saved to ${defaultJsonFileReportPath}`);
 
-    const jsonReportExpectationFileContent =
-      await readFile(`${ snapshotsPath }/local-build.report.json`, 'utf-8');
+    const jsonReportExpectationFileContent = await readFile(
+      `${snapshotsPath}/local-build.report.json`,
+      'utf-8',
+    );
 
     const jsonReportExpectation = JSON.parse(jsonReportExpectationFileContent);
 
@@ -66,12 +59,12 @@ describe('basic functionality', () => {
   it('print', async () => {
     const output = await executeNodeScript(bsrBinPath, [
       'print',
-      `${ snapshotsPath }/local-build.report.json`,
-      `-c=${ localBuildConfigPath }`,
+      `${snapshotsPath}/local-build.report.json`,
+      `-c=${localBuildConfigPath}`,
     ]);
 
     const outputExpectation = await readFile(
-      `${ snapshotsPath }/local-build.print.output.txt`,
+      `${snapshotsPath}/local-build.print.output.txt`,
       'utf-8',
     );
 
@@ -80,11 +73,11 @@ describe('basic functionality', () => {
     const reportFile = await readFile(defaultFileReportPath, 'utf-8');
 
     const reportFileExpectation = await readFile(
-      `${ snapshotsPath }/local-build.report.txt`,
+      `${snapshotsPath}/local-build.report.txt`,
       'utf-8',
     );
 
-    assert.equal(`${ reportFile }${ EOL }`, reportFileExpectation);
+    assert.equal(`${reportFile}${EOL}`, reportFileExpectation);
 
     // doesn't create (or copy) json file
     await assert.rejects(() => stat(defaultJsonFileReportPath));
@@ -94,11 +87,11 @@ describe('basic functionality', () => {
     const output = await executeNodeScript(bsrBinPath, [
       'autorun',
       localBuildFolderPath,
-      `-c=${ localBuildConfigPath }`,
+      `-c=${localBuildConfigPath}`,
     ]);
 
     const outputExpectation = await readFile(
-      `${ snapshotsPath }/local-build.autorun.output.txt`,
+      `${snapshotsPath}/local-build.autorun.output.txt`,
       'utf-8',
     );
 
@@ -106,16 +99,18 @@ describe('basic functionality', () => {
 
     const reportFile = await readFile(defaultFileReportPath, 'utf-8');
 
-    const reportExpectation = await readFile(`${ snapshotsPath }/local-build.report.txt`, 'utf-8');
+    const reportExpectation = await readFile(`${snapshotsPath}/local-build.report.txt`, 'utf-8');
 
-    assert.equal(`${ reportFile }${ EOL }`, reportExpectation);
+    assert.equal(`${reportFile}${EOL}`, reportExpectation);
 
     const jsonReportContent = await readFile(defaultJsonFileReportPath, 'utf-8');
 
     const jsonReport = JSON.parse(jsonReportContent);
 
-    const jsonReportExpectationFileContent =
-      await readFile(`${ snapshotsPath }/local-build.report.json`, 'utf-8');
+    const jsonReportExpectationFileContent = await readFile(
+      `${snapshotsPath}/local-build.report.json`,
+      'utf-8',
+    );
 
     const jsonReportExpectation = JSON.parse(jsonReportExpectationFileContent);
 

@@ -1,21 +1,13 @@
 import * as path from 'path';
 
-import {
-  readFile as fsReadFile,
-  stat as fsStat,
-  writeFile as fsWriteFile,
-} from 'node:fs/promises';
+import { readFile as fsReadFile, stat as fsStat, writeFile as fsWriteFile } from 'node:fs/promises';
+
+import type { IFile, IAnalyzeConfig, IBsrReport } from '@bundle-size-reporter/core';
 
 import { gzipSizeFromFile } from 'gzip-size';
-import { glob, GlobOptions } from 'glob';
+import { glob, type GlobOptions } from 'glob';
 
-import {
-  IAnalyzeConfig,
-  IBSRReport,
-  IFile,
-} from '../types.mjs';
-
-import { normalizeFileName } from './normalize-file-name.mjs';
+import { normalizeFilename } from './normalize-filename.mjs';
 
 /**
  * Reads file from the given path and return its content as a string.
@@ -24,10 +16,7 @@ export function readFileAsString(filePath: string): Promise<string> {
   return fsReadFile(filePath, 'utf-8');
 }
 
-export function saveContentToFile(
-  path: string,
-  content: string,
-): Promise<void> {
+export function saveContentToFile(path: string, content: string): Promise<void> {
   return fsWriteFile(path, content, { encoding: 'utf-8' });
 }
 
@@ -35,10 +24,7 @@ function getReportAsString(files: IFile[]): string {
   return JSON.stringify({ files }, null, 2);
 }
 
-export function saveReportToFile(
-  path: string,
-  files: IFile[],
-): Promise<void> {
+export function saveReportToFile(path: string, files: IFile[]): Promise<void> {
   const reportStr = getReportAsString(files);
 
   return saveContentToFile(path, reportStr);
@@ -64,25 +50,23 @@ async function getFileGzipSizeInKb(filePath: string): Promise<number> {
 async function getFilesMetadata(
   filePaths: string[],
   distPath: string,
-  normalizeFilename: IAnalyzeConfig['normalizeFileName'],
-  hashLabel?: string,
+  normalizeFilenameValue: IAnalyzeConfig['normalizeFilename'],
+  filenameHashLabel?: string,
 ): Promise<Omit<IFile, 'group'>[]> {
-  const contentSizePromises = filePaths
-    .map(filePath => getFileSizeInKb(path.join(distPath, filePath)));
+  const contentSizePromises = filePaths.map((filePath) =>
+    getFileSizeInKb(path.join(distPath, filePath)),
+  );
 
-  const gzipSizePromises = filePaths
-    .map(filePath => getFileGzipSizeInKb(path.join(distPath, filePath)));
+  const gzipSizePromises = filePaths.map((filePath) =>
+    getFileGzipSizeInKb(path.join(distPath, filePath)),
+  );
 
   const contentSizes = await Promise.all(contentSizePromises);
   const gzipSizes = await Promise.all(gzipSizePromises);
 
   return filePaths.map((filePath, index) => {
     return {
-      name: normalizeFileName(
-        path.basename(filePath),
-        normalizeFilename,
-        hashLabel,
-      ),
+      name: normalizeFilename(path.basename(filePath), normalizeFilenameValue, filenameHashLabel),
       path: filePath,
       size: contentSizes[index],
       gzipSize: gzipSizes[index],
@@ -106,27 +90,15 @@ function resolveGlobs(
   return glob(globs, globOptions) as Promise<string[]>;
 }
 
-export function analyzeBuildFiles(
-  distPath: string,
-  config: IAnalyzeConfig,
-): Promise<IBSRReport> {
-  const { groups, normalizeFileName, hashLabel } = config;
+export function analyzeBuildFiles(distPath: string, config: IAnalyzeConfig): Promise<IBsrReport> {
+  const { groups, normalizeFilename, filenameHashLabel } = config;
 
   const groupFilePromises = groups.map(async (fileGroup) => {
-    const {
-      globs,
-      key,
-      excludeGlobs,
-    } = fileGroup;
+    const { globs, key, excludeGlobs } = fileGroup;
 
     const filePaths = await resolveGlobs(distPath, globs, excludeGlobs);
 
-    const files = await getFilesMetadata(
-      filePaths,
-      distPath,
-      normalizeFileName,
-      hashLabel,
-    );
+    const files = await getFilesMetadata(filePaths, distPath, normalizeFilename, filenameHashLabel);
 
     files.forEach((file: Partial<IFile>) => {
       file.group = key;
@@ -135,6 +107,5 @@ export function analyzeBuildFiles(
     return files as IFile[];
   });
 
-  return Promise.all(groupFilePromises)
-    .then(groupFiles => ({ files: groupFiles.flat() }));
+  return Promise.all(groupFilePromises).then((groupFiles) => ({ files: groupFiles.flat() }));
 }

@@ -1,7 +1,4 @@
-const ignorePatterns = [
-  'dist/',
-  'packages/*/e2e-tests/fixtures/',
-];
+const ignorePatterns = ['dist/', 'packages/*/e2e-tests/fixtures/'];
 
 const config = {
   settings: {
@@ -23,6 +20,7 @@ const config = {
     'amalitsky/imports',
     'amalitsky/naming',
     'amalitsky/newlines',
+    'prettier',
   ],
   ignorePatterns,
 };
