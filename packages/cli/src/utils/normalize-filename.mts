@@ -1,12 +1,12 @@
-import { IAnalyzeConfig } from '../types.mjs';
+import type { IAnalyzeConfig } from '@bundle-size-reporter/core';
 
 /**
  * Returns file name with hash string replaced with string provided.
  */
-export function normalizeFileName(
+export function normalizeFilename(
   fileName: string,
-  normalize?: IAnalyzeConfig['normalizeFileName'],
-  hashLabel = '',
+  normalize?: IAnalyzeConfig['normalizeFilename'],
+  filenameHashLabel = '',
 ): string {
   if (!normalize) {
     return fileName;
@@ -17,8 +17,9 @@ export function normalizeFileName(
       const transformedFileName = normalize(fileName);
 
       if (typeof transformedFileName !== 'string') {
-        const message = `non string value was returned by the provided ` +
-          `normalization function for "${ fileName }" string`;
+        const message =
+          `non string value was returned by the provided ` +
+          `normalization function for "${fileName}" string`;
 
         throw Error(message);
       }
@@ -43,10 +44,8 @@ export function normalizeFileName(
 
   // if there is a match, we expect a group to be there
   if (!hashToReplace) {
-    throw Error(
-      `regexp '${regex}'needs to have a capturing group for hash to be removed`,
-    );
+    throw Error(`regexp '${regex}'needs to have a capturing group for hash to be removed`);
   }
 
-  return fileName.replace(hashToReplace, hashLabel);
+  return fileName.replace(hashToReplace, filenameHashLabel);
 }

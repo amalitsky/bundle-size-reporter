@@ -7,8 +7,8 @@ export interface IFileGroup {
 
 export interface IAnalyzeConfig {
   groups: IFileGroup[];
-  normalizeFileName?: string | RegExp | ((fileName: string) => string);
-  hashLabel?: string;
+  normalizeFilename?: string | RegExp | ((fileName: string) => string);
+  filenameHashLabel?: string;
   build?: {
     location: string;
   };
@@ -20,7 +20,7 @@ interface IPrintConfig {
   output?: string;
 }
 
-export interface IBSRConfig {
+export interface IBsrConfig {
   analyze: IAnalyzeConfig;
   print?: IPrintConfig;
 }
@@ -33,6 +33,6 @@ export interface IFile {
   group: IFileGroup['key'];
 }
 
-export interface IBSRReport {
+export interface IBsrReport {
   files: IFile[];
 }

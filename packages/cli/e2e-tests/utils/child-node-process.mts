@@ -29,19 +29,11 @@ export function createNodeProcess(
       PATH, // this is needed in order to get all the binaries in your current terminal
       ...env,
     },
-    stdio: [
-      null,
-      null,
-      null,
-      'ipc',
-    ],
+    stdio: [null, null, null, 'ipc'],
   });
 }
 
-export function executeNodeScript(
-  scriptPath: string,
-  args: string[] = [],
-): Promise<string> {
+export function executeNodeScript(scriptPath: string, args: string[] = []): Promise<string> {
   const child = createNodeProcess(scriptPath, args);
 
   return new Promise<string>((resolve, reject) => {
@@ -55,7 +47,7 @@ export function executeNodeScript(
     );
 
     child.once('error', (code: number, signal: string) => {
-      const message = `Failed to spawn a child, code: ${ code }, signal: ${ signal }`;
+      const message = `Failed to spawn a child, code: ${code}, signal: ${signal}`;
 
       console.error(message);
 
@@ -68,12 +60,7 @@ export function executeNodeScript(
       reject(errorMessage);
     });
 
-    child.stdout?.pipe(
-      concat(
-        { encoding: 'string' },
-        resolve,
-      ),
-    );
+    child.stdout?.pipe(concat({ encoding: 'string' }, resolve));
 
     child.once('close', () => clearTimeout(timeoutId));
   });

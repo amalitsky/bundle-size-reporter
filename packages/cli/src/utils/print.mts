@@ -1,14 +1,9 @@
 import { EOL } from 'os';
 import { groupBy } from 'lodash-es';
+import type { IFile, IFileGroup } from '@bundle-size-reporter/core';
 
-import { IFile, IFileGroup } from '../types.mjs';
-
-function getSizeInfoString(
-  size: number,
-  diff = 0,
-  dimension = 'KB',
-): string {
-  let result = `${ Math.round(size) }${ dimension }`;
+function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
+  let result = `${Math.round(size)}${dimension}`;
 
   if (diff) {
     result += ' (';
@@ -17,16 +12,13 @@ function getSizeInfoString(
       result += '+';
     }
 
-    result += `${ Math.round(diff) }${ dimension })`;
+    result += `${Math.round(diff)}${dimension})`;
   }
 
   return result;
 }
 
-function getFileReportLine(
-  file: IFile,
-  fileToCompareWith?: IFile,
-): string {
+function getFileReportLine(file: IFile, fileToCompareWith?: IFile): string {
   const { name, size, gzipSize } = file;
 
   const sizeInfoStr = getSizeInfoString(
@@ -39,7 +31,7 @@ function getFileReportLine(
     fileToCompareWith ? gzipSize - fileToCompareWith.gzipSize : 0,
   );
 
-  return `${ name }: ${ sizeInfoStr } / ${ gzipSizeInfoStr }`;
+  return `${name}: ${sizeInfoStr} / ${gzipSizeInfoStr}`;
 }
 
 /**
@@ -50,8 +42,8 @@ export function printTextReport(
   files: IFile[],
   filesToCompareWith: IFile[] = [],
 ): string {
-  const filesByGroup = groupBy(files, file => file.group);
-  const previousFilesByGroup = groupBy(filesToCompareWith, file => file.group);
+  const filesByGroup = groupBy(files, (file) => file.group);
+  const previousFilesByGroup = groupBy(filesToCompareWith, (file) => file.group);
 
   const withComparison = !!filesToCompareWith.length;
 
@@ -62,92 +54,82 @@ export function printTextReport(
   let totalSizeDiff = 0;
   let totalGzipSizeDiff = 0;
 
-  Object.keys(filesByGroup)
-    .forEach((groupId) => {
-      const group = groups.find(group => group.key === groupId);
+  Object.keys(filesByGroup).forEach((groupId) => {
+    const group = groups.find((group) => group.key === groupId);
 
-      reportLines.push(`${ group?.label || groupId } files:`);
+    reportLines.push(`${group?.label || groupId} files:`);
 
-      const prevGroupFilesMap = new Map<string, IFile>();
+    const prevGroupFilesMap = new Map<string, IFile>();
 
-      if (groupId in previousFilesByGroup) {
-        previousFilesByGroup[groupId].forEach((file) => {
-          prevGroupFilesMap.set(file.name, file);
-        });
-      }
+    if (groupId in previousFilesByGroup) {
+      previousFilesByGroup[groupId].forEach((file) => {
+        prevGroupFilesMap.set(file.name, file);
+      });
+    }
 
-      let groupSize = 0;
-      let groupGzipSize = 0;
+    let groupSize = 0;
+    let groupGzipSize = 0;
 
-      let groupSizeDiff = 0;
-      let groupGzipSizeDiff = 0;
+    let groupSizeDiff = 0;
+    let groupGzipSizeDiff = 0;
 
-      filesByGroup[groupId]
-        .sort(({ size: sizeA }, { size: sizeB }) => sizeB - sizeA)
-        .forEach((file) => {
-          const { name, size, gzipSize } = file;
+    filesByGroup[groupId]
+      .sort(({ size: sizeA }, { size: sizeB }) => sizeB - sizeA)
+      .forEach((file) => {
+        const { name, size, gzipSize } = file;
 
-          groupSize += size;
-          groupGzipSize += gzipSize;
+        groupSize += size;
+        groupGzipSize += gzipSize;
 
-          const prevFile = prevGroupFilesMap.get(name);
+        const prevFile = prevGroupFilesMap.get(name);
 
-          if (prevFile) { // file update
-            groupSizeDiff += size - prevFile.size;
-            groupGzipSizeDiff += gzipSize - prevFile.gzipSize;
+        if (prevFile) {
+          // file update
+          groupSizeDiff += size - prevFile.size;
+          groupGzipSizeDiff += gzipSize - prevFile.gzipSize;
 
-            reportLines.push(`- ${ getFileReportLine(file, prevFile) }`);
+          reportLines.push(`- ${getFileReportLine(file, prevFile)}`);
 
-            prevGroupFilesMap.delete(name);
-          } else { // new file added
-            groupSizeDiff += size;
-            groupGzipSizeDiff += gzipSize;
+          prevGroupFilesMap.delete(name);
+        } else {
+          // new file added
+          groupSizeDiff += size;
+          groupGzipSizeDiff += gzipSize;
 
-            reportLines.push(`- ${ getFileReportLine(file) }${ withComparison ? ' (added)' : '' }`);
-          }
-        });
-
-      // files removed from the group in the new (current) build
-      prevGroupFilesMap.forEach((file) => {
-        groupSizeDiff -= file.size;
-        groupGzipSizeDiff -= file.gzipSize;
-
-        reportLines.push(`- ${ getFileReportLine(file) } (deleted)`);
+          reportLines.push(`- ${getFileReportLine(file)}${withComparison ? ' (added)' : ''}`);
+        }
       });
 
-      totalSize += groupSize;
-      totalGzipSize += groupGzipSize;
-      totalSizeDiff += groupSizeDiff;
-      totalGzipSizeDiff += groupGzipSizeDiff;
+    // files removed from the group in the new (current) build
+    prevGroupFilesMap.forEach((file) => {
+      groupSizeDiff -= file.size;
+      groupGzipSizeDiff -= file.gzipSize;
 
-      const groupSizeInfoMsg = getSizeInfoString(
-        groupSize,
-        withComparison ? groupSizeDiff : 0,
-      );
-
-      const groupGzipSizeInfoMsg = getSizeInfoString(
-        groupGzipSize,
-        withComparison ? groupGzipSizeDiff : 0,
-      );
-
-      if (filesByGroup[groupId].length > 1) {
-        reportLines.push(
-          `${ EOL }Group total: ${ groupSizeInfoMsg } / ${ groupGzipSizeInfoMsg }${ EOL }`,
-        );
-      }
+      reportLines.push(`- ${getFileReportLine(file)} (deleted)`);
     });
 
-  const totalSizeMsg = getSizeInfoString(
-    totalSize,
-    withComparison ? totalSizeDiff : 0,
-  );
+    totalSize += groupSize;
+    totalGzipSize += groupGzipSize;
+    totalSizeDiff += groupSizeDiff;
+    totalGzipSizeDiff += groupGzipSizeDiff;
 
-  const totalGzipSizeMsg = getSizeInfoString(
-    totalGzipSize,
-    withComparison ? totalGzipSizeDiff : 0,
-  );
+    const groupSizeInfoMsg = getSizeInfoString(groupSize, withComparison ? groupSizeDiff : 0);
 
-  reportLines.push(`TOTAL: ${ totalSizeMsg } / ${ totalGzipSizeMsg }`);
+    const groupGzipSizeInfoMsg = getSizeInfoString(
+      groupGzipSize,
+      withComparison ? groupGzipSizeDiff : 0,
+    );
+
+    if (filesByGroup[groupId].length > 1) {
+      reportLines.push(`${EOL}Group: ${groupSizeInfoMsg} / ${groupGzipSizeInfoMsg}${EOL}`);
+    }
+  });
+
+  const totalSizeMsg = getSizeInfoString(totalSize, withComparison ? totalSizeDiff : 0);
+
+  const totalGzipSizeMsg = getSizeInfoString(totalGzipSize, withComparison ? totalGzipSizeDiff : 0);
+
+  reportLines.push(`TOTAL: ${totalSizeMsg} / ${totalGzipSizeMsg}`);
 
   return reportLines.join(EOL);
 }

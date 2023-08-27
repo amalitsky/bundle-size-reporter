@@ -13,7 +13,7 @@ if (content.startsWith(shebang)) {
   throw Error('Shebang already present in the file');
 }
 
-const updatedContent = `${ shebang }\n${ content }`;
+const updatedContent = `${shebang}\n${content}`;
 
 await fsPromises.writeFile(filePath, updatedContent, {
   flag: 'r+',

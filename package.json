@@ -6,7 +6,12 @@
   "scripts": {
     "test": "npm run test --ws --if-present",
     "prepare": "husky install",
-    "lint": "npm run lint --ws --if-present",
+    "eslint": "eslint",
+    "eslint-all": "eslint --quiet --ext .js,.ts,.mts,.mjs,.cjs ./",
+    "lint": "npm run eslint-all && npm run prettier-check-all && npm run ts-compile-check",
+    "prettier": "prettier",
+    "prettier-check-all": "prettier --check .",
+    "prettier-fix-all": "prettier --fix .",
     "ts-compile-check": "npm run ts-compile-check --ws --if-present",
     "lerna:publish": "lerna publish from-git --yes",
     "lerna:version": "lerna version --conventional-commits --no-private --sign-git-commit --sign-git-tag"
@@ -43,11 +48,13 @@
     "eslint": "^8.42.0",
     "eslint-config-amalitsky": "^1.0.6",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "husky": "^8.0.3",
     "lerna": "^6.6.2",
     "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "typescript": "^5.1.3"

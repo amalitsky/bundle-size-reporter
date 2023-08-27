@@ -1,15 +1,15 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    versioning-strategy: "increase-if-necessary"
-    directory: "/"
+  - package-ecosystem: npm
+    versioning-strategy: increase-if-necessary
+    directory: /
     schedule:
-      interval: "daily"
-      time: "17:00"
-      timezone: "America/Los_Angeles"
+      interval: daily
+      time: '17:00'
+      timezone: America/Los_Angeles
     reviewers:
-      - "amalitsky"
+      - amalitsky
     labels:
-      - "dependency"
-      - "dependabot"
+      - dependency
+      - dependabot
     open-pull-requests-limit: 3
