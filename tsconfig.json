@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "NodeNext",
     "target": "esnext",
     "lib": [
       "es2020",
@@ -8,7 +8,7 @@
     "sourceMap": true,
     "allowJs": true,
     "strict": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "NodeNext",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": false,
     "noImplicitThis": true,
