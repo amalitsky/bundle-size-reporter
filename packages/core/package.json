@@ -12,7 +12,6 @@
     "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm --dts"
   },
   "module": true,
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -84,7 +84,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    needs: build
+    needs: setup
 
     steps:
       - name: Checkout
