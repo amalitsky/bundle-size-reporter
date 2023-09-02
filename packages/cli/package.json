@@ -3,13 +3,13 @@
   "version": "1.1.4",
   "description": "Bundle Size Reporter CLI",
   "bin": {
-    "bsr": "dist/index.mjs"
+    "bsr": "dist/index.js"
   },
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "ts-compile-check": "tsc --noEmit",
+    "tsc-check": "tsc --noEmit",
     "prepack": "npm run build",
     "prebuild": "rm -rf ./dist",
     "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm",
@@ -26,6 +26,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "private": false,
   "keywords": [
     "CLI",

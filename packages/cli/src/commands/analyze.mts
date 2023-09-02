@@ -3,25 +3,25 @@ import * as path from 'path';
 import type { IBsrConfig } from '@bundle-size-reporter/core';
 
 import type { Argv } from 'yargs';
-import { configFileName, defaultReportFileName } from '../constants.mjs';
+import { defaultConfigFilename, defaultStatsFilename } from '../constants.mjs';
 
-import { analyzeBuildFiles, readFileAsString, saveReportToFile } from '../utils/file-system.mjs';
+import { analyzeBuildFiles, readFileAsString, saveStatsToFile } from '../utils/file-system.mjs';
 
 export function analyze(yargs: Argv): Argv {
   return yargs.command(
-    'analyze [build]',
-    `Generate bundle size report for files of the build:
-  Example: analyze build/ --output path/to/report.json`,
+    'analyze [input]',
+    `Generate bundle size stats and report files for the "input" provided:
+  Example: analyze build/ --output path/to/stats.json`,
     (yargs) => {
       return yargs
-        .positional('build', {
+        .positional('input', {
           describe: 'path to the build directory',
-          alias: 'b',
+          alias: 'i',
           type: 'string',
         })
         .option('config', {
           describe: 'configuration file path',
-          default: configFileName,
+          default: defaultConfigFilename,
           alias: 'c',
           type: 'string',
           async coerce(path: string): Promise<IBsrConfig> {
@@ -30,14 +30,14 @@ export function analyze(yargs: Argv): Argv {
             const config = JSON.parse(configJson) as IBsrConfig;
 
             if (!config.analyze.groups?.length) {
-              throw Error("File groups aren't defined in config file");
+              throw Error('File groups are not defined in config file');
             }
 
             return config;
           },
         })
         .option('output', {
-          describe: 'bundle size report JSON file path',
+          describe: 'bundle size stats file path',
           alias: 'o',
           type: 'string',
         });
@@ -45,10 +45,10 @@ export function analyze(yargs: Argv): Argv {
     async (argv) => {
       const { analyze: analyzeConfig } = await argv.config;
 
-      const buildPath = argv.build || analyzeConfig.build?.location;
+      const buildPath = argv.input || analyzeConfig.input?.path;
 
       if (!buildPath) {
-        throw Error("Path to the build directory wasn't provided");
+        throw Error("Path to the 'input' directory wasn't provided");
       }
 
       const distFolder = path.isAbsolute(buildPath)
@@ -60,17 +60,15 @@ export function analyze(yargs: Argv): Argv {
       if (!files.length) {
         throw Error(
           `No group files were found in "${distFolder}"` +
-            'Make sure the your website build command had run and correct path is passed to bsr',
+            'Make sure the build command was run and correct path is provided',
         );
       }
 
-      let { output: reportPath } = argv;
+      const statsPath = argv.output || analyzeConfig.output?.path || defaultStatsFilename;
 
-      reportPath = reportPath || analyzeConfig.output || defaultReportFileName;
+      await saveStatsToFile(statsPath, files);
 
-      await saveReportToFile(reportPath, files);
-
-      console.log(`Bundle size report saved to ${reportPath}`);
+      console.log(`Bundle size stats saved to ${statsPath}`);
     },
   );
 }

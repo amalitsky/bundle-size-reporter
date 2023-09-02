@@ -6,16 +6,18 @@
     "dist/**"
   ],
   "scripts": {
-    "ts-compile-check": "tsc --noEmit",
+    "tsc-check": "tsc --noEmit",
     "prepack": "npm run build",
     "prebuild": "rm -rf ./dist",
     "build": "NODE_OPTIONS=--unhandled-rejections=strict tsup src/index.mts --format esm --dts"
   },
-  "module": true,
+  "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
   "repository": {

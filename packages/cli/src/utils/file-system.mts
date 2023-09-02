@@ -20,12 +20,12 @@ export function saveContentToFile(path: string, content: string): Promise<void> 
   return fsWriteFile(path, content, { encoding: 'utf-8' });
 }
 
-function getReportAsString(files: IFile[]): string {
+function statsStringify(files: IFile[]): string {
   return JSON.stringify({ files }, null, 2);
 }
 
-export function saveReportToFile(path: string, files: IFile[]): Promise<void> {
-  const reportStr = getReportAsString(files);
+export function saveStatsToFile(path: string, files: IFile[]): Promise<void> {
+  const reportStr = statsStringify(files);
 
   return saveContentToFile(path, reportStr);
 }

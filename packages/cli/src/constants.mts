@@ -1,2 +1,2 @@
-export const defaultReportFileName = 'bundle-size-report.json';
-export const configFileName = 'bsr.config.json';
+export const defaultStatsFilename = 'bundle-size-stats.json';
+export const defaultConfigFilename = 'bsr.config.json';

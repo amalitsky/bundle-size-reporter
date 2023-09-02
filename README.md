@@ -2,10 +2,11 @@
 
 _Bundle Size Reporter_ is a command line tool to measure and keep track of your website _initial load_ files size.
 
-It reads local build file sizes by patterns defined in _config_ file and prints
-them as a simple text report into console and a text file.
+It reads local build file sizes by patterns defined in _config_ file,
+prints them as a simple text report into console,
+and creates a local text file.
 
-Example report:
+#### Example bundle size report:
 
 ```
 HTML files:
@@ -43,8 +44,8 @@ Create `bsr.config.json` file in the package/root folder. Here is a sample confi
 ```json
 {
   "analyze": {
-    "build": {
-      "location": "dist"
+    "input": {
+      "path": "dist"
     },
     "groups": [
       {
@@ -63,17 +64,21 @@ Create `bsr.config.json` file in the package/root folder. Here is a sample confi
         "label": "CSS"
       }
     ],
-    "output": "bundle-size-report.json",
+    "output": {
+      "path": "bundle-size-stats.json"
+    },
     "normalizeFilename": "^.+?\\W+([\\d\\w]{8,32})\\.[\\d\\w]{2,5}$",
     "filenameHashLabel": "[hash]"
   },
   "print": {
-    "output": "bundle-size-report.txt"
+    "output": {
+      "path": "bundle-size-report.txt"
+    }
   }
 }
 ```
 
-### analyze.build
+### analyze.input.path
 
 _type: string **required**_
 
@@ -107,11 +112,11 @@ _type: string_
 Text label for the group of files to be used in the report.
 Group `key` will be used when not set.
 
-#### analyze.output
+#### analyze.output.path
 
 _type: string_
 
-_default value:_ `'bundle-size-report.json'`
+_default value:_ `'bundle-size-stats.json'`
 
 [_Json_ report](#json-report-and-comparison) filename.
 Not to be confused with a [text report file](#printoutput).
@@ -136,25 +141,36 @@ Regular expression which is used to find content-based hashes in filenames.
 with a string to be replaced with a [`filenameHashLabel`](#analyzefilenamehashlabel).
 Only first capturing group will be used.
 
-### print.output
+### print.output.path
 
 _type: string_
 
 Filename for the _text_ format report file.
 Simple text, almost the same as `npx run print` command output.
 
-## Running
+## CLI Commands
 
-- `npx bsr analyze` - read files defined in config file and save report into [_json_ file](#analyzeoutput)
-- `npx bsr print bundle-size-report.json` - print a [text report](#printoutput) out of the _json_ file report created by the `analyze` command above. Path to the _json_ report file must be provided
-- `npx bsr autorun` - sequentially run both commands above
+- `npx bsr analyze` - read files by _groups_ defined in config file and
+  save _stats_ into a [_json_ file](#analyzeoutputpath)
+- `npx bsr print` - print a bundle size report into a terminal out of
+  _stats_ file created by the `analyze` command above.
+  Text report file is created **only** if `output=report.txt` argument is supplied
+  or when [`print.output.path`](#printoutputpath) is set in the config file.
+- `npx bsr autorun` - sequentially run both commands above.
+  To save text report into a file provide a `report` argument to the command
+  or have [`print.output.path`](#printoutputpath) is set in the config file.
 
-To see a list of arguments for any command pass `--help` flag: `npx bsr print --help`.
+To see full list of arguments for any CLI command, run it with a `--help` argument,
+i.e.: `npx bsr print --help`.
 
 ## JSON Report and Comparison
 
-Json formatted report file contains a list of files which matched group globs, and is used as intermediary between `analyze` and `print` commands.
+Json formatted _stats_ file contains a list of files which matched _group_ globs from
+config file, and is used as intermediary between `analyze` and `print` commands.
 
-It allows us to compare changes between two different builds of the same website:
+It also allows to compare changes between two different builds of the same website with
+a following command:
 
-`npx bsr print bundle-size-report.json --compare-with bundle-size-report-previous-build.json`.
+`npx bsr print bundle-size-stats.json --compare-with bundle-size-stats-previous.json`.
+
+Stats file contains file sizes for a particular build and **does not** keep comparison data.
