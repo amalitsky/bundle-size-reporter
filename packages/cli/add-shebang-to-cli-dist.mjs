@@ -2,7 +2,7 @@ import { promises as fsPromises } from 'fs';
 
 const encoding = 'utf8';
 const shebang = '#!/usr/bin/env node';
-const filePath = './dist/index.mjs';
+const filePath = './dist/index.js';
 
 const content = await fsPromises.readFile(filePath, {
   flag: 'r',

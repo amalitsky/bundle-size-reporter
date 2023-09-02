@@ -5,14 +5,16 @@
   "description": "Toolkit for analyzing bundle size",
   "scripts": {
     "test": "npm run test --ws --if-present",
+    "dev": "lerna run build -- --watch",
+    "build": "lerna run build",
     "prepare": "husky install",
     "eslint": "eslint",
     "eslint-all": "eslint --quiet --ext .js,.ts,.mts,.mjs,.cjs ./",
-    "lint": "npm run eslint-all && npm run prettier-check-all && npm run ts-compile-check",
+    "lint": "npm run eslint-all && npm run prettier-check-all && npm run tsc-check",
     "prettier": "prettier",
     "prettier-check-all": "prettier --check .",
-    "prettier-fix-all": "prettier --fix .",
-    "ts-compile-check": "npm run ts-compile-check --ws --if-present",
+    "prettier-fix-all": "prettier --write .",
+    "tsc-check": "lerna run tsc-check",
     "lerna:publish": "lerna publish from-git --yes",
     "lerna:version": "lerna version --conventional-commits --no-private --sign-git-commit --sign-git-tag"
   },
@@ -20,6 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/amalitsky/bundle-size-reporter.git"
   },
+  "type": "module",
   "keywords": [
     "devtools",
     "UI",

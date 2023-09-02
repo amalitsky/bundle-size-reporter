@@ -13,8 +13,8 @@ import {
   bsrBinPath,
   fixturesPath,
   snapshotsPath,
-  defaultFileReportPath,
-  defaultJsonFileReportPath,
+  defaultReportFilePath,
+  defaultStatsFilePath,
 } from './constants.mjs';
 
 const localBuildFolderPath = `${fixturesPath}/local-build`;
@@ -37,29 +37,29 @@ describe('basic functionality', () => {
       `-c=${localBuildConfigPath}`,
     ]);
 
-    assert.equal(output.trim(), `Bundle size report saved to ${defaultJsonFileReportPath}`);
+    assert.equal(output.trim(), `Bundle size stats saved to ${defaultStatsFilePath}`);
 
     const jsonReportExpectationFileContent = await readFile(
-      `${snapshotsPath}/local-build.report.json`,
+      `${snapshotsPath}/local-build.stats.json`,
       'utf-8',
     );
 
     const jsonReportExpectation = JSON.parse(jsonReportExpectationFileContent);
 
-    const jsonReportContent = await readFile(defaultJsonFileReportPath, 'utf-8');
+    const jsonReportContent = await readFile(defaultStatsFilePath, 'utf-8');
 
     const jsonReport = JSON.parse(jsonReportContent);
 
     assert.deepEqual(jsonReport, jsonReportExpectation);
 
-    // doesn't create report file
-    await assert.rejects(() => stat(defaultFileReportPath));
+    // doesn't create text report file
+    await assert.rejects(() => stat(defaultReportFilePath));
   });
 
   it('print', async () => {
     const output = await executeNodeScript(bsrBinPath, [
       'print',
-      `${snapshotsPath}/local-build.report.json`,
+      `${snapshotsPath}/local-build.stats.json`,
       `-c=${localBuildConfigPath}`,
     ]);
 
@@ -70,7 +70,7 @@ describe('basic functionality', () => {
 
     assert.equal(output, outputExpectation);
 
-    const reportFile = await readFile(defaultFileReportPath, 'utf-8');
+    const reportFile = await readFile(defaultReportFilePath, 'utf-8');
 
     const reportFileExpectation = await readFile(
       `${snapshotsPath}/local-build.report.txt`,
@@ -80,15 +80,11 @@ describe('basic functionality', () => {
     assert.equal(`${reportFile}${EOL}`, reportFileExpectation);
 
     // doesn't create (or copy) json file
-    await assert.rejects(() => stat(defaultJsonFileReportPath));
+    await assert.rejects(() => stat(defaultStatsFilePath));
   });
 
   it('autorun', async () => {
-    const output = await executeNodeScript(bsrBinPath, [
-      'autorun',
-      localBuildFolderPath,
-      `-c=${localBuildConfigPath}`,
-    ]);
+    const output = await executeNodeScript(bsrBinPath, ['autorun', `-c=${localBuildConfigPath}`]);
 
     const outputExpectation = await readFile(
       `${snapshotsPath}/local-build.autorun.output.txt`,
@@ -97,18 +93,18 @@ describe('basic functionality', () => {
 
     assert.equal(output, outputExpectation);
 
-    const reportFile = await readFile(defaultFileReportPath, 'utf-8');
+    const reportFile = await readFile(defaultReportFilePath, 'utf-8');
 
     const reportExpectation = await readFile(`${snapshotsPath}/local-build.report.txt`, 'utf-8');
 
     assert.equal(`${reportFile}${EOL}`, reportExpectation);
 
-    const jsonReportContent = await readFile(defaultJsonFileReportPath, 'utf-8');
+    const jsonReportContent = await readFile(defaultStatsFilePath, 'utf-8');
 
     const jsonReport = JSON.parse(jsonReportContent);
 
     const jsonReportExpectationFileContent = await readFile(
-      `${snapshotsPath}/local-build.report.json`,
+      `${snapshotsPath}/local-build.stats.json`,
       'utf-8',
     );
 

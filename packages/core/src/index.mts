@@ -9,15 +9,21 @@ export interface IAnalyzeConfig {
   groups: IFileGroup[];
   normalizeFilename?: string | RegExp | ((fileName: string) => string);
   filenameHashLabel?: string;
-  build?: {
-    location: string;
+  input?: {
+    path: string;
   };
-  output?: string;
+  output?: {
+    path: string;
+  };
 }
 
 interface IPrintConfig {
-  input?: string;
-  output?: string;
+  input?: {
+    path: string;
+  };
+  output?: {
+    path: string;
+  };
 }
 
 export interface IBsrConfig {
