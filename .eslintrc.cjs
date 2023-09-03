@@ -1,3 +1,4 @@
+const WARN = 1;
 const ignorePatterns = ['dist/', 'packages/*/e2e-tests/fixtures/'];
 
 const config = {
@@ -23,6 +24,10 @@ const config = {
     'prettier',
   ],
   ignorePatterns,
+};
+
+config.rules = {
+  '@typescript-eslint/no-explicit-any': WARN,
 };
 
 config.env = {

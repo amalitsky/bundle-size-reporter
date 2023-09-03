@@ -51,15 +51,15 @@
   },
   "homepage": "https://github.com/amalitsky/bundle-size-reporter#readme",
   "dependencies": {
-    "glob": "^9.3.4",
+    "@bundle-size-reporter/core": "^1.0.0",
+    "glob": "^10.3.4",
     "gzip-size": "^7.0.0",
     "lodash-es": "^4.17.21",
-    "yargs": "^17.7.1",
-    "@bundle-size-reporter/core": "^1.0.0"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@types/concat-stream": "^2.0.0",
-    "@types/lodash-es": "^4.17.7",
+    "@types/lodash-es": "^4.17.9",
     "@types/yargs": "^17.0.24",
     "concat-stream": "^2.0.0"
   },
