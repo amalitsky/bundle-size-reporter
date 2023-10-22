@@ -1,6 +1,7 @@
 import { EOL } from 'os';
 import { groupBy } from 'lodash-es';
 import type { IFile, IFileGroup } from '@bundle-size-reporter/core';
+import { getPrintableFilenames } from './get-printable-filenames.mjs';
 
 function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
   let result = `${Math.round(size)}${dimension}`;
@@ -18,22 +19,6 @@ function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
   return result;
 }
 
-function getFileReportLine(file: IFile, fileToCompareWith?: IFile): string {
-  const { name, size, gzipSize } = file;
-
-  const sizeInfoStr = getSizeInfoString(
-    size,
-    fileToCompareWith ? size - fileToCompareWith.size : 0,
-  );
-
-  const gzipSizeInfoStr = getSizeInfoString(
-    gzipSize,
-    fileToCompareWith ? gzipSize - fileToCompareWith.gzipSize : 0,
-  );
-
-  return `${name}: ${sizeInfoStr} / ${gzipSizeInfoStr}`;
-}
-
 /**
  * TODO: Consider adding support for groups being added and removed
  */
@@ -42,8 +27,27 @@ export function printTextReport(
   files: IFile[],
   filesToCompareWith: IFile[] = [],
 ): string {
+  function getFileReportLine(file: IFile, fileToCompareWith?: IFile): string {
+    const { normalizedPath, size, gzipSize } = file;
+
+    const sizeInfoStr = getSizeInfoString(
+      size,
+      fileToCompareWith ? size - fileToCompareWith.size : 0,
+    );
+
+    const gzipSizeInfoStr = getSizeInfoString(
+      gzipSize,
+      fileToCompareWith ? gzipSize - fileToCompareWith.gzipSize : 0,
+    );
+
+    const fileName = printableFileNames.get(normalizedPath);
+
+    return `${fileName}: ${sizeInfoStr} / ${gzipSizeInfoStr}`;
+  }
+
   const filesByGroup = groupBy(files, (file) => file.group);
   const previousFilesByGroup = groupBy(filesToCompareWith, (file) => file.group);
+  const printableFileNames = getPrintableFilenames(files);
 
   const withComparison = !!filesToCompareWith.length;
 
@@ -63,7 +67,7 @@ export function printTextReport(
 
     if (groupId in previousFilesByGroup) {
       previousFilesByGroup[groupId].forEach((file) => {
-        prevGroupFilesMap.set(file.name, file);
+        prevGroupFilesMap.set(file.normalizedPath, file);
       });
     }
 
@@ -76,12 +80,12 @@ export function printTextReport(
     filesByGroup[groupId]
       .sort(({ size: sizeA }, { size: sizeB }) => sizeB - sizeA)
       .forEach((file) => {
-        const { name, size, gzipSize } = file;
+        const { normalizedPath, size, gzipSize } = file;
 
         groupSize += size;
         groupGzipSize += gzipSize;
 
-        const prevFile = prevGroupFilesMap.get(name);
+        const prevFile = prevGroupFilesMap.get(normalizedPath);
 
         if (prevFile) {
           // file update
@@ -90,7 +94,7 @@ export function printTextReport(
 
           reportLines.push(`- ${getFileReportLine(file, prevFile)}`);
 
-          prevGroupFilesMap.delete(name);
+          prevGroupFilesMap.delete(normalizedPath);
         } else {
           // new file added
           groupSizeDiff += size;

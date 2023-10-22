@@ -10,10 +10,11 @@ JS files:
 Group: 308KB / 101KB
 
 JSON files:
-- page-data.json: 29KB / 13KB
+- page-data.json: 77KB / 24KB
+- page-data/page-data.json: 29KB / 13KB
 - 2737273111.json: 6KB / 2KB
 - 3481615850.json: 0KB / 0KB
 
-Group: 35KB / 15KB
+Group: 112KB / 39KB
 
-TOTAL: 450KB / 138KB
+TOTAL: 527KB / 162KB

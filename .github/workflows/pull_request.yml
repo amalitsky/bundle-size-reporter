@@ -142,7 +142,7 @@ jobs:
         run: npm run lint
 
   test:
-    name: E2E Tests
+    name: E2E & Unit Tests
 
     runs-on: ubuntu-latest
 
@@ -175,5 +175,5 @@ jobs:
           path: 'packages/*/dist'
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}-${{ github.sha }}
 
-      - name: Run unit tests
+      - name: Run tests
         run: npm test

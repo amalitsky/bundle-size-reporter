@@ -1,0 +1,1054 @@
+{
+  "componentChunkName": "component---src-page-templates-post-list-post-list-tsx",
+  "path": "/",
+  "result": {
+    "data": {
+      "onePageOfPosts": {
+        "totalCount": 11,
+        "posts": [
+          {
+            "excerpt": "We collect website or webapp usage statistics in order to understand our users better and make well-founded business, marketing and user experience decisions based on it. Analyzing the data is a big topic by itself, but no matter how sophisticated our reports are, they work with the data we gathered. If our data is incomplete, bloated or too noisy, quality of user analytics reports decreases and…",
+            "fields": {
+              "slug": "/posts/2022/exclude-playwright-test-traffic-from-google-analytics/",
+              "readingTime": {
+                "text": "12 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Dec 11, 2022",
+              "updated": null,
+              "tags": [
+                "tech",
+                "automation",
+                "testing",
+                "playwright",
+                "google analytics",
+                "ga4",
+                "gtm"
+              ],
+              "title": "How to Exclude Playwright Test Traffic from Google Analytics",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAACC0lEQVR42pWVv2oVQRTGv92LqJ0i6aw08TaphKgvIOGWgp1G7MUUmXNVBEU7H0Gs7IIz4g2+QF4hFwTRypwRLBNFzMzKzcjMnN27okFnYTizu+xvvvN3gYLLacAZVM4A/lXaL3uDhf5zFAPzOu40Js4geIN9pzHy8RCDuhQ4EOBtpxG8hhc7jeqKFXqDQVTiNB54g+AMvM8quX1XDtTJjpMygyaBNXadRh3VH3lZyouzreI62Oxcvud7QG+wG+N3pEKr5kCrEiztv73AMf96rtC1CguB0S5ZwnC6ChxsikJTAoyuKlSskstPLSFYhWDHePb1eQLeL1VYJWUKixHEhMARSAjTVZxp3mC9CMgKdVKncDnCLGFmFWYR+PEWhj+3cKdMIaGWGK7YrO7QUlrhwxqW/hvIhIozbCAJWbHZ1T7wwj+B4l7NUnddQlRWWASUDyEZPcuEK51CwqVWIf8F2C9sZ1CnXu7F65ol/EgZJWx/ephcvij3h1b9GUOv0Qh4rlBqLtr3qTQUnJTJDSYMZT9j+i3Ld9tpI73M7STC543cDUx4J+65VHsKN5lwSg7p6nDnKk43E1yXGHqxO2lo6JzZNhkjVtjjXMhvmXBSEvRI3I7AJ18eA99f4oTT2JIBse8MRjI0akhHpM5ghQVWWLYbXRha9eeYcN6OgRCAZpInt9fyC8gzsoou/wLNlUy4RvHLbQAAAABJRU5ErkJggg=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/867e7/google-analytics-logo.png",
+                        "srcSet": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/867e7/google-analytics-logo.png 192w",
+                        "sizes": "(min-width: 192px) 192px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/bba31/google-analytics-logo.webp 192w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 192px) 192px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 192,
+                    "height": 192
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's filter out automated UI tests traffic from Google Analytics. We will use Playwright's configuration file to set up a debug_mode variable on browser's localStorage to be picked up by Google Analytics configuration. This way we can run our automated tests in any environment with any client IP and be certain that Google Analytics data is not being polluted."
+            }
+          },
+          {
+            "excerpt": "For this website I use a github action posting an application snapshot report as a pull request comment. Recently this warning started to appear in GitHub workflow run summary view:\n\nThe set-output command is deprecated and will be disabled soon. Please upgrade to using Environment Files.\n\nI went off to investigate it and not only successfully migrated set-output to the recommended $GITHUB_OUTPUT…",
+            "fields": {
+              "slug": "/posts/2022/github-actions-set-output-migration/",
+              "readingTime": {
+                "text": "5 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Nov 12, 2022",
+              "updated": "Feb 22, 2023",
+              "tags": [
+                "tech",
+                "CI",
+                "github actions",
+                "automation"
+              ],
+              "title": "GitHub Actions Set Output Migration For Multiline Pull Request Comments",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwEC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAbJWtAqZoDo8R5SUmJ1//8QAHhAAAQIHAQAAAAAAAAAAAAAAAAMEAQIFBhETMhL/2gAIAQEAAQUCuDcqaH7ZTMCoSZRoPuKxPw27P//EABkRAAMAAwAAAAAAAAAAAAAAAAECEBIxMv/aAAgBAwEBPwHJRuN0J//EABkRAAIDAQAAAAAAAAAAAAAAAAIQARIyQf/aAAgBAgEBPwGpcQ5lf//EACAQAAECBwADAAAAAAAAAAAAAAIBEQADBBASITETFFH/2gAIAQEABj8CpZNMeBEalm/GSJU6bVLOEDRccl+tZ32PNPB+15D4o57ZbLf/xAAgEAACAQQBBQAAAAAAAAAAAAABEQAQITFRQWGBocHw/9oACAEBAAE/IeAAAxncfWhKYOM7Ye0GwS1VYQKyVrfWE7oZ7wKeJMlP/9oADAMBAAIAAwAAABCgBzz/xAAXEQEAAwAAAAAAAAAAAAAAAAABESAx/9oACAEDAQE/EIyapv/EABcRAQADAAAAAAAAAAAAAAAAAAERIDH/2gAIAQIBAT8QkRxQf//EAB0QAQACAgMBAQAAAAAAAAAAAAERIQAxQWGhEFH/2gAIAQEAAT8QAKOVrMObIrFzg6zdIsMIC1rfVOKKaK3gwacvPIqiB0ETsURCmAQKjwCiX1TvIPwz2s8Pz//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg",
+                        "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/b8488/github-logo.jpg 300w,\n/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg 361w,\n/static/5d292e21532ea5857531cdb8b0180637/12093/github-logo.jpg 460w,\n/static/5d292e21532ea5857531cdb8b0180637/565e6/github-logo.jpg 800w",
+                        "sizes": "(min-width: 361px) 361px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/4f573/github-logo.webp 300w,\n/static/5d292e21532ea5857531cdb8b0180637/465b3/github-logo.webp 361w,\n/static/5d292e21532ea5857531cdb8b0180637/f10cf/github-logo.webp 460w,\n/static/5d292e21532ea5857531cdb8b0180637/8dab6/github-logo.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 361px) 361px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 361,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Since set-output command is now deprecated, we will replace it with the new shiny $GITHUB_OUTPUT (and other Environment files) syntax. We will also see if, instead of posting comments on pull request pages, we can leverage the new Job Step Summary approach. Which makes adding custom markdown reports and log messages to our GitHub workflow runs super easy."
+            }
+          },
+          {
+            "excerpt": "Recently we have spent a fabulous week in New York City doing the usual touristic stuff. Central Park, MOMA, Guggenheim, Brooklyn Heights Promenade and four hour long bike rides — to name a few. It was going very well (albeit a bit tiresome) until our phones started to ran out of juice long before the end of the day. We didn’t have power banks (I know, right) and navigating the Big Apple without…",
+            "fields": {
+              "slug": "/posts/2022/iphone-low-power-mode-shortcut-automation/",
+              "readingTime": {
+                "text": "7 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Oct 12, 2022",
+              "updated": null,
+              "tags": [
+                "mobile",
+                "iphone",
+                "ipad",
+                "automation",
+                "ios",
+                "scripts",
+                "tech"
+              ],
+              "title": "iPhone Low Power Mode Shortcuts Automation",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEH0lEQVR42m2V7U9cRRTGb/8C25QFduflbqlIJAZbKyLSraYNEvsFCQvszF6gCxS6rRHZXWIMAQqhUFDaaksovnUbGkjUVitGDY2pNk2KibUhxqRGTTUaE2vtmx/8cMk8ZuZekBo/nOzsmXN+c+45z51rUS7XUC4sbkuLcBEhXCQJFynCRVob5TLNbM/02vOZPR2TpFxEmC0txoWlWRY1CxGgXMxTLnCP2RLcjiPEBQgXZq195L9xXq5mWBYLS8s4bKmDl6gtXcqFy23pMlu6a0nUtcNxY+tIrUt9v44xsV6OgWqWhkX0KcyWS8yWinKhbFuqEI+pHFqvusuH1ZXYOfWV/Ex1VoyqAK03e9yP1Tk61680ooFJH6hPVWFbqhwaQ0HYwUzlq0DiC/yduIg7rZdwo+1LHKk6jg1hB3msAaugrg9MamDK+yP1Y6p1RKCiqBmXqw8CzadwMz6D353T+Cn+Ab6R72PRmcOxnZMoKWxFPl2BLgNTGphmpuHSDVChakscXBddQPN+3HYO4qbzGn6LT+G72JtYqH8LZ2umMF09hf7Kl7G5qA0hFjMVMg+YtnxZmAoJF+pKVAAtu3DL2Ys7TRlcd/pwLT6Cr8U4Pn12FNmdIxiqHEJ6+wBqHsvoiXtAj/EvUFeYS6Ua314HdERxd5eDP5ra8GtzJ75t7sXniVcw0zSBsWf2o6siBaeiG6XF7f8HNEIFs3UfpMplEn1bo7jbUosbrXFcTXRgIZHBmZYRHO7IorvjDJyqYWzZ6OvRTHmlh36F3GhQ90FRFkPg4T1orO3EYpuDq7sT+KQ9gzf2jKJ/Xxaxrgu4P/Mzcp8+AUbrYHJWerhcoSdqlzChiir2YnO8F+HGYWzbPYK396Xw3nPdGHvhEBq650Bf+hH39dzG+kEgr/o0KI0qasddX9xpi3BpgMT2hvJocw/KXxxFaWYMxT2TKO7Loqo/i60Dc6AHFpE7/AtyBv/E2lFgfec1DVGEC5eYV3Klh16FIRJThWXteGrkEJ6cnETZkeN45Ng0iibOYuPEeRQcvQx++HvkT/yFnAO3EHx8EJREFbm3QpEitnn5tVMFgw0o2NSCbePj2PHRSZTPnkTpzDvYdOpjPJi9iMLZH8AHFkBKngcN1oDYcSNs4l0gKcu/rjwdMtNgFcpvANsQR9nAEHZcmkbF+VmUnfsQW+YvoLA7Cxp2QINRENtRVOd4GtbApEWYiBAmQJlcokyqZSghQoXyGtRDrRn1xLtHVenM6+qBxl5F8usUoTE9CBNLuFQ6VzM0y2Jcaui86SPXt4apVGvSWDBQ79KwNBYK1LnE96+K0TkaNq9ZGqYtoB3+KXpa5tcfFpb9VF+w/t5yjG/zPkMD5Rq98CvVj58kzNxAacK8T8Bq83xmL+XHRvxcw/oHq7GsA07XGa0AAAAASUVORK5CYII="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/319306c172691c30c0d43523165b899c/d9381/ios-shortcuts-app-icon.png",
+                        "srcSet": "/static/319306c172691c30c0d43523165b899c/d9381/ios-shortcuts-app-icon.png 200w",
+                        "sizes": "(min-width: 200px) 200px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/319306c172691c30c0d43523165b899c/46280/ios-shortcuts-app-icon.webp 200w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 200px) 200px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 200,
+                    "height": 200
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's leverage Low Power Mode, Apple Shortcuts and Automations to make our phones run almost two times longer on a single battery charge. Native Shortcuts app is totally a fun one to play with!"
+            }
+          },
+          {
+            "excerpt": "While testing this blog with the awesome Playwright I faced the problem of tests failing in CI (github actions) environment. After some trial-and-error and a debugging I figured that all tests failing were initiating (or dependent on) partial application re-rendering or react rehydration. Issued I had were caused by too eager search for the element on the navigation target page. Which wasn’t…",
+            "fields": {
+              "slug": "/posts/2022/wait-for-single-page-navigation-and-re-hydration-playwright-react/",
+              "readingTime": {
+                "text": "6 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 28, 2022",
+              "updated": "Dec 21, 2022",
+              "tags": [
+                "tech",
+                "testing",
+                "react",
+                "playwright",
+                "frontend"
+              ],
+              "title": "How to Wait for Single Page Navigation and Re-hydration with Playwright and React Router",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAEZUlEQVR42r2UbWxTZRTHz+3mFxONAaPEtbfr7Qbbes/T9d6122DIBlvvve3W3ttbxrIJIRJEYUEnRCLRjUQS5qTtoJJgdIgYx8t6KYwYIFkQNTG+ZAYQBhKBEBP9AATjCwrMHXOL8k2jfPAkJ8+X5/nlf/7nPAfg/w5+cxnnGhTAlRHAlRbuDeLTYiD0yFDWXcvxqXJo/XWRDeRcKQGcmz3/DbY9FoWFDe3QuGwuN2PVbOAzZaX1h1XgB73gSgnF/KCXw30BYJZ89w1aMjBLKiRQ1wL4xNDga1PlJkwVziTCkOoMF0PXfBCS2iy+v/y6K+MZFrZW3m8r5DNeqB4NcpiTipklFxfOnOTAnAx2wkeGBheTKtiwc6YK580w0OOd8OLaEGB33TbXgJecKQ+5UsIFV1pY4d5S9rD/QE1BoZ2Yk4DlJLgLzOtRuJxUH/rKVB+cMLX7PjPCD5zuVIPXY/FXl66p/nnaFjfx6dJbzrSHnJsFcqWFq+LeQJ5Z8kbMSc+jJa9DS36HWVLTnZIJYFSPjJ03lR8nTPX0WVO5diGp0fmkRvN7K+iRtGfK0+cjvr+cStLu26XZcsKcRMySCUdkwpxMaEmEltyJBeDGMhiKRQ+fMxU6mVDp84Q6eSoR+W08Gb49s99Lzv6ZZ3wL1TVVZuQLfkMFlQ1VTPrzNQUIGw3cZjl5EnPyDbSkWQXgUCwKfdG23vGESh8Y2uhgLPrkl3rku7GOJuIHhKmStOemM8t/U9onnnH3Vk1VDPvIP1R/QlymHsFX5v3C8pKtcoLtle3mACiKDg1ho35M1+iiqVw7aypXLhgaHVzUSO7XPL/f8c1DJVtd5My6b4n7AsR2B0/gUO1GXKF8ijtDttIMe7/ablIR0OszgNYhDLa1HrfLPmUqdMlQj5oJ1XJuKid+wHur/Ok53ws98pR3AImNyMQOBYgdCBDLS5O4TybcLwVxv91pyQFLtbijWdGhNmzMPahH6JKp0OWkuvLtVnWktreSHh0sJaFXHPE3dLSJTYn1uCRyBF9quoq7a24w20dLsjAvAe6XHIVhp22PwXFDc7wZi8ISLb76kB6hs0mFvo0ptH6lRNOy/CSf8pAzy39cmfd1sx11PZidPW4rY5b0E47I3j9n0FHwECqfAqhZDLR8DndU10BV9Eg2Fs0fjkXyz7WpJ90vi1SSdd3kMwIV/DsoEY4GbJjdjPgdmFT014DDvLAO0LgQQF4CV5JhTld1oGfqgYxmAO+z033x1g+FHpm8mSpie2oI3wsS7qi9hm/UxXBnCPDdYBE7hoUfczcabWjoCYC6TliuxYpodYij5HwOZq2EOBx3sIb2xWJ79C3sDu/BVeENYovBF2C7Qo7CctgV+ueNE2gxYFPXAvDP7uB0OAKsoR2q1s4D/w+lgL2NgG1xwOGggx3zg1if/HdrTAzr4J/TAaw5CT6trajyhQaHn6Zz2NdYhCsUTozogF3Re9/c2JIAsdkAsTkBYkviby/+AYl9wKiWUJiUAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/eb217c74fd12bfa1567ebe365d480127/d9381/playwright-logo.png",
+                        "srcSet": "/static/eb217c74fd12bfa1567ebe365d480127/d9381/playwright-logo.png 200w",
+                        "sizes": "(min-width: 200px) 200px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/eb217c74fd12bfa1567ebe365d480127/46280/playwright-logo.webp 200w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 200px) 200px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 200,
+                    "height": 200
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "We look into ways to write robust end-to-end tests involving navigation between pages in a single page application (pun intended). We evaluate page-specific element selectors approach and come up with the custom \"UI is ready\" router navigation event in attempt to skip element selectors altogether."
+            }
+          },
+          {
+            "excerpt": "The need to invalidate existent GitHub action caches can raise at any time but is especially useful when working on various build optimizations and tuning GitHub actions workflow itself. Since there is no native way to do so, we have to rely on updating cache key and restore-keys fields. Fortunately, we can use expressions referencing environment or repository variables.\n\nThen, by updating those…",
+            "fields": {
+              "slug": "/posts/2022/github-actions-cache-invalidation/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "May 13, 2022",
+              "updated": "Mar 08, 2022",
+              "tags": [
+                "tech",
+                "CI",
+                "github actions",
+                "automation"
+              ],
+              "title": "Invalidate or Clear Github Actions Cache",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwEC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAbJWtAqZoDo8R5SUmJ1//8QAHhAAAQIHAQAAAAAAAAAAAAAAAAMEAQIFBhETMhL/2gAIAQEAAQUCuDcqaH7ZTMCoSZRoPuKxPw27P//EABkRAAMAAwAAAAAAAAAAAAAAAAECEBIxMv/aAAgBAwEBPwHJRuN0J//EABkRAAIDAQAAAAAAAAAAAAAAAAIQARIyQf/aAAgBAgEBPwGpcQ5lf//EACAQAAECBwADAAAAAAAAAAAAAAIBEQADBBASITETFFH/2gAIAQEABj8CpZNMeBEalm/GSJU6bVLOEDRccl+tZ32PNPB+15D4o57ZbLf/xAAgEAACAQQBBQAAAAAAAAAAAAABEQAQITFRQWGBocHw/9oACAEBAAE/IeAAAxncfWhKYOM7Ye0GwS1VYQKyVrfWE7oZ7wKeJMlP/9oADAMBAAIAAwAAABCgBzz/xAAXEQEAAwAAAAAAAAAAAAAAAAABESAx/9oACAEDAQE/EIyapv/EABcRAQADAAAAAAAAAAAAAAAAAAERIDH/2gAIAQIBAT8QkRxQf//EAB0QAQACAgMBAQAAAAAAAAAAAAERIQAxQWGhEFH/2gAIAQEAAT8QAKOVrMObIrFzg6zdIsMIC1rfVOKKaK3gwacvPIqiB0ETsURCmAQKjwCiX1TvIPwz2s8Pz//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg",
+                        "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/b8488/github-logo.jpg 300w,\n/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg 361w,\n/static/5d292e21532ea5857531cdb8b0180637/12093/github-logo.jpg 460w,\n/static/5d292e21532ea5857531cdb8b0180637/565e6/github-logo.jpg 800w",
+                        "sizes": "(min-width: 361px) 361px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/4f573/github-logo.webp 300w,\n/static/5d292e21532ea5857531cdb8b0180637/465b3/github-logo.webp 361w,\n/static/5d292e21532ea5857531cdb8b0180637/f10cf/github-logo.webp 460w,\n/static/5d292e21532ea5857531cdb8b0180637/8dab6/github-logo.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 361px) 361px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 361,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Cache invalidation is one of the most complex computer science tasks. Especially so for GitHub action workflows since there is no embedded mechanism to clean or invalidate present caches. However, what we can do is to update cache keys with a dedicated environment variable or repository variable."
+            }
+          },
+          {
+            "excerpt": "In this post I want to explore and walk through options we have to get Dependabot PRs checked and verified with GitHub actions. Context\n\nSetting up GitHub Dependabot for the repository was one of the best workflow decisions I ever made. Return on the modest investment of setting it up is huge. I don’t have to worry about updating dependencies ever again. Unless, of course, it is a major version…",
+            "fields": {
+              "slug": "/posts/2021/dependabot-pull-request-github-actions/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Dec 07, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "github",
+                "github actions",
+                "CI",
+                "automation",
+                "devflow"
+              ],
+              "title": "Github Actions for Dependabot PRs",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAAWABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAcBA//EABQBAQAAAAAAAAAAAAAAAAAAAAT/2gAMAwEAAhADEAAAAeNGnVGIzGljntHBuwMD/8QAGxAAAwADAQEAAAAAAAAAAAAAAQIDAAQREhP/2gAIAQEAAQUCLvLbIbveY32ltt7JJy9C9TKpZgRn/8QAGhEAAQUBAAAAAAAAAAAAAAAAAQIEEBEx8P/aAAgBAwEBPwF1iYegCq7I/8QAFhEAAwAAAAAAAAAAAAAAAAAABBBB/9oACAECAQE/ARqhKv/EAB8QAQACAwABBQAAAAAAAAAAAAEAAhESUQMEISIxcv/aAAgBAQAGPwK7WqmY49TUPyT5XLvfqWtWjjMcedDmkNrbPcTbKavsRTz2DmpAtbZ7P//EAB0QAQADAQACAwAAAAAAAAAAAAEAETEhQVFhgaH/2gAIAQEAAT8hvin4vjGswwuqUAeuiHYbac0dgafPKWpSFTO87+ofzss+bjA1mD8gLBHWVc//2gAMAwEAAgADAAAAEDzI/P/EABsRAAEEAwAAAAAAAAAAAAAAABEBECExUYGx/9oACAEDAQE/EBhFLWmG0Z4z/8QAGhEAAgIDAAAAAAAAAAAAAAAAARARwTFRYf/aAAgBAgEBPxAco1aACI5a/8QAHRABAQACAwADAAAAAAAAAAAAAREAIUFRYTFxgf/aAAgBAQABPxB6HaUKAmr1fMRBy3h4Ld4h8hpR8sIYytGLEQE41cpvYUnqpv7xppFFavAhgnDWpFT0WYwEqLh6Fp/c04Cgtng0Z//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/a284a868ed3c6ca0eefd85d458e55f77/6dba2/weekend.jpg",
+                        "srcSet": "/static/a284a868ed3c6ca0eefd85d458e55f77/6dba2/weekend.jpg 268w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/59cdc/weekend.jpg 300w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/bb8bd/weekend.jpg 460w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/4f704/weekend.jpg 800w",
+                        "sizes": "(min-width: 268px) 268px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/a284a868ed3c6ca0eefd85d458e55f77/de186/weekend.webp 268w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/27027/weekend.webp 300w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/a072d/weekend.webp 460w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/63ad5/weekend.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 268px) 268px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 268,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's learn how to extend existent Pull Request Update GitHub Actions workflow with steps specific for Dependabot pull requests (i.e. labels). We will add two jobs to the existent pull_request workflow and experiment with separate \"before\" and \"after\" workflow_run event workflows. Fortunately, after the recent GitHub actions update we don't need to use a separate pull_request_target event workflow as a workaround."
+            }
+          },
+          {
+            "excerpt": "This blog is very new and quite empty (less than 20 pages) and yet I was experiencing 10 minutes long production builds on my local machine. And GitHub actions (which execute the production build at some point) were taking anywhere from 14 to 20 minutes. Which is too long of a wait for a website preview deployed or pull requests verified. I decided to figure out what can be optimized and ended up…",
+            "fields": {
+              "slug": "/posts/2021/optimize-github-actions-with-cache/",
+              "readingTime": {
+                "text": "8 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Nov 23, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "github actions",
+                "CI",
+                "automation",
+                "GatsbyJs",
+                "devflow",
+                "npm"
+              ],
+              "title": "Optimize GitHub Actions for UI Builds and Tests with Cache",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABVElEQVR42n1Si26DMAzk/39x07R2fYyqAvK0nQc3OZSKrt2QTomRc/ad3e0vFu+nCZ+9hQ2MyAmB5A6Nf//7C5rXHa8Ob8cRu97CRQZJAvGCLZGkDEkJKWWkXJ6g7zSv8xxxsCdQCHDeY57nhlIrQoywPsJ5xsQOF3sFR8L2y3kpFFlgfETnSWAjwUduFV51x1wwsMHXcIYZDabJgGghTimBWRUUKFe3SMkIL7xaYz0pCQJHiCSwSJNe64xcCnIuYOVQwo+zwb53YMmbAazEt5i1Sy1cQZIfFKxvVnTfo8f+OoBI4CMhRGoGqwQ971Ykgb91WEpdUOu9wzW3cxyxGw9w1mMYR4yTATNjntG8UaN9YAxkcJp6CMnDUEopzcdIt6FomyKLFG5d5Sc5IgVGPHp7hXcek9kOJTdCXR21qPtvSbd3Suolg4hBzG1VcqlYh7ru4Q+uogpGp3tyYgAAAABJRU5ErkJggg=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/45fb13942b862c1f8a208983935fb3c4/09eca/gh-action-runs.png",
+                        "srcSet": "/static/45fb13942b862c1f8a208983935fb3c4/d0097/gh-action-runs.png 300w,\n/static/45fb13942b862c1f8a208983935fb3c4/229ee/gh-action-runs.png 460w,\n/static/45fb13942b862c1f8a208983935fb3c4/09eca/gh-action-runs.png 600w,\n/static/45fb13942b862c1f8a208983935fb3c4/0085c/gh-action-runs.png 920w,\n/static/45fb13942b862c1f8a208983935fb3c4/2ffff/gh-action-runs.png 1000w",
+                        "sizes": "(min-width: 600px) 600px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/45fb13942b862c1f8a208983935fb3c4/8b74b/gh-action-runs.webp 300w,\n/static/45fb13942b862c1f8a208983935fb3c4/1d905/gh-action-runs.webp 460w,\n/static/45fb13942b862c1f8a208983935fb3c4/8d80e/gh-action-runs.webp 600w,\n/static/45fb13942b862c1f8a208983935fb3c4/4722b/gh-action-runs.webp 920w,\n/static/45fb13942b862c1f8a208983935fb3c4/6e214/gh-action-runs.webp 1000w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 600px) 600px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 600,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "GitHub Actions is an awesome and very powerful tool. Let's explore workflow running time optimizations with caching node_modules and production build artifacts. We will be using \"Dependency Cache\" GH Actions feature driven by \"actions/cache\". Hint: as always, cache invalidation is a key."
+            }
+          },
+          {
+            "excerpt": "Just finished this very insightful and down-to-earth book on team management basics. Comes with loads of actionable advice, check-lists and quizzes. It covers everything from first month on the job and managing yourself to efficient meetings and growing leadership within your organization. Author, Julie Zhuo joined Facebook early on as a designer intern and since then has grown to the position of…",
+            "fields": {
+              "slug": "/posts/2021/becoming-manager-book-review/",
+              "readingTime": {
+                "text": "3 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 03, 2021",
+              "updated": null,
+              "tags": [
+                "review",
+                "book",
+                "management",
+                "tech",
+                "highlights"
+              ],
+              "title": "The Making of a Manager by Julie Zhuo",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAGAEAAgMAAAAAAAAAAAAAAAAAAQIDBAX/2gAMAwEAAhADEAAAAeyzI+zktICHZportAaP/8QAHhAAAgICAgMAAAAAAAAAAAAAAQIDEQASBBAUIjH/2gAIAQEAAQUCLHb26ZbcQR0vzxUZjxoqVQmHe6kwXX//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARAS/9oACAEDAQE/AUtV/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAIxAAAQMCBQUAAAAAAAAAAAAAAAECESExEBIiMnFBgZGSof/aAAgBAQAGPwKER3MF8HLD/Y3x3LyVa7Mv0onJCU6mlyIbk8Fbn//EAB4QAAICAgMBAQAAAAAAAAAAAAERACExQVFhgXHw/9oACAEBAAE/IQt45BPwoIMhqsID5CgJd2eo2TOYsJ17B0x53EAdqxXCgUhQlvspkAlYmFY7hQO9jP/aAAwDAQACAAMAAAAQBwq9/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAhEf/aAAgBAwEBPxAO4MOKD2QmZOt//8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxDU6xH/xAAdEAEAAgIDAQEAAAAAAAAAAAABESEAMVFxkUGB/9oACAEBAAE/ECgQgp07nDkfOSi2XnHIxlpAipVSz11jiDgAkF54Wu28IrTMgA8NYyTs6AEIJItt5iWajQCqLsg31hL0QLlWv7lVjQi+zrIiDocr9d4SjPQQL1n/2Q=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/0b98fb0a42074a91ca09be79e459921f/5fb8f/book-cover.jpg",
+                        "srcSet": "/static/0b98fb0a42074a91ca09be79e459921f/5fb8f/book-cover.jpg 199w,\n/static/0b98fb0a42074a91ca09be79e459921f/d8060/book-cover.jpg 300w,\n/static/0b98fb0a42074a91ca09be79e459921f/60e46/book-cover.jpg 460w,\n/static/0b98fb0a42074a91ca09be79e459921f/10ea4/book-cover.jpg 920w,\n/static/0b98fb0a42074a91ca09be79e459921f/d3317/book-cover.jpg 1600w",
+                        "sizes": "(min-width: 199px) 199px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/0b98fb0a42074a91ca09be79e459921f/f4899/book-cover.webp 199w,\n/static/0b98fb0a42074a91ca09be79e459921f/62a87/book-cover.webp 300w,\n/static/0b98fb0a42074a91ca09be79e459921f/9fa22/book-cover.webp 460w,\n/static/0b98fb0a42074a91ca09be79e459921f/f0060/book-cover.webp 920w,\n/static/0b98fb0a42074a91ca09be79e459921f/c03dd/book-cover.webp 1600w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 199px) 199px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 199,
+                    "height": 301
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": null
+            }
+          },
+          {
+            "excerpt": "During my days at VMware I was reviewing multiple UI code Pull Requests (also known as Merge Requests or Change Lists) per day. Changes could have anything from a small and isolated feature to high scale refactoring spread all over the code base. Initially I didn’t have any specific approach to the reviewing process and was simply going file by file, line by line. However, as number of PRs coming…",
+            "fields": {
+              "slug": "/posts/2021/efficient-code-review/",
+              "readingTime": {
+                "text": "10 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 02, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "devflow",
+                "workflow"
+              ],
+              "title": "Efficient Code Review",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAADnElEQVR42l2UyXLiWBBF/f+f0KtedERvqiq6XLYx2BiMGYRmvVkTCCEc/RenQ5LtcnuRIYIHJ++7N1NXRmuMMWipyLOYQoZUVuK0oC40x8rRdS2vr2eapqRtT3Rd/7miqR2H0tJ1Ry5dw+ul40p/BhqF3G7wb59QMiTYL/CW94TBM0r7CB0NpUyG0glaS5RSaBOTqx2X9vgJqDUuyyicRGy3GCkRMiUOV/j+E0nmI0RInG1I1Q6lU4w2GGMRIkKEa9pTw1UP66+t+6cQWJWRpyFWS0SaILMEo2Ok3BKnKzK1QWgPoUP0ADQIESMjj0v3duW+rLX4iy0qCXEqwdn+x/1ZhlQZQbgiSJZkekumd2RqjzZqAEolEVnMa3ccFfawvpQXUlpJZRT2rbuUGVHssQ9e8JMnUr0iEitSvUWbaPBQKUnuJP++diPQuYKiqnBaUqiUuq7JnWP0V2OdRZqUxfOU9dM9/mpGFC3I1Bah99SV5lhrLpeWq16Zs5o08tksFmwf52PHPH8D2sFHbznnZXLH9n5C/DQheJ4O4UgTcmxychNxPr+FUpYOmcXMZw9MftwgRDYClRqsiAKf9c0vVre3LK5v2fTQ9RxlxNBUqBilAs7n0/uVc4xReF7A9G5KqtfkhUUrjbEWkaXI3SNi/4j/PCV5ecDJLXmuh6SHkcsd5/YDOPrVq9psdnz/+2aYsWGU3lL0vRUmeUZFC2z2TFX4VPV43gdTFDlqE4/APHfDl32XzXLH9z/+wahx4M2bAilCCu2hkjVOB5SlxNrxzFiDzCTBfPd/he8BSG8xwLV5/4PFiJhC7bBGYHWGkr1v4wz3T2sM7enwBWgtWRyjYg+d9BuiBhuMUsjQ41CmtKeCw6HAqJQitxTOUZYF9eFA0zRfFRpkmuCcwn9e4s0eBjvSvom3QAZ7itLRNEfObUtzLGkOBadDybEqfu/yZ2A/g7affi15mc3Y3c7Iopiqzsn8LUqJYejPTcWpqYdXWiUzamdpT8f3UPIP4HuyIolZrZdMf024++sn4fyBdPVAunsZPYsimmJU1dS90gNt88XDj1KasqoRImG32TCfPLL69oPw9hq1vsMkAaufC8KlT9ceOB1y2jrn3CvsN6Eoio8XRF+5dVRlicv79BS+7zG/nrD8dk00nyKimP1kg9qt6U6HAdpvyaVrfyv8Wr0NY7mhiZSKNBXD3j/M9tz8eU/pbdDrgCLK6Nozl+7Mf1lCaPmSQChyAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/69ebe1ed67c545be4b675344b2f3c167/c58f0/cover.png",
+                        "srcSet": "/static/69ebe1ed67c545be4b675344b2f3c167/c58f0/cover.png 300w,\n/static/69ebe1ed67c545be4b675344b2f3c167/30bae/cover.png 460w,\n/static/69ebe1ed67c545be4b675344b2f3c167/9df93/cover.png 920w,\n/static/69ebe1ed67c545be4b675344b2f3c167/7cd14/cover.png 968w",
+                        "sizes": "(min-width: 300px) 300px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/69ebe1ed67c545be4b675344b2f3c167/0af71/cover.webp 300w,\n/static/69ebe1ed67c545be4b675344b2f3c167/9a272/cover.webp 460w,\n/static/69ebe1ed67c545be4b675344b2f3c167/3a36a/cover.webp 920w,\n/static/69ebe1ed67c545be4b675344b2f3c167/c3e4f/cover.webp 968w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 300px) 300px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 300,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Reviewing code is complex and demanding. When implemented correctly it can truly lift the project and the team up to the next level. On the flip side, when done wrong, it causes more harm than good. Let's dive deep into what makes for a good code review and how to approach it in a scalable, respectful and mutually beneficial manner."
+            }
+          },
+          {
+            "excerpt": "Everyone knows AngularJs (version 1.x) is done and dusted! Why write anything about it today, in 2021? Well, the reason is pretty simple — history moves in spirals, and things we’ve learned yesterday shape today and tomorrow.\n\nKnowledge of prior frameworks and related tooling comes “for free” if you had been in the industry long enough and used them on a daily basis. However, if you are a newcomer…",
+            "fields": {
+              "slug": "/posts/2021/angularjs-good-parts/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "May 08, 2021",
+              "updated": "Nov 23, 2022",
+              "tags": [
+                "tech",
+                "angularjs",
+                "framework",
+                "UI"
+              ],
+              "title": "Good Parts of AngularJs Framework",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADwElEQVR42o2UT2hcRRzHZ2detptk3+wmlgoiUvLHuN28mdlNijdr8eBFEwIepNJqwRQPPRdaK+it5yK04M2qwWuJehCS3TebJhRLCh6SbN6k29CmFpo26rpps7vz03lvdlvoCv3Bj3m8w2e+v998fz+EOoQiIswy4WgDi1jZ4WQhyUiRerGFJEO+6yGfMvRCEcIwjykiiMICb+AIbECFlAF5WFJGJGUx2QmqMG8rUkTgwICIQIH5H+OogtiB8r789GIqNz3nZg8UXQ9JlyEDs2BzQag4vKAFC54FY04VEVMB5jPKyW2X0SiUEofAT/Ft6XozkrIpSRm10CjtRS2AASYUEW8HmF9SRNxWRIBycrCO3oBN/kHjxvhkoxAfAZni4LseSMo2fde7JCk7IilLSOq1FRKr7EQIsRlg3lDxfL2MDjar3/2k7/04q+fQa03ZJ+qSsoakDHzKIDxd77gp2XcZiYBRuVNBBHuiiGgqJ6cDlNWVV97RulrT9eo/emnoqC4mMlqmuPZdr+lT9lhG0ImwrxaIrUJh1ekAc63iY7qMBmD784ugIYpbX12EeXQQZF9OS8paaYCHbS+xAcUs8NWAiN02FHmgEuPQfPgnPLpyFR58fxX2dv6C0kt58HtHDaRpYTu+6w1G3vRiETAqOa2IqASYg4rnm2U0oO9/cj5UtpGZgOXc++H32qlzVqVoASuSeimrMNa2i/XfdauwEaBR/fjmKtRv3YVKZhJuiPdg9/Yd+PvmCvg9h6D1MJKyZdu/pz4MMMf2nFVdeVhHw/Wtdz+D/4vfJ07BfGywIdPCAH+x5eLQhyYCzB3bx29Ul/HeUL06W9TNag3uf3we7p04B2ufnoXV6bPQrO3Cg58Leh4N1GWaG+DlcFLccCTb4xdZZ9/Yl+toBO68+dGeUbLz9YxeQy/rVTQMRTQIv6L9+u7lH8JHXz567EnBGYZSf/4LozAcw5bCtrm7Dx83k/HHh2egNnd9bzMz2QxQFta7x/W1/rwudmfgt/FJ/aiwVF85eQYKzutQ2j92rAV8bl0FKBtXTu50gLwtozS0DhH1MuG65HraT7G635OFAhkGvye7JdP8dDE+ErdA1AHoIeXkkIrn+1V87IJyRE1hDmXHAJn2aTjDNdmXuyD7RL9MC1RMZNDzQNM/k0740iRA2RAeEDGksPi27HBYcM3seleky4b83mwLROyDhNum826MMmbAZrmudHGTRxaT7K2lXoaK1EPPLlj5Ipv76V4UeNXhJtG1JEOLSYbtxu6s6L/4F2l9Xtss0OgpAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/9db278d630f5fabd8e7ba16c2e329a3a/b3f47/angular-logo.png",
+                        "srcSet": "/static/9db278d630f5fabd8e7ba16c2e329a3a/b3f47/angular-logo.png 250w",
+                        "sizes": "(min-width: 250px) 250px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/9db278d630f5fabd8e7ba16c2e329a3a/e4cf5/angular-logo.webp 250w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 250px) 250px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 250,
+                    "height": 250
+                  }
+                }
+              },
+              "galleryImages": [
+                [
+                  [
+                    {
+                      "title": "Historical interest in AngularJs"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "title": "Interest in AngularJs by region in 2022"
+                    }
+                  ]
+                ]
+              ],
+              "summary": "Reminiscing on coding approaches and application architecture patterns introduced and popularized by AngularJs 1.x framework in the front-end community. Framework itself is gone and dusted, but its legacy is very much alive."
+            }
+          }
+        ]
+      }
+    },
+    "pageContext": {
+      "skip": 0,
+      "currentPage": 1,
+      "limit": 10,
+      "tag": "tech"
+    }
+  },
+  "staticQueryHashes": [],
+  "slicesMap": {},
+  "componentChunkName": "component---src-page-templates-post-list-post-list-tsx",
+  "path": "/",
+  "result": {
+    "data": {
+      "onePageOfPosts": {
+        "totalCount": 11,
+        "posts": [
+          {
+            "excerpt": "We collect website or webapp usage statistics in order to understand our users better and make well-founded business, marketing and user experience decisions based on it. Analyzing the data is a big topic by itself, but no matter how sophisticated our reports are, they work with the data we gathered. If our data is incomplete, bloated or too noisy, quality of user analytics reports decreases and…",
+            "fields": {
+              "slug": "/posts/2022/exclude-playwright-test-traffic-from-google-analytics/",
+              "readingTime": {
+                "text": "12 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Dec 11, 2022",
+              "updated": null,
+              "tags": [
+                "tech",
+                "automation",
+                "testing",
+                "playwright",
+                "google analytics",
+                "ga4",
+                "gtm"
+              ],
+              "title": "How to Exclude Playwright Test Traffic from Google Analytics",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAACC0lEQVR42pWVv2oVQRTGv92LqJ0i6aw08TaphKgvIOGWgp1G7MUUmXNVBEU7H0Gs7IIz4g2+QF4hFwTRypwRLBNFzMzKzcjMnN27okFnYTizu+xvvvN3gYLLacAZVM4A/lXaL3uDhf5zFAPzOu40Js4geIN9pzHy8RCDuhQ4EOBtpxG8hhc7jeqKFXqDQVTiNB54g+AMvM8quX1XDtTJjpMygyaBNXadRh3VH3lZyouzreI62Oxcvud7QG+wG+N3pEKr5kCrEiztv73AMf96rtC1CguB0S5ZwnC6ChxsikJTAoyuKlSskstPLSFYhWDHePb1eQLeL1VYJWUKixHEhMARSAjTVZxp3mC9CMgKdVKncDnCLGFmFWYR+PEWhj+3cKdMIaGWGK7YrO7QUlrhwxqW/hvIhIozbCAJWbHZ1T7wwj+B4l7NUnddQlRWWASUDyEZPcuEK51CwqVWIf8F2C9sZ1CnXu7F65ol/EgZJWx/ephcvij3h1b9GUOv0Qh4rlBqLtr3qTQUnJTJDSYMZT9j+i3Ld9tpI73M7STC543cDUx4J+65VHsKN5lwSg7p6nDnKk43E1yXGHqxO2lo6JzZNhkjVtjjXMhvmXBSEvRI3I7AJ18eA99f4oTT2JIBse8MRjI0akhHpM5ghQVWWLYbXRha9eeYcN6OgRCAZpInt9fyC8gzsoou/wLNlUy4RvHLbQAAAABJRU5ErkJggg=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/867e7/google-analytics-logo.png",
+                        "srcSet": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/867e7/google-analytics-logo.png 192w",
+                        "sizes": "(min-width: 192px) 192px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/df7130ea2c043dd9f52dc70f5f15c6b9/bba31/google-analytics-logo.webp 192w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 192px) 192px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 192,
+                    "height": 192
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's filter out automated UI tests traffic from Google Analytics. We will use Playwright's configuration file to set up a debug_mode variable on browser's localStorage to be picked up by Google Analytics configuration. This way we can run our automated tests in any environment with any client IP and be certain that Google Analytics data is not being polluted."
+            }
+          },
+          {
+            "excerpt": "For this website I use a github action posting an application snapshot report as a pull request comment. Recently this warning started to appear in GitHub workflow run summary view:\n\nThe set-output command is deprecated and will be disabled soon. Please upgrade to using Environment Files.\n\nI went off to investigate it and not only successfully migrated set-output to the recommended $GITHUB_OUTPUT…",
+            "fields": {
+              "slug": "/posts/2022/github-actions-set-output-migration/",
+              "readingTime": {
+                "text": "5 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Nov 12, 2022",
+              "updated": "Feb 22, 2023",
+              "tags": [
+                "tech",
+                "CI",
+                "github actions",
+                "automation"
+              ],
+              "title": "GitHub Actions Set Output Migration For Multiline Pull Request Comments",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwEC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAbJWtAqZoDo8R5SUmJ1//8QAHhAAAQIHAQAAAAAAAAAAAAAAAAMEAQIFBhETMhL/2gAIAQEAAQUCuDcqaH7ZTMCoSZRoPuKxPw27P//EABkRAAMAAwAAAAAAAAAAAAAAAAECEBIxMv/aAAgBAwEBPwHJRuN0J//EABkRAAIDAQAAAAAAAAAAAAAAAAIQARIyQf/aAAgBAgEBPwGpcQ5lf//EACAQAAECBwADAAAAAAAAAAAAAAIBEQADBBASITETFFH/2gAIAQEABj8CpZNMeBEalm/GSJU6bVLOEDRccl+tZ32PNPB+15D4o57ZbLf/xAAgEAACAQQBBQAAAAAAAAAAAAABEQAQITFRQWGBocHw/9oACAEBAAE/IeAAAxncfWhKYOM7Ye0GwS1VYQKyVrfWE7oZ7wKeJMlP/9oADAMBAAIAAwAAABCgBzz/xAAXEQEAAwAAAAAAAAAAAAAAAAABESAx/9oACAEDAQE/EIyapv/EABcRAQADAAAAAAAAAAAAAAAAAAERIDH/2gAIAQIBAT8QkRxQf//EAB0QAQACAgMBAQAAAAAAAAAAAAERIQAxQWGhEFH/2gAIAQEAAT8QAKOVrMObIrFzg6zdIsMIC1rfVOKKaK3gwacvPIqiB0ETsURCmAQKjwCiX1TvIPwz2s8Pz//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg",
+                        "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/b8488/github-logo.jpg 300w,\n/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg 361w,\n/static/5d292e21532ea5857531cdb8b0180637/12093/github-logo.jpg 460w,\n/static/5d292e21532ea5857531cdb8b0180637/565e6/github-logo.jpg 800w",
+                        "sizes": "(min-width: 361px) 361px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/4f573/github-logo.webp 300w,\n/static/5d292e21532ea5857531cdb8b0180637/465b3/github-logo.webp 361w,\n/static/5d292e21532ea5857531cdb8b0180637/f10cf/github-logo.webp 460w,\n/static/5d292e21532ea5857531cdb8b0180637/8dab6/github-logo.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 361px) 361px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 361,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Since set-output command is now deprecated, we will replace it with the new shiny $GITHUB_OUTPUT (and other Environment files) syntax. We will also see if, instead of posting comments on pull request pages, we can leverage the new Job Step Summary approach. Which makes adding custom markdown reports and log messages to our GitHub workflow runs super easy."
+            }
+          },
+          {
+            "excerpt": "Recently we have spent a fabulous week in New York City doing the usual touristic stuff. Central Park, MOMA, Guggenheim, Brooklyn Heights Promenade and four hour long bike rides — to name a few. It was going very well (albeit a bit tiresome) until our phones started to ran out of juice long before the end of the day. We didn’t have power banks (I know, right) and navigating the Big Apple without…",
+            "fields": {
+              "slug": "/posts/2022/iphone-low-power-mode-shortcut-automation/",
+              "readingTime": {
+                "text": "7 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Oct 12, 2022",
+              "updated": null,
+              "tags": [
+                "mobile",
+                "iphone",
+                "ipad",
+                "automation",
+                "ios",
+                "scripts",
+                "tech"
+              ],
+              "title": "iPhone Low Power Mode Shortcuts Automation",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEH0lEQVR42m2V7U9cRRTGb/8C25QFduflbqlIJAZbKyLSraYNEvsFCQvszF6gCxS6rRHZXWIMAQqhUFDaaksovnUbGkjUVitGDY2pNk2KibUhxqRGTTUaE2vtmx/8cMk8ZuZekBo/nOzsmXN+c+45z51rUS7XUC4sbkuLcBEhXCQJFynCRVob5TLNbM/02vOZPR2TpFxEmC0txoWlWRY1CxGgXMxTLnCP2RLcjiPEBQgXZq195L9xXq5mWBYLS8s4bKmDl6gtXcqFy23pMlu6a0nUtcNxY+tIrUt9v44xsV6OgWqWhkX0KcyWS8yWinKhbFuqEI+pHFqvusuH1ZXYOfWV/Ex1VoyqAK03e9yP1Tk61680ooFJH6hPVWFbqhwaQ0HYwUzlq0DiC/yduIg7rZdwo+1LHKk6jg1hB3msAaugrg9MamDK+yP1Y6p1RKCiqBmXqw8CzadwMz6D353T+Cn+Ab6R72PRmcOxnZMoKWxFPl2BLgNTGphmpuHSDVChakscXBddQPN+3HYO4qbzGn6LT+G72JtYqH8LZ2umMF09hf7Kl7G5qA0hFjMVMg+YtnxZmAoJF+pKVAAtu3DL2Ys7TRlcd/pwLT6Cr8U4Pn12FNmdIxiqHEJ6+wBqHsvoiXtAj/EvUFeYS6Ua314HdERxd5eDP5ra8GtzJ75t7sXniVcw0zSBsWf2o6siBaeiG6XF7f8HNEIFs3UfpMplEn1bo7jbUosbrXFcTXRgIZHBmZYRHO7IorvjDJyqYWzZ6OvRTHmlh36F3GhQ90FRFkPg4T1orO3EYpuDq7sT+KQ9gzf2jKJ/Xxaxrgu4P/Mzcp8+AUbrYHJWerhcoSdqlzChiir2YnO8F+HGYWzbPYK396Xw3nPdGHvhEBq650Bf+hH39dzG+kEgr/o0KI0qasddX9xpi3BpgMT2hvJocw/KXxxFaWYMxT2TKO7Loqo/i60Dc6AHFpE7/AtyBv/E2lFgfec1DVGEC5eYV3Klh16FIRJThWXteGrkEJ6cnETZkeN45Ng0iibOYuPEeRQcvQx++HvkT/yFnAO3EHx8EJREFbm3QpEitnn5tVMFgw0o2NSCbePj2PHRSZTPnkTpzDvYdOpjPJi9iMLZH8AHFkBKngcN1oDYcSNs4l0gKcu/rjwdMtNgFcpvANsQR9nAEHZcmkbF+VmUnfsQW+YvoLA7Cxp2QINRENtRVOd4GtbApEWYiBAmQJlcokyqZSghQoXyGtRDrRn1xLtHVenM6+qBxl5F8usUoTE9CBNLuFQ6VzM0y2Jcaui86SPXt4apVGvSWDBQ79KwNBYK1LnE96+K0TkaNq9ZGqYtoB3+KXpa5tcfFpb9VF+w/t5yjG/zPkMD5Rq98CvVj58kzNxAacK8T8Bq83xmL+XHRvxcw/oHq7GsA07XGa0AAAAASUVORK5CYII="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/319306c172691c30c0d43523165b899c/d9381/ios-shortcuts-app-icon.png",
+                        "srcSet": "/static/319306c172691c30c0d43523165b899c/d9381/ios-shortcuts-app-icon.png 200w",
+                        "sizes": "(min-width: 200px) 200px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/319306c172691c30c0d43523165b899c/46280/ios-shortcuts-app-icon.webp 200w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 200px) 200px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 200,
+                    "height": 200
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's leverage Low Power Mode, Apple Shortcuts and Automations to make our phones run almost two times longer on a single battery charge. Native Shortcuts app is totally a fun one to play with!"
+            }
+          },
+          {
+            "excerpt": "While testing this blog with the awesome Playwright I faced the problem of tests failing in CI (github actions) environment. After some trial-and-error and a debugging I figured that all tests failing were initiating (or dependent on) partial application re-rendering or react rehydration. Issued I had were caused by too eager search for the element on the navigation target page. Which wasn’t…",
+            "fields": {
+              "slug": "/posts/2022/wait-for-single-page-navigation-and-re-hydration-playwright-react/",
+              "readingTime": {
+                "text": "6 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 28, 2022",
+              "updated": "Dec 21, 2022",
+              "tags": [
+                "tech",
+                "testing",
+                "react",
+                "playwright",
+                "frontend"
+              ],
+              "title": "How to Wait for Single Page Navigation and Re-hydration with Playwright and React Router",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAEZUlEQVR42r2UbWxTZRTHz+3mFxONAaPEtbfr7Qbbes/T9d6122DIBlvvve3W3ttbxrIJIRJEYUEnRCLRjUQS5qTtoJJgdIgYx8t6KYwYIFkQNTG+ZAYQBhKBEBP9AATjCwrMHXOL8k2jfPAkJ8+X5/nlf/7nPAfg/w5+cxnnGhTAlRHAlRbuDeLTYiD0yFDWXcvxqXJo/XWRDeRcKQGcmz3/DbY9FoWFDe3QuGwuN2PVbOAzZaX1h1XgB73gSgnF/KCXw30BYJZ89w1aMjBLKiRQ1wL4xNDga1PlJkwVziTCkOoMF0PXfBCS2iy+v/y6K+MZFrZW3m8r5DNeqB4NcpiTipklFxfOnOTAnAx2wkeGBheTKtiwc6YK580w0OOd8OLaEGB33TbXgJecKQ+5UsIFV1pY4d5S9rD/QE1BoZ2Yk4DlJLgLzOtRuJxUH/rKVB+cMLX7PjPCD5zuVIPXY/FXl66p/nnaFjfx6dJbzrSHnJsFcqWFq+LeQJ5Z8kbMSc+jJa9DS36HWVLTnZIJYFSPjJ03lR8nTPX0WVO5diGp0fmkRvN7K+iRtGfK0+cjvr+cStLu26XZcsKcRMySCUdkwpxMaEmEltyJBeDGMhiKRQ+fMxU6mVDp84Q6eSoR+W08Gb49s99Lzv6ZZ3wL1TVVZuQLfkMFlQ1VTPrzNQUIGw3cZjl5EnPyDbSkWQXgUCwKfdG23vGESh8Y2uhgLPrkl3rku7GOJuIHhKmStOemM8t/U9onnnH3Vk1VDPvIP1R/QlymHsFX5v3C8pKtcoLtle3mACiKDg1ho35M1+iiqVw7aypXLhgaHVzUSO7XPL/f8c1DJVtd5My6b4n7AsR2B0/gUO1GXKF8ijtDttIMe7/ablIR0OszgNYhDLa1HrfLPmUqdMlQj5oJ1XJuKid+wHur/Ok53ws98pR3AImNyMQOBYgdCBDLS5O4TybcLwVxv91pyQFLtbijWdGhNmzMPahH6JKp0OWkuvLtVnWktreSHh0sJaFXHPE3dLSJTYn1uCRyBF9quoq7a24w20dLsjAvAe6XHIVhp22PwXFDc7wZi8ISLb76kB6hs0mFvo0ptH6lRNOy/CSf8pAzy39cmfd1sx11PZidPW4rY5b0E47I3j9n0FHwECqfAqhZDLR8DndU10BV9Eg2Fs0fjkXyz7WpJ90vi1SSdd3kMwIV/DsoEY4GbJjdjPgdmFT014DDvLAO0LgQQF4CV5JhTld1oGfqgYxmAO+z033x1g+FHpm8mSpie2oI3wsS7qi9hm/UxXBnCPDdYBE7hoUfczcabWjoCYC6TliuxYpodYij5HwOZq2EOBx3sIb2xWJ79C3sDu/BVeENYovBF2C7Qo7CctgV+ueNE2gxYFPXAvDP7uB0OAKsoR2q1s4D/w+lgL2NgG1xwOGggx3zg1if/HdrTAzr4J/TAaw5CT6trajyhQaHn6Zz2NdYhCsUTozogF3Re9/c2JIAsdkAsTkBYkviby/+AYl9wKiWUJiUAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/eb217c74fd12bfa1567ebe365d480127/d9381/playwright-logo.png",
+                        "srcSet": "/static/eb217c74fd12bfa1567ebe365d480127/d9381/playwright-logo.png 200w",
+                        "sizes": "(min-width: 200px) 200px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/eb217c74fd12bfa1567ebe365d480127/46280/playwright-logo.webp 200w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 200px) 200px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 200,
+                    "height": 200
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "We look into ways to write robust end-to-end tests involving navigation between pages in a single page application (pun intended). We evaluate page-specific element selectors approach and come up with the custom \"UI is ready\" router navigation event in attempt to skip element selectors altogether."
+            }
+          },
+          {
+            "excerpt": "The need to invalidate existent GitHub action caches can raise at any time but is especially useful when working on various build optimizations and tuning GitHub actions workflow itself. Since there is no native way to do so, we have to rely on updating cache key and restore-keys fields. Fortunately, we can use expressions referencing environment or repository variables.\n\nThen, by updating those…",
+            "fields": {
+              "slug": "/posts/2022/github-actions-cache-invalidation/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "May 13, 2022",
+              "updated": "Mar 08, 2022",
+              "tags": [
+                "tech",
+                "CI",
+                "github actions",
+                "automation"
+              ],
+              "title": "Invalidate or Clear Github Actions Cache",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwEC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAbJWtAqZoDo8R5SUmJ1//8QAHhAAAQIHAQAAAAAAAAAAAAAAAAMEAQIFBhETMhL/2gAIAQEAAQUCuDcqaH7ZTMCoSZRoPuKxPw27P//EABkRAAMAAwAAAAAAAAAAAAAAAAECEBIxMv/aAAgBAwEBPwHJRuN0J//EABkRAAIDAQAAAAAAAAAAAAAAAAIQARIyQf/aAAgBAgEBPwGpcQ5lf//EACAQAAECBwADAAAAAAAAAAAAAAIBEQADBBASITETFFH/2gAIAQEABj8CpZNMeBEalm/GSJU6bVLOEDRccl+tZ32PNPB+15D4o57ZbLf/xAAgEAACAQQBBQAAAAAAAAAAAAABEQAQITFRQWGBocHw/9oACAEBAAE/IeAAAxncfWhKYOM7Ye0GwS1VYQKyVrfWE7oZ7wKeJMlP/9oADAMBAAIAAwAAABCgBzz/xAAXEQEAAwAAAAAAAAAAAAAAAAABESAx/9oACAEDAQE/EIyapv/EABcRAQADAAAAAAAAAAAAAAAAAAERIDH/2gAIAQIBAT8QkRxQf//EAB0QAQACAgMBAQAAAAAAAAAAAAERIQAxQWGhEFH/2gAIAQEAAT8QAKOVrMObIrFzg6zdIsMIC1rfVOKKaK3gwacvPIqiB0ETsURCmAQKjwCiX1TvIPwz2s8Pz//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg",
+                        "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/b8488/github-logo.jpg 300w,\n/static/5d292e21532ea5857531cdb8b0180637/020ce/github-logo.jpg 361w,\n/static/5d292e21532ea5857531cdb8b0180637/12093/github-logo.jpg 460w,\n/static/5d292e21532ea5857531cdb8b0180637/565e6/github-logo.jpg 800w",
+                        "sizes": "(min-width: 361px) 361px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/5d292e21532ea5857531cdb8b0180637/4f573/github-logo.webp 300w,\n/static/5d292e21532ea5857531cdb8b0180637/465b3/github-logo.webp 361w,\n/static/5d292e21532ea5857531cdb8b0180637/f10cf/github-logo.webp 460w,\n/static/5d292e21532ea5857531cdb8b0180637/8dab6/github-logo.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 361px) 361px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 361,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Cache invalidation is one of the most complex computer science tasks. Especially so for GitHub action workflows since there is no embedded mechanism to clean or invalidate present caches. However, what we can do is to update cache keys with a dedicated environment variable or repository variable."
+            }
+          },
+          {
+            "excerpt": "In this post I want to explore and walk through options we have to get Dependabot PRs checked and verified with GitHub actions. Context\n\nSetting up GitHub Dependabot for the repository was one of the best workflow decisions I ever made. Return on the modest investment of setting it up is huge. I don’t have to worry about updating dependencies ever again. Unless, of course, it is a major version…",
+            "fields": {
+              "slug": "/posts/2021/dependabot-pull-request-github-actions/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Dec 07, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "github",
+                "github actions",
+                "CI",
+                "automation",
+                "devflow"
+              ],
+              "title": "Github Actions for Dependabot PRs",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAAWABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAcBA//EABQBAQAAAAAAAAAAAAAAAAAAAAT/2gAMAwEAAhADEAAAAeNGnVGIzGljntHBuwMD/8QAGxAAAwADAQEAAAAAAAAAAAAAAQIDAAQREhP/2gAIAQEAAQUCLvLbIbveY32ltt7JJy9C9TKpZgRn/8QAGhEAAQUBAAAAAAAAAAAAAAAAAQIEEBEx8P/aAAgBAwEBPwF1iYegCq7I/8QAFhEAAwAAAAAAAAAAAAAAAAAABBBB/9oACAECAQE/ARqhKv/EAB8QAQACAwABBQAAAAAAAAAAAAEAAhESUQMEISIxcv/aAAgBAQAGPwK7WqmY49TUPyT5XLvfqWtWjjMcedDmkNrbPcTbKavsRTz2DmpAtbZ7P//EAB0QAQADAQACAwAAAAAAAAAAAAEAETEhQVFhgaH/2gAIAQEAAT8hvin4vjGswwuqUAeuiHYbac0dgafPKWpSFTO87+ofzss+bjA1mD8gLBHWVc//2gAMAwEAAgADAAAAEDzI/P/EABsRAAEEAwAAAAAAAAAAAAAAABEBECExUYGx/9oACAEDAQE/EBhFLWmG0Z4z/8QAGhEAAgIDAAAAAAAAAAAAAAAAARARwTFRYf/aAAgBAgEBPxAco1aACI5a/8QAHRABAQACAwADAAAAAAAAAAAAAREAIUFRYTFxgf/aAAgBAQABPxB6HaUKAmr1fMRBy3h4Ld4h8hpR8sIYytGLEQE41cpvYUnqpv7xppFFavAhgnDWpFT0WYwEqLh6Fp/c04Cgtng0Z//Z"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/a284a868ed3c6ca0eefd85d458e55f77/6dba2/weekend.jpg",
+                        "srcSet": "/static/a284a868ed3c6ca0eefd85d458e55f77/6dba2/weekend.jpg 268w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/59cdc/weekend.jpg 300w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/bb8bd/weekend.jpg 460w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/4f704/weekend.jpg 800w",
+                        "sizes": "(min-width: 268px) 268px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/a284a868ed3c6ca0eefd85d458e55f77/de186/weekend.webp 268w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/27027/weekend.webp 300w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/a072d/weekend.webp 460w,\n/static/a284a868ed3c6ca0eefd85d458e55f77/63ad5/weekend.webp 800w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 268px) 268px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 268,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Let's learn how to extend existent Pull Request Update GitHub Actions workflow with steps specific for Dependabot pull requests (i.e. labels). We will add two jobs to the existent pull_request workflow and experiment with separate \"before\" and \"after\" workflow_run event workflows. Fortunately, after the recent GitHub actions update we don't need to use a separate pull_request_target event workflow as a workaround."
+            }
+          },
+          {
+            "excerpt": "This blog is very new and quite empty (less than 20 pages) and yet I was experiencing 10 minutes long production builds on my local machine. And GitHub actions (which execute the production build at some point) were taking anywhere from 14 to 20 minutes. Which is too long of a wait for a website preview deployed or pull requests verified. I decided to figure out what can be optimized and ended up…",
+            "fields": {
+              "slug": "/posts/2021/optimize-github-actions-with-cache/",
+              "readingTime": {
+                "text": "8 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Nov 23, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "github actions",
+                "CI",
+                "automation",
+                "GatsbyJs",
+                "devflow",
+                "npm"
+              ],
+              "title": "Optimize GitHub Actions for UI Builds and Tests with Cache",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABVElEQVR42n1Si26DMAzk/39x07R2fYyqAvK0nQc3OZSKrt2QTomRc/ad3e0vFu+nCZ+9hQ2MyAmB5A6Nf//7C5rXHa8Ob8cRu97CRQZJAvGCLZGkDEkJKWWkXJ6g7zSv8xxxsCdQCHDeY57nhlIrQoywPsJ5xsQOF3sFR8L2y3kpFFlgfETnSWAjwUduFV51x1wwsMHXcIYZDabJgGghTimBWRUUKFe3SMkIL7xaYz0pCQJHiCSwSJNe64xcCnIuYOVQwo+zwb53YMmbAazEt5i1Sy1cQZIfFKxvVnTfo8f+OoBI4CMhRGoGqwQ971Ykgb91WEpdUOu9wzW3cxyxGw9w1mMYR4yTATNjntG8UaN9YAxkcJp6CMnDUEopzcdIt6FomyKLFG5d5Sc5IgVGPHp7hXcek9kOJTdCXR21qPtvSbd3Suolg4hBzG1VcqlYh7ru4Q+uogpGp3tyYgAAAABJRU5ErkJggg=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/45fb13942b862c1f8a208983935fb3c4/09eca/gh-action-runs.png",
+                        "srcSet": "/static/45fb13942b862c1f8a208983935fb3c4/d0097/gh-action-runs.png 300w,\n/static/45fb13942b862c1f8a208983935fb3c4/229ee/gh-action-runs.png 460w,\n/static/45fb13942b862c1f8a208983935fb3c4/09eca/gh-action-runs.png 600w,\n/static/45fb13942b862c1f8a208983935fb3c4/0085c/gh-action-runs.png 920w,\n/static/45fb13942b862c1f8a208983935fb3c4/2ffff/gh-action-runs.png 1000w",
+                        "sizes": "(min-width: 600px) 600px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/45fb13942b862c1f8a208983935fb3c4/8b74b/gh-action-runs.webp 300w,\n/static/45fb13942b862c1f8a208983935fb3c4/1d905/gh-action-runs.webp 460w,\n/static/45fb13942b862c1f8a208983935fb3c4/8d80e/gh-action-runs.webp 600w,\n/static/45fb13942b862c1f8a208983935fb3c4/4722b/gh-action-runs.webp 920w,\n/static/45fb13942b862c1f8a208983935fb3c4/6e214/gh-action-runs.webp 1000w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 600px) 600px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 600,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "GitHub Actions is an awesome and very powerful tool. Let's explore workflow running time optimizations with caching node_modules and production build artifacts. We will be using \"Dependency Cache\" GH Actions feature driven by \"actions/cache\". Hint: as always, cache invalidation is a key."
+            }
+          },
+          {
+            "excerpt": "Just finished this very insightful and down-to-earth book on team management basics. Comes with loads of actionable advice, check-lists and quizzes. It covers everything from first month on the job and managing yourself to efficient meetings and growing leadership within your organization. Author, Julie Zhuo joined Facebook early on as a designer intern and since then has grown to the position of…",
+            "fields": {
+              "slug": "/posts/2021/becoming-manager-book-review/",
+              "readingTime": {
+                "text": "3 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 03, 2021",
+              "updated": null,
+              "tags": [
+                "review",
+                "book",
+                "management",
+                "tech",
+                "highlights"
+              ],
+              "title": "The Making of a Manager by Julie Zhuo",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAGAEAAgMAAAAAAAAAAAAAAAAAAQIDBAX/2gAMAwEAAhADEAAAAeyzI+zktICHZportAaP/8QAHhAAAgICAgMAAAAAAAAAAAAAAQIDEQASBBAUIjH/2gAIAQEAAQUCLHb26ZbcQR0vzxUZjxoqVQmHe6kwXX//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARAS/9oACAEDAQE/AUtV/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAIxAAAQMCBQUAAAAAAAAAAAAAAAECESExEBIiMnFBgZGSof/aAAgBAQAGPwKER3MF8HLD/Y3x3LyVa7Mv0onJCU6mlyIbk8Fbn//EAB4QAAICAgMBAQAAAAAAAAAAAAERACExQVFhgXHw/9oACAEBAAE/IQt45BPwoIMhqsID5CgJd2eo2TOYsJ17B0x53EAdqxXCgUhQlvspkAlYmFY7hQO9jP/aAAwDAQACAAMAAAAQBwq9/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAhEf/aAAgBAwEBPxAO4MOKD2QmZOt//8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxDU6xH/xAAdEAEAAgIDAQEAAAAAAAAAAAABESEAMVFxkUGB/9oACAEBAAE/ECgQgp07nDkfOSi2XnHIxlpAipVSz11jiDgAkF54Wu28IrTMgA8NYyTs6AEIJItt5iWajQCqLsg31hL0QLlWv7lVjQi+zrIiDocr9d4SjPQQL1n/2Q=="
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/0b98fb0a42074a91ca09be79e459921f/5fb8f/book-cover.jpg",
+                        "srcSet": "/static/0b98fb0a42074a91ca09be79e459921f/5fb8f/book-cover.jpg 199w,\n/static/0b98fb0a42074a91ca09be79e459921f/d8060/book-cover.jpg 300w,\n/static/0b98fb0a42074a91ca09be79e459921f/60e46/book-cover.jpg 460w,\n/static/0b98fb0a42074a91ca09be79e459921f/10ea4/book-cover.jpg 920w,\n/static/0b98fb0a42074a91ca09be79e459921f/d3317/book-cover.jpg 1600w",
+                        "sizes": "(min-width: 199px) 199px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/0b98fb0a42074a91ca09be79e459921f/f4899/book-cover.webp 199w,\n/static/0b98fb0a42074a91ca09be79e459921f/62a87/book-cover.webp 300w,\n/static/0b98fb0a42074a91ca09be79e459921f/9fa22/book-cover.webp 460w,\n/static/0b98fb0a42074a91ca09be79e459921f/f0060/book-cover.webp 920w,\n/static/0b98fb0a42074a91ca09be79e459921f/c03dd/book-cover.webp 1600w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 199px) 199px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 199,
+                    "height": 301
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": null
+            }
+          },
+          {
+            "excerpt": "During my days at VMware I was reviewing multiple UI code Pull Requests (also known as Merge Requests or Change Lists) per day. Changes could have anything from a small and isolated feature to high scale refactoring spread all over the code base. Initially I didn’t have any specific approach to the reviewing process and was simply going file by file, line by line. However, as number of PRs coming…",
+            "fields": {
+              "slug": "/posts/2021/efficient-code-review/",
+              "readingTime": {
+                "text": "10 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "Jul 02, 2021",
+              "updated": null,
+              "tags": [
+                "tech",
+                "devflow",
+                "workflow"
+              ],
+              "title": "Efficient Code Review",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAC4jAAAuIwF4pT92AAADnElEQVR42l2UyXLiWBBF/f+f0KtedERvqiq6XLYx2BiMGYRmvVkTCCEc/RenQ5LtcnuRIYIHJ++7N1NXRmuMMWipyLOYQoZUVuK0oC40x8rRdS2vr2eapqRtT3Rd/7miqR2H0tJ1Ry5dw+ul40p/BhqF3G7wb59QMiTYL/CW94TBM0r7CB0NpUyG0glaS5RSaBOTqx2X9vgJqDUuyyicRGy3GCkRMiUOV/j+E0nmI0RInG1I1Q6lU4w2GGMRIkKEa9pTw1UP66+t+6cQWJWRpyFWS0SaILMEo2Ok3BKnKzK1QWgPoUP0ADQIESMjj0v3duW+rLX4iy0qCXEqwdn+x/1ZhlQZQbgiSJZkekumd2RqjzZqAEolEVnMa3ccFfawvpQXUlpJZRT2rbuUGVHssQ9e8JMnUr0iEitSvUWbaPBQKUnuJP++diPQuYKiqnBaUqiUuq7JnWP0V2OdRZqUxfOU9dM9/mpGFC3I1Bah99SV5lhrLpeWq16Zs5o08tksFmwf52PHPH8D2sFHbznnZXLH9n5C/DQheJ4O4UgTcmxychNxPr+FUpYOmcXMZw9MftwgRDYClRqsiAKf9c0vVre3LK5v2fTQ9RxlxNBUqBilAs7n0/uVc4xReF7A9G5KqtfkhUUrjbEWkaXI3SNi/4j/PCV5ecDJLXmuh6SHkcsd5/YDOPrVq9psdnz/+2aYsWGU3lL0vRUmeUZFC2z2TFX4VPV43gdTFDlqE4/APHfDl32XzXLH9z/+wahx4M2bAilCCu2hkjVOB5SlxNrxzFiDzCTBfPd/he8BSG8xwLV5/4PFiJhC7bBGYHWGkr1v4wz3T2sM7enwBWgtWRyjYg+d9BuiBhuMUsjQ41CmtKeCw6HAqJQitxTOUZYF9eFA0zRfFRpkmuCcwn9e4s0eBjvSvom3QAZ7itLRNEfObUtzLGkOBadDybEqfu/yZ2A/g7affi15mc3Y3c7Iopiqzsn8LUqJYejPTcWpqYdXWiUzamdpT8f3UPIP4HuyIolZrZdMf024++sn4fyBdPVAunsZPYsimmJU1dS90gNt88XDj1KasqoRImG32TCfPLL69oPw9hq1vsMkAaufC8KlT9ceOB1y2jrn3CvsN6Eoio8XRF+5dVRlicv79BS+7zG/nrD8dk00nyKimP1kg9qt6U6HAdpvyaVrfyv8Wr0NY7mhiZSKNBXD3j/M9tz8eU/pbdDrgCLK6Nozl+7Mf1lCaPmSQChyAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/69ebe1ed67c545be4b675344b2f3c167/c58f0/cover.png",
+                        "srcSet": "/static/69ebe1ed67c545be4b675344b2f3c167/c58f0/cover.png 300w,\n/static/69ebe1ed67c545be4b675344b2f3c167/30bae/cover.png 460w,\n/static/69ebe1ed67c545be4b675344b2f3c167/9df93/cover.png 920w,\n/static/69ebe1ed67c545be4b675344b2f3c167/7cd14/cover.png 968w",
+                        "sizes": "(min-width: 300px) 300px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/69ebe1ed67c545be4b675344b2f3c167/0af71/cover.webp 300w,\n/static/69ebe1ed67c545be4b675344b2f3c167/9a272/cover.webp 460w,\n/static/69ebe1ed67c545be4b675344b2f3c167/3a36a/cover.webp 920w,\n/static/69ebe1ed67c545be4b675344b2f3c167/c3e4f/cover.webp 968w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 300px) 300px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 300,
+                    "height": 300
+                  }
+                }
+              },
+              "galleryImages": null,
+              "summary": "Reviewing code is complex and demanding. When implemented correctly it can truly lift the project and the team up to the next level. On the flip side, when done wrong, it causes more harm than good. Let's dive deep into what makes for a good code review and how to approach it in a scalable, respectful and mutually beneficial manner."
+            }
+          },
+          {
+            "excerpt": "Everyone knows AngularJs (version 1.x) is done and dusted! Why write anything about it today, in 2021? Well, the reason is pretty simple — history moves in spirals, and things we’ve learned yesterday shape today and tomorrow.\n\nKnowledge of prior frameworks and related tooling comes “for free” if you had been in the industry long enough and used them on a daily basis. However, if you are a newcomer…",
+            "fields": {
+              "slug": "/posts/2021/angularjs-good-parts/",
+              "readingTime": {
+                "text": "4 min read"
+              }
+            },
+            "frontmatter": {
+              "date": "May 08, 2021",
+              "updated": "Nov 23, 2022",
+              "tags": [
+                "tech",
+                "angularjs",
+                "framework",
+                "UI"
+              ],
+              "title": "Good Parts of AngularJs Framework",
+              "coverImage": {
+                "childImageSharp": {
+                  "gatsbyImageData": {
+                    "layout": "constrained",
+                    "placeholder": {
+                      "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADwElEQVR42o2UT2hcRRzHZ2detptk3+wmlgoiUvLHuN28mdlNijdr8eBFEwIepNJqwRQPPRdaK+it5yK04M2qwWuJehCS3TebJhRLCh6SbN6k29CmFpo26rpps7vz03lvdlvoCv3Bj3m8w2e+v998fz+EOoQiIswy4WgDi1jZ4WQhyUiRerGFJEO+6yGfMvRCEcIwjykiiMICb+AIbECFlAF5WFJGJGUx2QmqMG8rUkTgwICIQIH5H+OogtiB8r789GIqNz3nZg8UXQ9JlyEDs2BzQag4vKAFC54FY04VEVMB5jPKyW2X0SiUEofAT/Ft6XozkrIpSRm10CjtRS2AASYUEW8HmF9SRNxWRIBycrCO3oBN/kHjxvhkoxAfAZni4LseSMo2fde7JCk7IilLSOq1FRKr7EQIsRlg3lDxfL2MDjar3/2k7/04q+fQa03ZJ+qSsoakDHzKIDxd77gp2XcZiYBRuVNBBHuiiGgqJ6cDlNWVV97RulrT9eo/emnoqC4mMlqmuPZdr+lT9lhG0ImwrxaIrUJh1ekAc63iY7qMBmD784ugIYpbX12EeXQQZF9OS8paaYCHbS+xAcUs8NWAiN02FHmgEuPQfPgnPLpyFR58fxX2dv6C0kt58HtHDaRpYTu+6w1G3vRiETAqOa2IqASYg4rnm2U0oO9/cj5UtpGZgOXc++H32qlzVqVoASuSeimrMNa2i/XfdauwEaBR/fjmKtRv3YVKZhJuiPdg9/Yd+PvmCvg9h6D1MJKyZdu/pz4MMMf2nFVdeVhHw/Wtdz+D/4vfJ07BfGywIdPCAH+x5eLQhyYCzB3bx29Ul/HeUL06W9TNag3uf3we7p04B2ufnoXV6bPQrO3Cg58Leh4N1GWaG+DlcFLccCTb4xdZZ9/Yl+toBO68+dGeUbLz9YxeQy/rVTQMRTQIv6L9+u7lH8JHXz567EnBGYZSf/4LozAcw5bCtrm7Dx83k/HHh2egNnd9bzMz2QxQFta7x/W1/rwudmfgt/FJ/aiwVF85eQYKzutQ2j92rAV8bl0FKBtXTu50gLwtozS0DhH1MuG65HraT7G635OFAhkGvye7JdP8dDE+ErdA1AHoIeXkkIrn+1V87IJyRE1hDmXHAJn2aTjDNdmXuyD7RL9MC1RMZNDzQNM/k0740iRA2RAeEDGksPi27HBYcM3seleky4b83mwLROyDhNum826MMmbAZrmudHGTRxaT7K2lXoaK1EPPLlj5Ipv76V4UeNXhJtG1JEOLSYbtxu6s6L/4F2l9Xtss0OgpAAAAAElFTkSuQmCC"
+                    },
+                    "images": {
+                      "fallback": {
+                        "src": "/static/9db278d630f5fabd8e7ba16c2e329a3a/b3f47/angular-logo.png",
+                        "srcSet": "/static/9db278d630f5fabd8e7ba16c2e329a3a/b3f47/angular-logo.png 250w",
+                        "sizes": "(min-width: 250px) 250px, 100vw"
+                      },
+                      "sources": [
+                        {
+                          "srcSet": "/static/9db278d630f5fabd8e7ba16c2e329a3a/e4cf5/angular-logo.webp 250w",
+                          "type": "image/webp",
+                          "sizes": "(min-width: 250px) 250px, 100vw"
+                        }
+                      ]
+                    },
+                    "width": 250,
+                    "height": 250
+                  }
+                }
+              },
+              "galleryImages": [
+                [
+                  [
+                    {
+                      "title": "Historical interest in AngularJs"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "title": "Interest in AngularJs by region in 2022"
+                    }
+                  ]
+                ]
+              ],
+              "summary": "Reminiscing on coding approaches and application architecture patterns introduced and popularized by AngularJs 1.x framework in the front-end community. Framework itself is gone and dusted, but its legacy is very much alive."
+            }
+          }
+        ]
+      }
+    },
+    "pageContext": {
+      "skip": 0,
+      "currentPage": 1,
+      "limit": 10,
+      "tag": "tech"
+    }
+  },
+  "staticQueryHashes": [],
+  "slicesMap": {}
+}
