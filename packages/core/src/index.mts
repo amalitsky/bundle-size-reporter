@@ -32,8 +32,9 @@ export interface IBsrConfig {
 }
 
 export interface IFile {
-  name: string;
+  normalizedName: string;
   path: string; // relative
+  normalizedPath: string;
   size: number;
   gzipSize: number;
   group: IFileGroup['key'];

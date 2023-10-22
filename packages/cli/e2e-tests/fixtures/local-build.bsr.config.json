@@ -22,7 +22,8 @@
       {
         "key": "json",
         "globs": [
-          "page-data/*.json"
+          "page-data/*.json",
+          "page-data.json"
         ],
         "label": "JSON"
       }

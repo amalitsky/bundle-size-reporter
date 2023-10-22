@@ -2,7 +2,7 @@ import * as path from 'path';
 
 import { readFile as fsReadFile, stat as fsStat, writeFile as fsWriteFile } from 'node:fs/promises';
 
-import type { IFile, IAnalyzeConfig, IBsrReport } from '@bundle-size-reporter/core';
+import type { IFile, IAnalyzeConfig, IBsrReport, IFileGroup } from '@bundle-size-reporter/core';
 
 import { gzipSizeFromFile } from 'gzip-size';
 import { glob, type GlobOptions } from 'glob';
@@ -65,8 +65,15 @@ async function getFilesMetadata(
   const gzipSizes = await Promise.all(gzipSizePromises);
 
   return filePaths.map((filePath, index) => {
+    const fileName = normalizeFilename(
+      path.basename(filePath),
+      normalizeFilenameValue,
+      filenameHashLabel,
+    );
+
     return {
-      name: normalizeFilename(path.basename(filePath), normalizeFilenameValue, filenameHashLabel),
+      normalizedName: fileName,
+      normalizedPath: path.join(path.dirname(filePath), fileName),
       path: filePath,
       size: contentSizes[index],
       gzipSize: gzipSizes[index],
@@ -93,7 +100,7 @@ function resolveGlobs(
 export function analyzeBuildFiles(distPath: string, config: IAnalyzeConfig): Promise<IBsrReport> {
   const { groups, normalizeFilename, filenameHashLabel } = config;
 
-  const groupFilePromises = groups.map(async (fileGroup) => {
+  const groupFilePromises = groups.map(async (fileGroup: IFileGroup) => {
     const { globs, key, excludeGlobs } = fileGroup;
 
     const filePaths = await resolveGlobs(distPath, globs, excludeGlobs);
