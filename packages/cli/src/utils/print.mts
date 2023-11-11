@@ -126,6 +126,8 @@ export function printTextReport(
 
     if (filesByGroup[groupId].length > 1) {
       reportLines.push(`${EOL}Group: ${groupSizeInfoMsg} / ${groupGzipSizeInfoMsg}${EOL}`);
+    } else {
+      reportLines.push('');
     }
   });
 

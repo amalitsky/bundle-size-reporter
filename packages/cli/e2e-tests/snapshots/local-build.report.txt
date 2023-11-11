@@ -1,5 +1,6 @@
 HTML files:
 - index.html: 107KB / 22KB
+
 JS files:
 - app-[hash].js: 235KB / 77KB
 - framework-[hash].js: 26KB / 9KB
