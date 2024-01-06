@@ -2,7 +2,7 @@ Bundle size stats saved to e2e-tests/artifacts/bundle-size-stats.json
 Bundle size report saved to e2e-tests/artifacts/bundle-size-report.txt
 
 HTML files:
-- index.html: 107KB / 22KB
+- index.html: 107KB / 23KB
 
 JS files:
 - app-[hash].js: 235KB / 77KB
@@ -21,4 +21,4 @@ JSON files:
 
 Group: 112KB / 39KB
 
-TOTAL: 527KB / 162KB
+TOTAL: 527KB / 163KB
