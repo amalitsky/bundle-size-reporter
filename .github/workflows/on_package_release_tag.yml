@@ -19,16 +19,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set node version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ vars.node_version }}
 
       - name: node_modules cache
         id: node-modules-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         env:
           cache_name: node-modules-npm
           cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
@@ -50,15 +50,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Set node version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ vars.node_version }}
 
       - name: Restore node_modules from cache
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         env:
           cache_name: node-modules-npm
           cache_key: ${{ vars.node_version }}-${{ hashFiles('package-lock.json') }}
@@ -75,7 +75,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Upload lerna log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: lerna-log
           path: lerna-debug.log

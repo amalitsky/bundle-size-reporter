@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 
 import { it, describe } from 'node:test';
 
-import { getPrintableFilenames } from '../src/utils/get-printable-filenames.mjs';
+import { getPrintableFilenames } from '../src/utils/get-printable-filenames.mts';
 
 describe('getPrintableFilenames method functionality', () => {
   it('returns normalized names when there are no duplicates', () => {

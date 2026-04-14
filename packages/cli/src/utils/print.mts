@@ -1,7 +1,7 @@
 import { EOL } from 'os';
 import { groupBy } from 'lodash-es';
 import type { IFile, IFileGroup } from '@bundle-size-reporter/core';
-import { getPrintableFilenames } from './get-printable-filenames.mjs';
+import { getPrintableFilenames } from './get-printable-filenames.mts';
 
 function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
   let result = `${Math.round(size)}${dimension}`;

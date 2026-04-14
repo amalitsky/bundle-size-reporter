@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 
 import { it, describe } from 'node:test';
 
-import { normalizeFilename } from '../src/utils/normalize-filename.mjs';
+import { normalizeFilename } from '../src/utils/normalize-filename.mts';
 
 describe('filters out hash from file names', () => {
   describe('removes the hash found by default', () => {

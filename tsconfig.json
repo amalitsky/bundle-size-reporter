@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "module": "NodeNext",
     "target": "esnext",
     "lib": [
       "es2020",
+    ],
+    "types": [
+      "node",
     ],
     "sourceMap": true,
     "allowJs": true,
     "strict": true,
     "moduleResolution": "NodeNext",
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": false,
     "noImplicitThis": true,
     "resolveJsonModule": true,
     "noImplicitAny": true,
@@ -19,6 +22,7 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "rewriteRelativeImportExtensions": true
   },
 }
