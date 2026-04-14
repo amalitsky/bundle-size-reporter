@@ -1,4 +1,4 @@
-export const bsrBinPath = 'dist/index.js';
+export const bsrBinPath = 'dist/index.mjs';
 export const artifactsPath = 'e2e-tests/artifacts';
 export const fixturesPath = 'e2e-tests/fixtures';
 export const snapshotsPath = 'e2e-tests/snapshots';

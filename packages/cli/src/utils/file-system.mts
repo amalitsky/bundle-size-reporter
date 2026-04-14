@@ -7,7 +7,7 @@ import type { IFile, IAnalyzeConfig, IBsrReport, IFileGroup } from '@bundle-size
 import { gzipSizeFromFile } from 'gzip-size';
 import { glob, type GlobOptions } from 'glob';
 
-import { normalizeFilename } from './normalize-filename.mjs';
+import { normalizeFilename } from './normalize-filename.mts';
 
 /**
  * Reads file from the given path and return its content as a string.

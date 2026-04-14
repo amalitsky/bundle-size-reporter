@@ -1,8 +1,6 @@
-const NEVER = 'never';
 const ALWAYS = 'always';
 
 const OFF = 0;
-const WARN = 1;
 const ERROR = 2;
 
 const scopes = [

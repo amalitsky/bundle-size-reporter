@@ -1,0 +1,102 @@
+{
+  "files": [
+    {
+      "name": "index.html",
+      "path": "index.html",
+      "size": 108,
+      "gzipSize": 22,
+      "group": "html"
+    },
+    {
+      "name": "webpack-runtime-[hash].js",
+      "path": "webpack-runtime-4e58f62cdc8c018f105d.js",
+      "size": 15,
+      "gzipSize": 4,
+      "group": "js"
+    },
+    {
+      "name": "framework-[hash].js",
+      "path": "framework-a6987d7cf9256af7dfaa.js",
+      "size": 28,
+      "gzipSize": 10,
+      "group": "js"
+    },
+    {
+      "name": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
+      "path": "component---src-page-templates-post-list-post-list-tsx-90ca6dc55bcd573e9a64.js",
+      "size": 17,
+      "gzipSize": 5,
+      "group": "js"
+    },
+    {
+      "name": "commons-[hash].js",
+      "path": "commons-0cef8ef6956790d9d69e.js",
+      "size": 17,
+      "gzipSize": 6,
+      "group": "js"
+    },
+    {
+      "name": "app-[hash].js",
+      "path": "app-fa48ebba0bc67638f029.js",
+      "size": 241,
+      "gzipSize": 79,
+      "group": "js"
+    },
+    {
+      "name": "954-[hash].js",
+      "path": "954-8c1ec85595e565dd08ac.js",
+      "size": 4,
+      "gzipSize": 1,
+      "group": "js"
+    },
+    {
+      "name": "843-[hash].js",
+      "path": "843-4ecc02b0e2563ef36cdc.js",
+      "size": 3,
+      "gzipSize": 1,
+      "group": "js"
+    },
+    {
+      "name": "482-[hash].js",
+      "path": "482-90a62b06c96681f6a5d0.js",
+      "size": 8,
+      "gzipSize": 4,
+      "group": "js"
+    },
+    {
+      "name": "app-data.json",
+      "path": "page-data/app-data.json",
+      "size": 0,
+      "gzipSize": 0,
+      "group": "json"
+    },
+    {
+      "name": "page-data.json",
+      "path": "page-data/tags/tech/1/page-data.json",
+      "size": 29,
+      "gzipSize": 12,
+      "group": "json"
+    },
+    {
+      "name": "page-data.json",
+      "path": "page-data/tags/cars/1/page-data.json",
+      "size": 43,
+      "gzipSize": 15,
+      "group": "json"
+    },
+    {
+      "name": "3481615850.json",
+      "path": "page-data/sq/d/3481615850.json",
+      "size": 0,
+      "gzipSize": 0,
+      "group": "json"
+    },
+    {
+      "name": "2737273111.json",
+      "path": "page-data/sq/d/2737273111.json",
+      "size": 8,
+      "gzipSize": 2,
+      "group": "json"
+    }
+  ]
+}

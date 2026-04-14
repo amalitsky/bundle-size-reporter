@@ -1,0 +1,24 @@
+HTML files:
+- index.html: 108KB / 22KB
+JS files:
+- app-[hash].js: 241KB / 79KB
+- framework-[hash].js: 28KB / 10KB
+- component---src-page-templates-post-list-post-list-tsx-[hash].js: 17KB / 5KB
+- commons-[hash].js: 17KB / 6KB
+- webpack-runtime-[hash].js: 15KB / 4KB
+- 482-[hash].js: 8KB / 4KB
+- 954-[hash].js: 4KB / 1KB
+- 843-[hash].js: 3KB / 1KB
+
+Group: 333KB / 110KB
+
+JSON files:
+- page-data.json: 43KB / 15KB
+- page-data.json: 29KB / 12KB
+- 2737273111.json: 8KB / 2KB
+- app-data.json: 0KB / 0KB
+- 3481615850.json: 0KB / 0KB
+
+Group: 80KB / 29KB
+
+TOTAL: 521KB / 161KB

@@ -4,15 +4,15 @@ import { EOL } from 'os';
 import type { Argv } from 'yargs';
 import type { IBsrConfig, IBsrReport } from '@bundle-size-reporter/core';
 
-import { defaultConfigFilename, defaultStatsFilename } from '../constants.mjs';
-import { printTextReport } from '../utils/print.mjs';
+import { defaultConfigFilename, defaultStatsFilename } from '../constants.mts';
+import { printTextReport } from '../utils/print.mts';
 
 import {
   analyzeBuildFiles,
   readFileAsString,
   saveContentToFile,
   saveStatsToFile,
-} from '../utils/file-system.mjs';
+} from '../utils/file-system.mts';
 
 export function autorun(yargs: Argv): Argv {
   return yargs.command(

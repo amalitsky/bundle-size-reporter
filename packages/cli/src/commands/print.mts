@@ -2,9 +2,9 @@ import { EOL } from 'os';
 import type { Argv } from 'yargs';
 import type { IBsrConfig, IBsrReport } from '@bundle-size-reporter/core';
 
-import { defaultConfigFilename } from '../constants.mjs';
-import { printTextReport } from '../utils/print.mjs';
-import { readFileAsString, saveContentToFile } from '../utils/file-system.mjs';
+import { defaultConfigFilename } from '../constants.mts';
+import { printTextReport } from '../utils/print.mts';
+import { readFileAsString, saveContentToFile } from '../utils/file-system.mts';
 
 export function print(yargs: Argv): Argv {
   return yargs.command(

@@ -3,9 +3,9 @@ import * as path from 'path';
 import type { IBsrConfig } from '@bundle-size-reporter/core';
 
 import type { Argv } from 'yargs';
-import { defaultConfigFilename, defaultStatsFilename } from '../constants.mjs';
+import { defaultConfigFilename, defaultStatsFilename } from '../constants.mts';
 
-import { analyzeBuildFiles, readFileAsString, saveStatsToFile } from '../utils/file-system.mjs';
+import { analyzeBuildFiles, readFileAsString, saveStatsToFile } from '../utils/file-system.mts';
 
 export function analyze(yargs: Argv): Argv {
   return yargs.command(

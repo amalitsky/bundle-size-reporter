@@ -6,7 +6,7 @@ import { it, describe, afterEach } from 'node:test';
 
 import { readFile, rm, mkdir, stat } from 'node:fs/promises';
 
-import { executeNodeScript } from './utils/child-node-process.mjs';
+import { executeNodeScript } from './utils/child-node-process.mts';
 
 import {
   artifactsPath,
@@ -15,7 +15,7 @@ import {
   snapshotsPath,
   defaultReportFilePath,
   defaultStatsFilePath,
-} from './constants.mjs';
+} from './constants.mts';
 
 const localBuildFolderPath = `${fixturesPath}/local-build`;
 const localBuildConfigPath = `${fixturesPath}/local-build.bsr.config.json`;
