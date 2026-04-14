@@ -3,7 +3,9 @@
     {
       "normalizedName": "index.html",
       "normalizedPath": "index.html",
-      "path": "index.html",
+      "paths": [
+        "index.html"
+      ],
       "size": 107,
       "gzipSize": 23,
       "group": "html"
@@ -11,7 +13,9 @@
     {
       "normalizedName": "webpack-runtime-[hash].js",
       "normalizedPath": "webpack-runtime-[hash].js",
-      "path": "webpack-runtime-2e25c9e4bb07c8a0999f.js",
+      "paths": [
+        "webpack-runtime-2e25c9e4bb07c8a0999f.js"
+      ],
       "size": 14,
       "gzipSize": 4,
       "group": "js"
@@ -19,7 +23,9 @@
     {
       "normalizedName": "framework-[hash].js",
       "normalizedPath": "framework-[hash].js",
-      "path": "framework-a2a488ac196ea18d4ec2.js",
+      "paths": [
+        "framework-a2a488ac196ea18d4ec2.js"
+      ],
       "size": 26,
       "gzipSize": 9,
       "group": "js"
@@ -27,7 +33,9 @@
     {
       "normalizedName": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
       "normalizedPath": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
-      "path": "component---src-page-templates-post-list-post-list-tsx-181e9b89bffb6c0c3f69.js",
+      "paths": [
+        "component---src-page-templates-post-list-post-list-tsx-181e9b89bffb6c0c3f69.js"
+      ],
       "size": 16,
       "gzipSize": 5,
       "group": "js"
@@ -35,15 +43,30 @@
     {
       "normalizedName": "commons-[hash].js",
       "normalizedPath": "commons-[hash].js",
-      "path": "commons-504ab5bc201fbf35658e.js",
+      "paths": [
+        "commons-504ab5bc201fbf35658e.js"
+      ],
       "size": 17,
       "gzipSize": 6,
       "group": "js"
     },
     {
+      "normalizedName": "chunk-[hash].js",
+      "normalizedPath": "chunk-[hash].js",
+      "paths": [
+        "chunk-def12345678.js",
+        "chunk-abc12345678.js"
+      ],
+      "size": 14,
+      "gzipSize": 0,
+      "group": "js"
+    },
+    {
       "normalizedName": "app-[hash].js",
       "normalizedPath": "app-[hash].js",
-      "path": "app-3dd798319b20e94b54dc.js",
+      "paths": [
+        "app-3dd798319b20e94b54dc.js"
+      ],
       "size": 235,
       "gzipSize": 77,
       "group": "js"
@@ -51,7 +74,9 @@
     {
       "normalizedName": "page-data.json",
       "normalizedPath": "page-data.json",
-      "path": "page-data.json",
+      "paths": [
+        "page-data.json"
+      ],
       "size": 77,
       "gzipSize": 24,
       "group": "json"
@@ -59,7 +84,9 @@
     {
       "normalizedName": "page-data.json",
       "normalizedPath": "page-data/page-data.json",
-      "path": "page-data/page-data.json",
+      "paths": [
+        "page-data/page-data.json"
+      ],
       "size": 29,
       "gzipSize": 13,
       "group": "json"
@@ -67,7 +94,9 @@
     {
       "normalizedName": "3481615850.json",
       "normalizedPath": "page-data/3481615850.json",
-      "path": "page-data/3481615850.json",
+      "paths": [
+        "page-data/3481615850.json"
+      ],
       "size": 0,
       "gzipSize": 0,
       "group": "json"
@@ -75,7 +104,9 @@
     {
       "normalizedName": "2737273111.json",
       "normalizedPath": "page-data/2737273111.json",
-      "path": "page-data/2737273111.json",
+      "paths": [
+        "page-data/2737273111.json"
+      ],
       "size": 6,
       "gzipSize": 2,
       "group": "json"

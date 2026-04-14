@@ -10,8 +10,9 @@ JS files:
 - commons-[hash].js: 17KB / 6KB
 - component---src-page-templates-post-list-post-list-tsx-[hash].js: 16KB / 5KB
 - webpack-runtime-[hash].js: 14KB / 4KB
+- chunk-[hash].js (x2): 14KB / 0KB
 
-Group: 308KB / 101KB
+Group: 322KB / 101KB
 
 JSON files:
 - page-data.json: 77KB / 24KB
@@ -21,4 +22,4 @@ JSON files:
 
 Group: 112KB / 39KB
 
-TOTAL: 527KB / 163KB
+TOTAL: 541KB / 163KB

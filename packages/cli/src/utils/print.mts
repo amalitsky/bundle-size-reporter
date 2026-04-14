@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import { groupBy } from 'lodash-es';
-import type { IFile, IFileGroup } from '@bundle-size-reporter/core';
+import type { IFile, IFileGroup, IPrintConfigOptions } from '@bundle-size-reporter/core';
 import { getPrintableFilenames } from './get-printable-filenames.mts';
 
 function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
@@ -26,9 +26,10 @@ export function printTextReport(
   groups: IFileGroup[],
   files: IFile[],
   filesToCompareWith: IFile[] = [],
+  printOptions?: IPrintConfigOptions,
 ): string {
   function getFileReportLine(file: IFile, fileToCompareWith?: IFile): string {
-    const { normalizedPath, size, gzipSize } = file;
+    const { normalizedPath, paths, size, gzipSize } = file;
 
     const sizeInfoStr = getSizeInfoString(
       size,
@@ -42,7 +43,9 @@ export function printTextReport(
 
     const fileName = printableFileNames.get(normalizedPath);
 
-    return `${fileName}: ${sizeInfoStr} / ${gzipSizeInfoStr}`;
+    const countSuffix = paths.length > 1 ? ` (x${paths.length})` : '';
+
+    return `${fileName}${countSuffix}: ${sizeInfoStr} / ${gzipSizeInfoStr}`;
   }
 
   const filesByGroup = groupBy(files, (file) => file.group);
@@ -84,6 +87,13 @@ export function printTextReport(
 
         groupSize += size;
         groupGzipSize += gzipSize;
+
+        if (
+          (!size && printOptions?.omitZeroSizeFiles) ||
+          (!gzipSize && printOptions?.omitZeroGzipSizeFiles)
+        ) {
+          return;
+        }
 
         const prevFile = prevGroupFilesMap.get(normalizedPath);
 

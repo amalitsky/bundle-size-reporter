@@ -9,7 +9,7 @@ describe('getPrintableFilenames method functionality', () => {
     const files = [
       {
         normalizedName: 'index-[hash].html',
-        path: 'index-3452345.html',
+        paths: ['index-3452345.html'],
         normalizedPath: 'index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -17,7 +17,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'app-[hash].js',
-        path: 'src/app-3452345.js',
+        paths: ['src/app-3452345.js'],
         normalizedPath: 'src/app-[hash].js',
         size: 1,
         gzipSize: 0,
@@ -25,7 +25,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'styles-[hash].css',
-        path: 'src/styles-3452345.css',
+        paths: ['src/styles-3452345.css'],
         normalizedPath: 'src/styles-[hash].css',
         size: 1,
         gzipSize: 0,
@@ -48,7 +48,7 @@ describe('getPrintableFilenames method functionality', () => {
     const files = [
       {
         normalizedName: 'index-[hash].html',
-        path: 'src/index-3452345.html',
+        paths: ['src/index-3452345.html'],
         normalizedPath: 'src/index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -56,7 +56,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'index-[hash].html',
-        path: 'src/index-3452345.html',
+        paths: ['src/index-3452345.html'],
         normalizedPath: 'src/index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -76,7 +76,7 @@ describe('getPrintableFilenames method functionality', () => {
     const files = [
       {
         normalizedName: 'index-[hash].html',
-        path: 'src/index-7623489.html',
+        paths: ['src/index-7623489.html'],
         normalizedPath: 'src/index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -84,7 +84,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'index-[hash].html',
-        path: 'bar/index-3452345.html',
+        paths: ['bar/index-3452345.html'],
         normalizedPath: 'bar/index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -92,7 +92,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'index-[hash].html',
-        path: 'index-3452345.html',
+        paths: ['index-3452345.html'],
         normalizedPath: 'index-[hash].html',
         size: 1,
         gzipSize: 0,
@@ -100,7 +100,7 @@ describe('getPrintableFilenames method functionality', () => {
       },
       {
         normalizedName: 'styles-[hash].css',
-        path: 'src/styles-3452345.css',
+        paths: ['src/styles-3452345.css'],
         normalizedPath: 'src/styles-[hash].css',
         size: 1,
         gzipSize: 0,

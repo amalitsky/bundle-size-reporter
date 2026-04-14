@@ -17,12 +17,18 @@ export interface IAnalyzeConfig {
   };
 }
 
+export interface IPrintConfigOptions {
+  omitZeroSizeFiles?: boolean;
+  omitZeroGzipSizeFiles?: boolean;
+}
+
 interface IPrintConfig {
   input?: {
     path: string;
   };
   output?: {
     path: string;
+    options?: IPrintConfigOptions;
   };
 }
 
@@ -33,7 +39,8 @@ export interface IBsrConfig {
 
 export interface IFile {
   normalizedName: string;
-  path: string; // relative
+  // list for case when same normalized filename is generated with multiple hashes
+  paths: string[]; // relative paths to the original files
   normalizedPath: string;
   size: number;
   gzipSize: number;

@@ -7,6 +7,7 @@ import type { IFile, IAnalyzeConfig, IBsrReport, IFileGroup } from '@bundle-size
 import { gzipSizeFromFile } from 'gzip-size';
 import { glob, type GlobOptions } from 'glob';
 
+import { aggregateFiles } from './aggregate-files.mts';
 import { normalizeFilename } from './normalize-filename.mts';
 
 /**
@@ -74,7 +75,7 @@ async function getFilesMetadata(
     return {
       normalizedName: fileName,
       normalizedPath: path.join(path.dirname(filePath), fileName),
-      path: filePath,
+      paths: [filePath],
       size: contentSizes[index],
       gzipSize: gzipSizes[index],
     };
@@ -105,7 +106,13 @@ export function analyzeBuildFiles(distPath: string, config: IAnalyzeConfig): Pro
 
     const filePaths = await resolveGlobs(distPath, globs, excludeGlobs);
 
-    const files = await getFilesMetadata(filePaths, distPath, normalizeFilename, filenameHashLabel);
+    const rawFiles = await getFilesMetadata(
+      filePaths,
+      distPath,
+      normalizeFilename,
+      filenameHashLabel,
+    );
+    const files = aggregateFiles(rawFiles);
 
     files.forEach((file: Partial<IFile>) => {
       file.group = key;
