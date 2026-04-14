@@ -15,7 +15,8 @@
         "key": "js",
         "globs": [
           "@(webpack-runtime|framework|app|commons|711)-*.js",
-          "component-*-post-list-*.js"
+          "component-*-post-list-*.js",
+          "chunk-*.js"
         ],
         "label": "JS"
       },

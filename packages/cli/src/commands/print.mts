@@ -14,16 +14,8 @@ export function print(yargs: Argv): Argv {
   print path/to/stats.json -o bundle-size-report.txt --compare-with bundle-size-stats-prev.json`,
     (yargs) => {
       return yargs
-        .positional('input', {
-          describe: 'build size stats file path',
-          alias: 'i',
-          type: 'string',
-        })
-        .option('output', {
-          describe: 'text report file path',
-          alias: 'o',
-          type: 'string',
-        })
+        .positional('input', { describe: 'build size stats file path', alias: 'i', type: 'string' })
+        .option('output', { describe: 'text report file path', alias: 'o', type: 'string' })
         .option('compare-with', {
           describe: 'path to stats file to compare this "input" with',
           type: 'string',
@@ -78,7 +70,12 @@ export function print(yargs: Argv): Argv {
 
       const reportToCompareWith = (await argv['compare-with']) as unknown as IBsrReport;
 
-      const report = printTextReport(analyzeConfig.groups, files, reportToCompareWith?.files);
+      const report = printTextReport(
+        analyzeConfig.groups,
+        files,
+        reportToCompareWith?.files,
+        printConfig?.output?.options,
+      );
 
       const reportPath = argv.output || printConfig?.output?.path;
 

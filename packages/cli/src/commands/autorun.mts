@@ -96,7 +96,12 @@ export function autorun(yargs: Argv): Argv {
 
       const reportToCompareWith = (await argv['compare-with']) as unknown as IBsrReport;
 
-      const report = printTextReport(analyzeConfig.groups, files, reportToCompareWith?.files);
+      const report = printTextReport(
+        analyzeConfig.groups,
+        files,
+        reportToCompareWith?.files,
+        printConfig?.output?.options,
+      );
 
       const reportPath = argv.report || printConfig?.output?.path;
 
