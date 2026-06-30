@@ -3,6 +3,11 @@ import { groupBy } from 'lodash-es';
 import type { IFile, IFileGroup, IPrintConfigOptions } from '@bundle-size-reporter/core';
 import { getPrintableFilenames } from './get-printable-filenames.mts';
 
+// own-property check that, unlike `in`, ignores the prototype chain — group
+// keys come from user config and could collide with Object.prototype members
+const hasOwnKey = (object: object, key: string): boolean =>
+  Object.prototype.hasOwnProperty.call(object, key);
+
 function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
   let result = `${Math.round(size)}${dimension}`;
 
@@ -20,7 +25,10 @@ function getSizeInfoString(size: number, diff = 0, dimension = 'KB'): string {
 }
 
 /**
- * TODO: Consider adding support for groups being added and removed
+ * Renders a text report, optionally diffed against a previous build.
+ * Handles groups added and removed between builds: a group present only in the
+ * comparison build is rendered with its files marked `(deleted)` and its size
+ * folded into the report total delta.
  */
 export function printTextReport(
   groups: IFileGroup[],
@@ -50,7 +58,7 @@ export function printTextReport(
 
   const filesByGroup = groupBy(files, (file) => file.group);
   const previousFilesByGroup = groupBy(filesToCompareWith, (file) => file.group);
-  const printableFileNames = getPrintableFilenames(files);
+  const printableFileNames = getPrintableFilenames(files, filesToCompareWith);
 
   const withComparison = !!filesToCompareWith.length;
 
@@ -61,14 +69,35 @@ export function printTextReport(
   let totalSizeDiff = 0;
   let totalGzipSizeDiff = 0;
 
-  Object.keys(filesByGroup).forEach((groupId) => {
-    const group = groups.find((group) => group.key === groupId);
+  // union of current and previous group keys, so groups removed in the current
+  // build (only present in the comparison build) are still reported
+  const groupIds = Array.from(
+    new Set(Object.keys(filesByGroup).concat(Object.keys(previousFilesByGroup))),
+  );
 
-    reportLines.push(`${group?.label || groupId} files:`);
+  groupIds.forEach((groupId) => {
+    const group = groups.find((group) => group.key === groupId);
+    const currentGroupFiles = hasOwnKey(filesByGroup, groupId) ? filesByGroup[groupId] : [];
+
+    // a group with no files in the current build is either gone from the config
+    // ("no longer tracked", kept out of the totals) or still configured with all
+    // of its files removed ("deleted", counted as a removal)
+    const noLongerTracked = !group && !currentGroupFiles.length;
+    const allFilesRemoved = !!group && !currentGroupFiles.length;
+
+    let groupNameSuffix = '';
+
+    if (noLongerTracked) {
+      groupNameSuffix = ' (no longer tracked)';
+    } else if (allFilesRemoved) {
+      groupNameSuffix = ' (deleted)';
+    }
+
+    reportLines.push(`${group?.label || groupId} files${groupNameSuffix}:`);
 
     const prevGroupFilesMap = new Map<string, IFile>();
 
-    if (groupId in previousFilesByGroup) {
+    if (hasOwnKey(previousFilesByGroup, groupId)) {
       previousFilesByGroup[groupId].forEach((file) => {
         prevGroupFilesMap.set(file.normalizedPath, file);
       });
@@ -80,7 +109,7 @@ export function printTextReport(
     let groupSizeDiff = 0;
     let groupGzipSizeDiff = 0;
 
-    filesByGroup[groupId]
+    currentGroupFiles
       .sort(({ size: sizeA }, { size: sizeB }) => sizeB - sizeA)
       .forEach((file) => {
         const { normalizedPath, size, gzipSize } = file;
@@ -114,8 +143,15 @@ export function printTextReport(
         }
       });
 
-    // files removed from the group in the new (current) build
+    // files only present in the previous build
     prevGroupFilesMap.forEach((file) => {
+      if (noLongerTracked) {
+        // no longer tracked: show the last known size, not a counted deletion
+        reportLines.push(`- ${getFileReportLine(file)}`);
+
+        return;
+      }
+
       groupSizeDiff -= file.size;
       groupGzipSizeDiff -= file.gzipSize;
 
@@ -124,8 +160,11 @@ export function printTextReport(
 
     totalSize += groupSize;
     totalGzipSize += groupGzipSize;
-    totalSizeDiff += groupSizeDiff;
-    totalGzipSizeDiff += groupGzipSizeDiff;
+
+    if (!noLongerTracked) {
+      totalSizeDiff += groupSizeDiff;
+      totalGzipSizeDiff += groupGzipSizeDiff;
+    }
 
     const groupSizeInfoMsg = getSizeInfoString(groupSize, withComparison ? groupSizeDiff : 0);
 
@@ -134,7 +173,10 @@ export function printTextReport(
       withComparison ? groupGzipSizeDiff : 0,
     );
 
-    if (filesByGroup[groupId].length > 1) {
+    // count current files plus any prev-only (deleted) files left in the map
+    const groupFileCount = currentGroupFiles.length + prevGroupFilesMap.size;
+
+    if (!noLongerTracked && groupFileCount > 1) {
       reportLines.push(`${EOL}Group: ${groupSizeInfoMsg} / ${groupGzipSizeInfoMsg}${EOL}`);
     } else {
       reportLines.push('');

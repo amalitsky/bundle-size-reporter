@@ -1,0 +1,38 @@
+{
+  "analyze": {
+    "input": {
+      "path": "e2e-tests/fixtures/does-not-exist"
+    },
+    "groups": [
+      {
+        "key": "html",
+        "globs": [
+          "index.html"
+        ],
+        "label": "HTML"
+      },
+      {
+        "key": "js",
+        "globs": [
+          "@(webpack-runtime|framework|app|commons|711)-*.js",
+          "component-*-post-list-*.js",
+          "chunk-*.js"
+        ],
+        "label": "JS"
+      },
+      {
+        "key": "json",
+        "globs": [
+          "page-data/*.json",
+          "page-data.json"
+        ],
+        "label": "JSON"
+      }
+    ],
+    "output": {
+      "path": "e2e-tests/artifacts/cli-args/out/bundle-size-stats.json"
+    },
+    "normalizeFilename": "^.+?\\W+([\\d\\w]{8,32})\\.[\\d\\w]{2,5}$",
+    "filenameHashLabel": "[hash]"
+  }
+}

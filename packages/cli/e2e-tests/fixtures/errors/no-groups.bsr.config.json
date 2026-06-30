@@ -1,0 +1,11 @@
+{
+  "analyze": {
+    "input": {
+      "path": "e2e-tests/fixtures/local-build"
+    },
+    "groups": [],
+    "output": {
+      "path": "e2e-tests/artifacts/bundle-size-stats.json"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "analyze": {
     "input": {
-      "path": "e2e-tests/fixtures/local-build"
+      "path": "e2e-tests/fixtures/basic/build"
     },
     "groups": [
       {
@@ -27,20 +27,27 @@
           "page-data.json"
         ],
         "label": "JSON"
+      },
+      {
+        "key": "css",
+        "globs": [
+          "*.css"
+        ],
+        "label": "CSS"
       }
     ],
     "output": {
-      "path": "e2e-tests/artifacts/bundle-size-stats.json"
+      "path": "e2e-tests/artifacts/comparison/out/bundle-size-stats.json"
     },
     "normalizeFilename": "^.+?\\W+([\\d\\w]{8,32})\\.[\\d\\w]{2,5}$",
     "filenameHashLabel": "[hash]"
   },
   "print": {
     "input": {
-      "path":"e2e-tests/artifacts/bundle-size-stats.json"
+      "path": "e2e-tests/artifacts/bundle-size-stats.json"
     },
     "output": {
-      "path": "e2e-tests/artifacts/bundle-size-report.txt"
+      "path": "e2e-tests/artifacts/comparison/out/bundle-size-report.txt"
     }
   }
 }

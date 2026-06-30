@@ -1,0 +1,28 @@
+{
+  "analyze": {
+    "groups": [
+      {
+        "key": "js",
+        "globs": [
+          "*.js"
+        ],
+        "label": "JS"
+      },
+      {
+        "key": "modern",
+        "globs": [
+          "modern-*.js"
+        ],
+        "label": "Modern"
+      }
+    ],
+    "output": {
+      "path": "e2e-tests/artifacts/comparison/out/bundle-size-stats.json"
+    }
+  },
+  "print": {
+    "output": {
+      "path": "e2e-tests/artifacts/comparison/out/bundle-size-report.txt"
+    }
+  }
+}

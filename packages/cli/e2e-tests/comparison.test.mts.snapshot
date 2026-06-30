@@ -1,0 +1,93 @@
+exports[`--compare-with comparison > autorun --compare-with produces the same diff report 1`] = `
+HTML files:
+- index.html: 107KB (+7KB) / 23KB (+3KB)
+
+JS files:
+- app-[hash].js: 235KB (+35KB) / 77KB (+7KB)
+- framework-[hash].js: 26KB (-4KB) / 9KB (-1KB)
+- commons-[hash].js: 17KB / 6KB (added)
+- component---src-page-templates-post-list-post-list-tsx-[hash].js: 16KB / 5KB
+- webpack-runtime-[hash].js: 14KB / 4KB
+- chunk-[hash].js (x2): 14KB (+4KB) / 9KB (+3KB)
+- legacy-[hash].js: 50KB / 20KB (deleted)
+
+Group: 322KB (+2KB) / 110KB (-5KB)
+
+JSON files:
+- page-data.json: 77KB / 24KB
+- page-data/page-data.json: 29KB / 13KB
+- 2737273111.json: 6KB / 2KB
+- 3481615850.json: 0KB / 0KB
+
+Group: 112KB / 39KB
+
+TOTAL: 541KB (+9KB) / 172KB (-2KB)
+`;
+
+exports[`--compare-with comparison > print --compare-with renders the diff report 1`] = `
+HTML files:
+- index.html: 107KB (+7KB) / 23KB (+3KB)
+
+JS files:
+- app-[hash].js: 235KB (+35KB) / 77KB (+7KB)
+- framework-[hash].js: 26KB (-4KB) / 9KB (-1KB)
+- commons-[hash].js: 17KB / 6KB (added)
+- component---src-page-templates-post-list-post-list-tsx-[hash].js: 16KB / 5KB
+- webpack-runtime-[hash].js: 14KB / 4KB
+- chunk-[hash].js (x2): 14KB (+4KB) / 9KB (+3KB)
+- legacy-[hash].js: 50KB / 20KB (deleted)
+
+Group: 322KB (+2KB) / 110KB (-5KB)
+
+JSON files:
+- page-data.json: 77KB / 24KB
+- page-data/page-data.json: 29KB / 13KB
+- 2737273111.json: 6KB / 2KB
+- 3481615850.json: 0KB / 0KB
+
+Group: 112KB / 39KB
+
+TOTAL: 541KB (+9KB) / 172KB (-2KB)
+`;
+
+exports[`--compare-with whole group removal > marks a group removed from the config as no longer tracked (replacement) 1`] = `
+JS files:
+- app-[hash].js: 100KB (+10KB) / 30KB (+5KB)
+
+Modern files:
+- modern-[hash].js: 60KB / 20KB (added)
+
+legacy files (no longer tracked):
+- legacy-core-[hash].js: 50KB / 20KB
+- legacy-polyfill-[hash].js: 30KB / 10KB
+
+TOTAL: 160KB (+70KB) / 50KB (+25KB)
+`;
+
+exports[`--compare-with whole group removal > marks a still-configured group with no matching files as deleted 1`] = `
+HTML files:
+- index.html: 107KB / 23KB
+
+JS files:
+- app-[hash].js: 235KB / 77KB
+- framework-[hash].js: 26KB / 9KB
+- commons-[hash].js: 17KB / 6KB
+- component---src-page-templates-post-list-post-list-tsx-[hash].js: 16KB / 5KB
+- webpack-runtime-[hash].js: 14KB / 4KB
+- chunk-[hash].js (x2): 14KB / 9KB (+9KB)
+
+Group: 322KB / 110KB (+9KB)
+
+JSON files:
+- page-data.json: 77KB / 24KB
+- page-data/page-data.json: 29KB / 13KB
+- 2737273111.json: 6KB / 2KB
+- 3481615850.json: 0KB / 0KB
+
+Group: 112KB / 39KB
+
+CSS files (deleted):
+- styles-[hash].css: 40KB / 12KB (deleted)
+
+TOTAL: 541KB (-40KB) / 172KB (-3KB)
+`;
