@@ -2,113 +2,83 @@ import { EOL } from 'os';
 
 import { strict as assert } from 'node:assert';
 
-import { it, describe, afterEach } from 'node:test';
+import { it, describe, before, beforeEach } from 'node:test';
 
-import { readFile, rm, mkdir, stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 
+import './utils/snapshot-setup.mts';
 import { executeNodeScript } from './utils/child-node-process.mts';
+import { resetDir, writeScopedConfig } from './utils/artifacts.mts';
 
 import {
   artifactsPath,
   bsrBinPath,
-  fixturesPath,
-  snapshotsPath,
-  defaultReportFilePath,
-  defaultStatsFilePath,
+  basicBuildPath,
+  basicConfigPath,
+  basicStatsPath,
+  statsFilename,
+  reportFilename,
 } from './constants.mts';
 
-const localBuildFolderPath = `${fixturesPath}/local-build`;
-const localBuildConfigPath = `${fixturesPath}/local-build.bsr.config.json`;
+const scopeDir = `${artifactsPath}/basic`;
+const outDir = `${scopeDir}/out`;
+const configPath = `${scopeDir}/basic.config.json`;
+const statsPath = `${outDir}/${statsFilename}`;
+const reportPath = `${outDir}/${reportFilename}`;
 
 describe('basic functionality', () => {
-  afterEach(async () => {
-    await rm(artifactsPath, {
-      force: true,
-      recursive: true,
-    });
-
-    await mkdir(artifactsPath);
-  });
+  before(() => writeScopedConfig(basicConfigPath, configPath, outDir));
+  beforeEach(() => resetDir(outDir));
 
   it('analyze', async () => {
-    const output = await executeNodeScript(bsrBinPath, [
+    const { stdout, code } = await executeNodeScript(bsrBinPath, [
       'analyze',
-      localBuildFolderPath,
-      `-c=${localBuildConfigPath}`,
+      basicBuildPath,
+      `-c=${configPath}`,
     ]);
 
-    assert.equal(output.trim(), `Bundle size stats saved to ${defaultStatsFilePath}`);
+    assert.equal(code, 0);
+    assert.equal(stdout.trim(), `Bundle size stats saved to ${statsPath}`);
 
-    const jsonReportExpectationFileContent = await readFile(
-      `${snapshotsPath}/local-build.stats.json`,
-      'utf-8',
-    );
-
-    const jsonReportExpectation = JSON.parse(jsonReportExpectationFileContent);
-
-    const jsonReportContent = await readFile(defaultStatsFilePath, 'utf-8');
-
-    const jsonReport = JSON.parse(jsonReportContent);
+    const jsonReport = JSON.parse(await readFile(statsPath, 'utf-8'));
+    const jsonReportExpectation = JSON.parse(await readFile(basicStatsPath, 'utf-8'));
 
     assert.deepEqual(jsonReport, jsonReportExpectation);
 
     // doesn't create text report file
-    await assert.rejects(() => stat(defaultReportFilePath));
+    await assert.rejects(() => stat(reportPath));
   });
 
-  it('print', async () => {
-    const output = await executeNodeScript(bsrBinPath, [
+  it('print', async (t) => {
+    const { stdout, code } = await executeNodeScript(bsrBinPath, [
       'print',
-      `${snapshotsPath}/local-build.stats.json`,
-      `-c=${localBuildConfigPath}`,
+      basicStatsPath,
+      `-c=${configPath}`,
     ]);
 
-    const outputExpectation = await readFile(
-      `${snapshotsPath}/local-build.print.output.txt`,
-      'utf-8',
-    );
+    assert.equal(code, 0);
+    t.assert.snapshot(stdout);
 
-    assert.equal(output, outputExpectation);
+    const reportFile = await readFile(reportPath, 'utf-8');
 
-    const reportFile = await readFile(defaultReportFilePath, 'utf-8');
-
-    const reportFileExpectation = await readFile(
-      `${snapshotsPath}/local-build.report.txt`,
-      'utf-8',
-    );
-
-    assert.equal(`${reportFile}${EOL}`, reportFileExpectation);
+    t.assert.snapshot(`${reportFile}${EOL}`);
 
     // doesn't create (or copy) json file
-    await assert.rejects(() => stat(defaultStatsFilePath));
+    await assert.rejects(() => stat(statsPath));
   });
 
-  it('autorun', async () => {
-    const output = await executeNodeScript(bsrBinPath, ['autorun', `-c=${localBuildConfigPath}`]);
+  it('autorun', async (t) => {
+    const { stdout, code } = await executeNodeScript(bsrBinPath, ['autorun', `-c=${configPath}`]);
 
-    const outputExpectation = await readFile(
-      `${snapshotsPath}/local-build.autorun.output.txt`,
-      'utf-8',
-    );
+    assert.equal(code, 0);
+    t.assert.snapshot(stdout);
 
-    assert.equal(output, outputExpectation);
+    const reportFile = await readFile(reportPath, 'utf-8');
 
-    const reportFile = await readFile(defaultReportFilePath, 'utf-8');
+    t.assert.snapshot(`${reportFile}${EOL}`);
 
-    const reportExpectation = await readFile(`${snapshotsPath}/local-build.report.txt`, 'utf-8');
-
-    assert.equal(`${reportFile}${EOL}`, reportExpectation);
-
-    const jsonReportContent = await readFile(defaultStatsFilePath, 'utf-8');
-
-    const jsonReport = JSON.parse(jsonReportContent);
-
-    const jsonReportExpectationFileContent = await readFile(
-      `${snapshotsPath}/local-build.stats.json`,
-      'utf-8',
-    );
-
-    const jsonReportExpectation = JSON.parse(jsonReportExpectationFileContent);
+    const jsonReport = JSON.parse(await readFile(statsPath, 'utf-8'));
+    const jsonReportExpectation = JSON.parse(await readFile(basicStatsPath, 'utf-8'));
 
     assert.deepEqual(jsonReport, jsonReportExpectation);
   });

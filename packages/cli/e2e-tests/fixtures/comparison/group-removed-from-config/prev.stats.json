@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "normalizedName": "app-[hash].js",
+      "normalizedPath": "app-[hash].js",
+      "paths": [
+        "app-1111111111111111111a.js"
+      ],
+      "size": 90,
+      "gzipSize": 25,
+      "group": "js"
+    },
+    {
+      "normalizedName": "legacy-core-[hash].js",
+      "normalizedPath": "legacy-core-[hash].js",
+      "paths": [
+        "legacy-core-2222222222222222222b.js"
+      ],
+      "size": 50,
+      "gzipSize": 20,
+      "group": "legacy"
+    },
+    {
+      "normalizedName": "legacy-polyfill-[hash].js",
+      "normalizedPath": "legacy-polyfill-[hash].js",
+      "paths": [
+        "legacy-polyfill-3333333333333333333c.js"
+      ],
+      "size": 30,
+      "gzipSize": 10,
+      "group": "legacy"
+    }
+  ]
+}

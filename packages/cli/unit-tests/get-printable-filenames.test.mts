@@ -119,4 +119,81 @@ describe('getPrintableFilenames method functionality', () => {
 
     assert.deepStrictEqual(result, expectation);
   });
+
+  it('includes comparison-only (deleted) files and tolerates shared paths', () => {
+    const files = [
+      {
+        normalizedName: 'app-[hash].js',
+        paths: ['app-3452345.js'],
+        normalizedPath: 'app-[hash].js',
+        size: 1,
+        gzipSize: 0,
+        group: 'js',
+      },
+    ];
+
+    const comparisonFiles = [
+      // same path as the current build - must not throw
+      {
+        normalizedName: 'app-[hash].js',
+        paths: ['app-0000000.js'],
+        normalizedPath: 'app-[hash].js',
+        size: 1,
+        gzipSize: 0,
+        group: 'js',
+      },
+      // present only in the previous build (deleted)
+      {
+        normalizedName: 'legacy-[hash].js',
+        paths: ['legacy-3452345.js'],
+        normalizedPath: 'legacy-[hash].js',
+        size: 1,
+        gzipSize: 0,
+        group: 'js',
+      },
+    ];
+
+    const expectation = new Map([
+      ['app-[hash].js', 'app-[hash].js'],
+      ['legacy-[hash].js', 'legacy-[hash].js'],
+    ]);
+
+    const result = getPrintableFilenames(files, comparisonFiles);
+
+    assert.deepStrictEqual(result, expectation);
+  });
+
+  it('disambiguates a name that collides only across builds', () => {
+    const files = [
+      {
+        normalizedName: 'main-[hash].js',
+        paths: ['a/main-7623489.js'],
+        normalizedPath: 'a/main-[hash].js',
+        size: 1,
+        gzipSize: 0,
+        group: 'js',
+      },
+    ];
+
+    // moved folders between builds: same name, different path
+    const comparisonFiles = [
+      {
+        normalizedName: 'main-[hash].js',
+        paths: ['b/main-3452345.js'],
+        normalizedPath: 'b/main-[hash].js',
+        size: 1,
+        gzipSize: 0,
+        group: 'js',
+      },
+    ];
+
+    const expectation = new Map([
+      ['a/main-[hash].js', 'a/main-[hash].js'],
+      ['b/main-[hash].js', 'b/main-[hash].js'],
+    ]);
+
+    const result = getPrintableFilenames(files, comparisonFiles);
+
+    assert.deepStrictEqual(result, expectation);
+  });
 });

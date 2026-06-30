@@ -1,0 +1,19 @@
+{
+  "analyze": {
+    "input": {
+      "path": "e2e-tests/fixtures/local-build"
+    },
+    "groups": [
+      {
+        "key": "js",
+        "globs": [
+          "this-file-does-not-exist-*.js"
+        ],
+        "label": "JS"
+      }
+    ],
+    "output": {
+      "path": "e2e-tests/artifacts/bundle-size-stats.json"
+    }
+  }
+}

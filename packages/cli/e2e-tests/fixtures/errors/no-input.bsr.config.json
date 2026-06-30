@@ -1,0 +1,16 @@
+{
+  "analyze": {
+    "groups": [
+      {
+        "key": "js",
+        "globs": [
+          "*.js"
+        ],
+        "label": "JS"
+      }
+    ],
+    "output": {
+      "path": "e2e-tests/artifacts/bundle-size-stats.json"
+    }
+  }
+}

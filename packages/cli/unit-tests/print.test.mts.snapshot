@@ -1,0 +1,33 @@
+exports[`printTextReport with a whole group removed > marks a group gone from the config as no longer tracked and excludes it from totals 1`] = `
+JS files:
+- app-[hash].js: 100KB / 30KB
+
+legacy files (no longer tracked):
+- legacy-a-[hash].js: 50KB / 20KB
+- legacy-b-[hash].js: 30KB / 10KB
+
+TOTAL: 100KB / 30KB
+`;
+
+exports[`printTextReport with a whole group removed > uses the configured label and counts the removal when the group is still in the config 1`] = `
+JS files:
+- app-[hash].js: 100KB / 30KB
+
+Legacy files (deleted):
+- legacy-a-[hash].js: 50KB / 20KB (deleted)
+- legacy-b-[hash].js: 30KB / 10KB (deleted)
+
+Group: 0KB (-80KB) / 0KB (-30KB)
+
+TOTAL: 100KB (-80KB) / 30KB (-30KB)
+`;
+
+exports[`printTextReport with aggregated files > mixes aggregated and single files correctly 1`] = `
+JS files:
+- app-[hash].js: 300KB / 90KB
+- chunk-[hash].js (x2): 200KB / 60KB
+
+Group: 500KB / 150KB
+
+TOTAL: 500KB / 150KB
+`;

@@ -110,6 +110,16 @@
       "size": 6,
       "gzipSize": 2,
       "group": "json"
+    },
+    {
+      "normalizedName": "styles-[hash].css",
+      "normalizedPath": "styles-[hash].css",
+      "paths": [
+        "styles-4444444444444444444d.css"
+      ],
+      "size": 40,
+      "gzipSize": 12,
+      "group": "css"
     }
   ]
 }

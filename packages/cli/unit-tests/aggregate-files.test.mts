@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 
 import { it, describe } from 'node:test';
 
-import { aggregateFiles } from '../src/utils/aggregate-files.mts';
+import { squashSameNormalizedNameFiles } from '../src/utils/squash-same-normalized-name-files.mts';
 
 describe('aggregateFiles', () => {
   it('returns files as-is when there are no duplicates', () => {
@@ -23,7 +23,7 @@ describe('aggregateFiles', () => {
       },
     ];
 
-    const result = aggregateFiles(files);
+    const result = squashSameNormalizedNameFiles(files);
 
     assert.equal(result.length, 2);
     assert.deepStrictEqual(result[0], files[0]);
@@ -48,7 +48,7 @@ describe('aggregateFiles', () => {
       },
     ];
 
-    const result = aggregateFiles(files);
+    const result = squashSameNormalizedNameFiles(files);
 
     assert.equal(result.length, 1);
     assert.deepStrictEqual(result[0], {
@@ -85,7 +85,7 @@ describe('aggregateFiles', () => {
       },
     ];
 
-    const result = aggregateFiles(files);
+    const result = squashSameNormalizedNameFiles(files);
 
     assert.equal(result.length, 1);
     assert.equal(result[0].size, 60);
@@ -129,7 +129,7 @@ describe('aggregateFiles', () => {
       },
     ];
 
-    const result = aggregateFiles(files);
+    const result = squashSameNormalizedNameFiles(files);
 
     assert.equal(result.length, 3);
 

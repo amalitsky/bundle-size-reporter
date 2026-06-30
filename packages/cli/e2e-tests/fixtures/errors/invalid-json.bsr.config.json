@@ -1,0 +1,6 @@
+{
+  "analyze": {
+    "groups": [
+      { "key": "js", "globs": ["*.js"] },
+    ]
+  }

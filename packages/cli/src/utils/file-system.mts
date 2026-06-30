@@ -7,7 +7,7 @@ import type { IFile, IAnalyzeConfig, IBsrReport, IFileGroup } from '@bundle-size
 import { gzipSizeFromFile } from 'gzip-size';
 import { glob, type GlobOptions } from 'glob';
 
-import { aggregateFiles } from './aggregate-files.mts';
+import { squashSameNormalizedNameFiles } from './squash-same-normalized-name-files.mts';
 import { normalizeFilename } from './normalize-filename.mts';
 
 /**
@@ -112,7 +112,7 @@ export function analyzeBuildFiles(distPath: string, config: IAnalyzeConfig): Pro
       normalizeFilename,
       filenameHashLabel,
     );
-    const files = aggregateFiles(rawFiles);
+    const files = squashSameNormalizedNameFiles(rawFiles);
 
     files.forEach((file: Partial<IFile>) => {
       file.group = key;

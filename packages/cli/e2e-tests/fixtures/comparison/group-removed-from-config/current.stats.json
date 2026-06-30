@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "normalizedName": "app-[hash].js",
+      "normalizedPath": "app-[hash].js",
+      "paths": [
+        "app-3dd798319b20e94b54dc.js"
+      ],
+      "size": 100,
+      "gzipSize": 30,
+      "group": "js"
+    },
+    {
+      "normalizedName": "modern-[hash].js",
+      "normalizedPath": "modern-[hash].js",
+      "paths": [
+        "modern-a2a488ac196ea18d4ec2.js"
+      ],
+      "size": 60,
+      "gzipSize": 20,
+      "group": "modern"
+    }
+  ]
+}

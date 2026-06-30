@@ -1,0 +1,115 @@
+{
+  "files": [
+    {
+      "normalizedName": "index.html",
+      "normalizedPath": "index.html",
+      "paths": [
+        "index.html"
+      ],
+      "size": 100,
+      "gzipSize": 20,
+      "group": "html"
+    },
+    {
+      "normalizedName": "webpack-runtime-[hash].js",
+      "normalizedPath": "webpack-runtime-[hash].js",
+      "paths": [
+        "webpack-runtime-1111111111111111111a.js"
+      ],
+      "size": 14,
+      "gzipSize": 4,
+      "group": "js"
+    },
+    {
+      "normalizedName": "framework-[hash].js",
+      "normalizedPath": "framework-[hash].js",
+      "paths": [
+        "framework-2222222222222222222b.js"
+      ],
+      "size": 30,
+      "gzipSize": 10,
+      "group": "js"
+    },
+    {
+      "normalizedName": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
+      "normalizedPath": "component---src-page-templates-post-list-post-list-tsx-[hash].js",
+      "paths": [
+        "component---src-page-templates-post-list-post-list-tsx-3333333333333333333c.js"
+      ],
+      "size": 16,
+      "gzipSize": 5,
+      "group": "js"
+    },
+    {
+      "normalizedName": "chunk-[hash].js",
+      "normalizedPath": "chunk-[hash].js",
+      "paths": [
+        "chunk-prev11111111.js",
+        "chunk-prev22222222.js"
+      ],
+      "size": 10,
+      "gzipSize": 6,
+      "group": "js"
+    },
+    {
+      "normalizedName": "app-[hash].js",
+      "normalizedPath": "app-[hash].js",
+      "paths": [
+        "app-4444444444444444444d.js"
+      ],
+      "size": 200,
+      "gzipSize": 70,
+      "group": "js"
+    },
+    {
+      "normalizedName": "legacy-[hash].js",
+      "normalizedPath": "legacy-[hash].js",
+      "paths": [
+        "legacy-5555555555555555555e.js"
+      ],
+      "size": 50,
+      "gzipSize": 20,
+      "group": "js"
+    },
+    {
+      "normalizedName": "page-data.json",
+      "normalizedPath": "page-data.json",
+      "paths": [
+        "page-data.json"
+      ],
+      "size": 77,
+      "gzipSize": 24,
+      "group": "json"
+    },
+    {
+      "normalizedName": "page-data.json",
+      "normalizedPath": "page-data/page-data.json",
+      "paths": [
+        "page-data/page-data.json"
+      ],
+      "size": 29,
+      "gzipSize": 13,
+      "group": "json"
+    },
+    {
+      "normalizedName": "3481615850.json",
+      "normalizedPath": "page-data/3481615850.json",
+      "paths": [
+        "page-data/3481615850.json"
+      ],
+      "size": 0,
+      "gzipSize": 0,
+      "group": "json"
+    },
+    {
+      "normalizedName": "2737273111.json",
+      "normalizedPath": "page-data/2737273111.json",
+      "paths": [
+        "page-data/2737273111.json"
+      ],
+      "size": 6,
+      "gzipSize": 2,
+      "group": "json"
+    }
+  ]
+}
