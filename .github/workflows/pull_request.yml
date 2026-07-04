@@ -134,10 +134,6 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
 
-        # needed for tsc check
-      - name: Build Core package
-        run: npm run build --workspace=packages/core
-
       - name: Lint the code
         run: npm run lint
 
