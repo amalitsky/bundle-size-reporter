@@ -67,6 +67,12 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
 
+        # build the whole workspace first (topological order) so a downstream
+        # package (e.g. cli) can resolve an already-published dependency (core)
+        # whose prepack won't run when it isn't part of this publish
+      - name: Build packages
+        run: npm run build
+
       - name: Publish
         run: npm run lerna:publish
         env:
