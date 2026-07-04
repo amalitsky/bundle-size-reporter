@@ -14,7 +14,7 @@
     "prettier": "prettier",
     "prettier-check-all": "prettier --check .",
     "prettier-fix-all": "prettier --write .",
-    "tsc-check": "lerna run tsc-check",
+    "tsc-check": "npm run build -w @bundle-size-reporter/core && lerna run tsc-check",
     "lerna:publish": "lerna publish from-git --yes",
     "lerna:version": "lerna version --conventional-commits --no-private --sign-git-commit --sign-git-tag"
   },
