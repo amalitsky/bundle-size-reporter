@@ -48,6 +48,12 @@ jobs:
 
     needs: setup
 
+    # id-token: write is required to publish with npm provenance;
+    # contents: read is needed for checkout once a permissions block is set
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -66,6 +72,9 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ env.cache_name }}-${{ env.cache_key }}
+
+      - name: Verify dependency signatures
+        run: npm audit signatures
 
         # build the whole workspace first (topological order) so a downstream
         # package (e.g. cli) can resolve an already-published dependency (core)

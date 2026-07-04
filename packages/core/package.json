@@ -25,7 +25,8 @@
     "url": "git+https://github.com/amalitsky/bundle-size-reporter.git"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "private": false,
   "keywords": [],
